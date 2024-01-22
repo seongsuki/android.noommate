@@ -268,18 +268,19 @@ public class HomeFragment extends RocateerFragment {
                     // 일정
                     mDateTextView.setText(sdf.format(mNowDate));
                     mCntTextView.setText("나의 할 일 " + mMemberResponse.getMy_schedule_count() + "개");
+                    mTodoList.add(new MemberModel());
+                    mTodoList.add(new MemberModel());
+                    mTodoList.add(new MemberModel());
+                    mTodoList.add(new MemberModel());
                     if (mMemberResponse.getMy_schedule_array().size() > 0) {
-                        for (int i = 0; i < 4; i++) {
-                            if (mMemberResponse.getMy_schedule_array().get(i).getSchedule_idx() != null) {
-                                for (int j = 0; j < mMemberResponse.getMy_schedule_array().size(); j++) {
-                                    mTodoList.add(j, mMemberResponse.getMy_schedule_array().get(j));
-                                }
-                            } else {
-                                mTodoList.add(new MemberModel());
-                            }
+                        for (int j = 0; j < mMemberResponse.getMy_schedule_array().size(); j++) {
+                            mHomeScheduleAdapter.addData(j,mMemberResponse.getMy_schedule_array().get(j));
                         }
                         mDefaultTextView.setVisibility(View.GONE);
                         mTodoRecyclerView.setVisibility(View.VISIBLE);
+                        if (mTodoList.size() > 4) {
+                            mTodoList.remove(4);
+                        }
                     } else {
                         mDefaultTextView.setVisibility(View.VISIBLE);
                         mTodoRecyclerView.setVisibility(View.GONE);
