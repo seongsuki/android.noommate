@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/edit_layout"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_back" />
+
+        <RelativeLayout
+            android:layout_width="123dp"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp">
+
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                app:shape_roundRect_bottomLeftRadius="62dp"
+                app:shape_roundRect_bottomRightRadius="62dp"
+                app:shape_roundRect_topLeftRadius="62dp"
+                app:shape_roundRect_topRightRadius="62dp">
+
+
+                <RelativeLayout
+                    android:id="@+id/back_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/clear">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/back5"
+                        android:visibility="gone"
+                        android:id="@+id/back_image_view"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/face_image_view"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_191" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="눔메이트\n캐릭터 만들기"
+                        android:textColor="@color/color_a3a7b6"
+                        android:background="@color/color_e4e6eb"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:id="@+id/add_text_view"/>
+
+
+                </RelativeLayout>
+
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/add" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닉네임"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_3a3a3c"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" *"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            app:shape_roundRect_borderWidth="1dp"
+            app:shape_roundRect_borderColor="@color/color_c8ccd5"
+            app:shape_roundRect_bottomLeftRadius="4dp"
+            app:shape_roundRect_bottomRightRadius="4dp"
+            app:shape_roundRect_topLeftRadius="4dp"
+            app:shape_roundRect_topRightRadius="4dp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/nickname_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="이름 또는 닉네임을 입력해주세요 (2 ~ 8자리)"
+                android:padding="10dp"
+                android:textColor="@color/color_3a3a3c"
+                android:background="@color/clear"
+                android:textColorHint="@color/color_c8ccd5"
+                android:textSize="14dp" />
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email_layout"
+            android:orientation="vertical">
+
+
+
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="24dp"
+            app:shape_roundRect_borderColor="@color/colorAccent"
+            app:shape_roundRect_borderWidth="1dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pw_edit_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@color/color_ffffff"
+                android:text="비밀번호 변경하기"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="53dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/edit_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/colorAccent"
+            android:text="수정"
+            android:textColor="@color/color_ffffff"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+</RelativeLayout>

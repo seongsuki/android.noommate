@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/checkbox_layout"
+        android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_back"/>
+
+    <RelativeLayout
+        android:layout_width="123dp"
+        android:layout_height="123dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp">
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="123dp"
+            android:layout_height="123dp"
+            app:shape_roundRect_bottomLeftRadius="62dp"
+            app:shape_roundRect_bottomRightRadius="62dp"
+            app:shape_roundRect_topLeftRadius="62dp"
+            app:shape_roundRect_topRightRadius="62dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/clear">
+
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/back_layout"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/back5"
+                    android:visibility="gone"
+                    android:id="@+id/back_image_view"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/face_image_view"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/group_191" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="눔메이트\n캐릭터 만들기"
+                    android:textColor="@color/color_a3a7b6"
+                    android:background="@color/color_e4e6eb"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:id="@+id/add_text_view"/>
+
+
+            </RelativeLayout>
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/circle" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/add" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_3a3a3c"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" *"
+            android:textColor="@color/colorAccent"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+        app:shape_roundRect_bottomLeftRadius="4dp"
+        app:shape_roundRect_bottomRightRadius="4dp"
+        app:shape_roundRect_topLeftRadius="4dp"
+        app:shape_roundRect_topRightRadius="4dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nickname_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="이름 또는 닉네임을 입력해주세요 (2 ~ 8자리)"
+            android:padding="10dp"
+            android:textColor="@color/color_3a3a3c"
+            android:background="@color/clear"
+            android:textColorHint="@color/color_c8ccd5"
+            android:textSize="14dp" />
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="하우스코드"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_3a3a3c"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" (선택)"
+            android:textColor="@color/color_c8ccd5"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+        app:shape_roundRect_bottomLeftRadius="4dp"
+        app:shape_roundRect_bottomRightRadius="4dp"
+        app:shape_roundRect_topLeftRadius="4dp"
+        app:shape_roundRect_topRightRadius="4dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/housecode_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="초대받으셨다면 하우스 코드를 입력해 주세요."
+            android:padding="10dp"
+            android:background="@color/clear"
+            android:textColor="@color/color_3a3a3c"
+            android:textColorHint="@color/color_c8ccd5"
+            android:textSize="14dp" />
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/checkbox_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/all_terms_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/all_term_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="  전체 약관 동의"
+                android:textColor="@color/color_333333"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/term01_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:minHeight="0dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="  개인정보 취급방침 (필수)"
+                android:textColor="@color/color_666666"
+                android:textSize="14dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/terms1_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="보기"
+                android:textColor="@color/color_999999"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="45dp">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/term02_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="  위치기반 서비스 이용약관 (필수)"
+                android:textColor="@color/color_666666"
+                android:textSize="14dp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/terms2_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="보기"
+                android:textColor="@color/color_999999"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+
+
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="28dp"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/next_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="다음"
+                android:textColor="@color/color_ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

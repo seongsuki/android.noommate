@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_fafafc"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        app:shape_roundRect_bottomLeftRadius="8dp"
+        app:shape_roundRect_topRightRadius="8dp"
+        app:shape_roundRect_topLeftRadius="8dp"
+        app:shape_roundRect_bottomRightRadius="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ffffff">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/category_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="빨래하기"
+                android:layout_marginLeft="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:textColor="@color/color_3a3a3c"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_down"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"/>
+
+        </RelativeLayout>
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+</LinearLayout>

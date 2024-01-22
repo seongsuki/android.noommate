@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <io.github.florent37.shapeofview.shapes.RoundRectView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="@color/color_ffffff"
+    app:shape_roundRect_borderColor="#E6E6E6"
+    app:shape_roundRect_borderWidth="0.5dp"
+    app:shape_roundRect_topLeftRadius="15dp"
+    app:shape_roundRect_topRightRadius="15dp"
+    app:shape_roundRect_bottomLeftRadius="15dp"
+    app:shape_roundRect_bottomRightRadius="15dp">
+
+    <LinearLayout
+      android:layout_width="220dp"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:background="@color/color_ffffff">
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/camera_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:text="사진촬영"
+        android:textColor="#333333" />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E6E6E6" />
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/album_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:text="앨범에서 사진 선택"
+        android:textColor="#333333" />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E6E6E6"
+        android:visibility="gone" />
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/delete_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:text="사진삭제"
+        android:textColor="#666666"
+        android:visibility="gone" />
+
+
+    </LinearLayout>
+
+  </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+</RelativeLayout>

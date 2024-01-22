@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <include layout="@layout/toolbar_back" />
+
+
+  <com.github.florent37.shapeofview.shapes.RoundRectView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:elevation="20dp"
+    android:outlineSpotShadowColor="@color/color_dddddd"
+    app:shape_roundRect_bottomLeftRadius="20dp"
+    app:shape_roundRect_bottomRightRadius="20dp"
+    app:shape_roundRect_topLeftRadius="20dp"
+    app:shape_roundRect_topRightRadius="20dp">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#ffffff"
+      android:orientation="vertical">
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/nanumsquareextrabold"
+        android:text="FCM 정보"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp" />
+    </LinearLayout>
+  </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_margin="@dimen/spacing_mlarge"
+      android:orientation="vertical">
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FCM 서버키"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/server_key_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:textSize="12dp" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:text="FCM 사용자 키"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/user_key_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:textSize="12dp" />
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/scheme_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="ex - mediscount://action" />
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/scheme_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:text="앱스키마테스트"
+        android:textColor="@color/color_ffffff"/>
+
+
+    </LinearLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

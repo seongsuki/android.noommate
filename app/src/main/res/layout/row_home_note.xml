@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:orientation="horizontal">
+
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:id="@+id/profile_layout"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                app:shape_roundRect_bottomLeftRadius="17dp"
+                app:shape_roundRect_bottomRightRadius="17dp"
+                app:shape_roundRect_topLeftRadius="17dp"
+                app:shape_roundRect_topRightRadius="17dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent"
+                    android:id="@+id/back_layout">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/back5"
+                        android:id="@+id/back_image_view"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/face_image_view"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/group_191" />
+                </RelativeLayout>
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/content_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보일러 수리기사님 1월 10일 오전에 방문.."
+                    android:textSize="14dp"
+                    android:singleLine="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_3a3a3c"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23-01-02 00:00"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/color_acacac"
+                    android:textSize="12dp"
+                    android:id="@+id/date_text_view"/>
+            </LinearLayout>
+            
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

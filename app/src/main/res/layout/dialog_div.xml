@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/clear">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/clear">
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/clear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_topLeftRadius="20dp"
+            app:shape_roundRect_topRightRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_ffffff"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="비용을 나눌 메이트를 선택해 주세요."
+                    android:textColor="@color/color_3a3a3c"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:layout_marginTop="40dp" />
+
+
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginTop="24dp"
+                        app:shape_roundRect_bottomLeftRadius="8dp"
+                        app:shape_roundRect_bottomRightRadius="8dp"
+                        app:shape_roundRect_topLeftRadius="8dp"
+                        app:shape_roundRect_topRightRadius="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_f1f1f4">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/category_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="가스"
+                                android:textColor="@color/color_3a3a3c"
+                                android:textSize="20dp"/>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/price_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginBottom="16dp"
+                                android:text="12,000원"
+                                android:textColor="@color/color_3a3a3c"
+                                android:textStyle="bold"
+                                android:textSize="20dp"/>
+
+
+
+                        </RelativeLayout>
+
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:id="@+id/member_recycler_view"/>
+
+
+                <LinearLayout
+                    android:id="@+id/button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="43dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/image_layout"
+                    android:background="@color/color_ffffff" >
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1.5"
+                        android:layout_marginRight="8dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_bottomLeftRadius="10dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cancel_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_6e7583"
+                            android:text="닫기"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/color_ffffff"
+                            android:gravity="center"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="8dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_bottomLeftRadius="10dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/div_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorAccent"
+                            android:text="광고보고 비용 알리기"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:gravity="center"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>

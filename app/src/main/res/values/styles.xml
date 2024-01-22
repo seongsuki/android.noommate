@@ -1,0 +1,137 @@
+<resources>
+
+  <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowBackground">@color/color_ffffff</item>
+    <item name="android:colorBackground">@color/color_ffffff</item>
+    <item name="android:buttonStyle">@style/NanumButtonStyle</item>
+    <item name="android:editTextStyle">@style/NanumEditTextStyle</item>
+    <item name="android:radioButtonStyle">@style/NanumRadioButtonStyle</item>
+    <item name="android:checkboxStyle">@style/NanumCheckboxStyle</item>
+    <item name="android:textViewStyle">@style/NanumTextViewStyle</item>
+    <item name="android:actionMenuTextColor">@color/colorPrimary</item>
+  </style>
+
+
+  <style name="NanumTextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">
+    <item name="android:fontFamily">@font/nanum_square_font</item>
+  </style>
+
+  <style name="NanumButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+    <item name="android:fontFamily">@font/nanum_square_font</item>
+  </style>
+
+  <style name="NanumEditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">
+    <item name="android:fontFamily">@font/nanum_square_font</item>
+  </style>
+
+  <style name="NanumRadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+    <item name="android:fontFamily">@font/nanum_square_font</item>
+  </style>
+
+  <style name="NanumCheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+    <item name="android:fontFamily">@font/nanum_square_font</item>
+  </style>
+
+
+  <!-- Toolbar 테마-->
+  <style name="ToolBarPrimary">
+    <item name="contentInsetStart">0dp</item>
+    <item name="android:contentInsetStart">0dp</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">?android:attr/actionBarSize</item>
+    <item name="android:textSize">16dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/color_000000</item>
+    <item name="android:color">@color/clear</item>
+    <item name="android:background">@color/clear</item>
+    <item name="android:titleTextColor">@color/color_ffffff</item>
+  </style>
+
+  <style name="ToolBarButtonText">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">@color/color_ffffff</item>
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">14dp</item>
+    <item name="android:layout_gravity">end</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <style name="ToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <item name="android:textSize">16dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/color_000000</item>
+    <item name="android:itemTextAppearance">@style/MenuTextAppearance</item>
+    <!--    <item name="android:fontFamily">@font/nanum_square_font</item>-->
+  </style>
+
+  <style name="MenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+    <item name="android:textColor">@android:color/primary_text_dark</item>
+  </style>
+
+  <!-- 데이트 피커 테마 -->
+  <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorAccent">@color/colorPrimary</item>
+    <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+  </style>
+
+  <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+    <item name="android:textColor">@color/colorPrimary</item>
+  </style>
+
+  <style name="AppTheme.NoActionBar.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+
+  <!-- 이미지 피커 테마 -->
+  <style name="ImagePickerTheme" parent="ef_BaseTheme">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimary</item>
+    <item name="colorAccent">@color/colorAccent</item>
+  </style>
+
+  <!-- 탭 레이아웃 -->
+  <style name="TabLayoutStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+    <item name="android:textSize">11dp</item>
+  </style>
+
+  <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+  </style>
+
+  <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+
+
+  <!-- 탭 레이아웃 -->
+  <style name="TabLayoutTextStyle">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/colorPrimary</item>
+  </style>
+  <!--  Switch Theme-->
+  <style name="SwitchTheme" parent="Theme.AppCompat.Light">
+    <item name="android:colorControlActivated">@color/colorPrimary</item>
+  </style>
+  <!--  dialog Animation-->
+  <style name="DialogAnimation">
+    <item name="android:windowEnterAnimation">@anim/animation_zoom_in</item>
+    <item name="android:windowExitAnimation">@anim/animation_zoom_out</item>
+  </style>
+
+  <!--  DatePickerDialog Style-->
+  <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorAccent">@color/colorPrimary</item>
+  </style>
+  ​
+
+</resources>

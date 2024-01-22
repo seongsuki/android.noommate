@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include layout="@layout/toolbar_back" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@color/color_fafafc" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="36dp"
+                android:text="이번 달 생활비는 얼마나 나왔나요?"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="가스"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/gas_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="수도세"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/water_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="전기세"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ele_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="36dp"
+                android:background="@color/color_fafafc" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="그 외 항목"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="필요한 항목을 더 추가해 보세요."
+                android:textColor="@color/color_a3a7b6"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="항목 1"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/name1_round"
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/name1_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="항목추가"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/clear"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="금액"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/price1_round"
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/price1_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="항목 2"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/name2_round"
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/name2_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="항목추가"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/clear"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="금액"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/price2_round"
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/price2_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="항목 3"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/name3_round"
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/name3_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="항목추가"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/clear"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="금액"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/price3_round"
+                        android:layout_width="223dp"
+                        android:layout_height="44dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/price3_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:gravity="right"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:text="원"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="36dp"
+                android:background="@color/color_fafafc"
+                android:orientation="vertical">
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/add_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="36dp"
+                    app:shape_roundRect_bottomLeftRadius="12dp"
+                    app:shape_roundRect_bottomRightRadius="12dp"
+                    app:shape_roundRect_topLeftRadius="12dp"
+                    app:shape_roundRect_topRightRadius="12dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/add_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent"
+                        android:gravity="center"
+                        android:text="작성하기"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_ffffff"
+                        android:textSize="16dp" />
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="16dp"
+                    app:shape_roundRect_bottomLeftRadius="12dp"
+                    app:shape_roundRect_bottomRightRadius="12dp"
+                    app:shape_roundRect_topLeftRadius="12dp"
+                    app:shape_roundRect_topRightRadius="12dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cancel_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_6e7583"
+                        android:gravity="center"
+                        android:text="취소하기"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_ffffff"
+                        android:textSize="16dp" />
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

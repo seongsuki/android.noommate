@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <include layout="@layout/toolbar_back" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="47dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="아이디"
+                        android:textColor="@color/color_000000"
+                        android:textSize="16dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="*"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/id_round_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    app:shape_roundRect_borderColor="#C8CCD5"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/id_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/clear"
+                            android:hint="영문, 숫자 조합 6~12자리로 입력해 주세요"
+                            android:inputType="text"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="74dp"
+                            android:textColor="@color/color_3a3a3c"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp" />
+
+                        <io.github.florent37.shapeofview.shapes.RoundRectView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            app:shape_roundRect_bottomLeftRadius="16dp"
+                            app:shape_roundRect_bottomRightRadius="16dp"
+                            app:shape_roundRect_topLeftRadius="16dp"
+                            app:shape_roundRect_topRightRadius="16dp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/confirm_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:background="@color/colorAccent"
+                                android:gravity="center"
+                                android:paddingLeft="8dp"
+                                android:paddingTop="4dp"
+                                android:paddingRight="8dp"
+                                android:paddingBottom="4dp"
+                                android:text="중복확인"
+                                android:textColor="@color/color_ffffff"
+                                android:textSize="12dp" />
+                        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+                    </RelativeLayout>
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <LinearLayout
+                    android:id="@+id/info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/circle_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/red_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/default_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이미 사용 중인 아이디입니다"
+                        android:textColor="@color/colorPoint"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이메일"
+                        android:textColor="@color/color_000000"
+                        android:textSize="16dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="*"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    app:shape_roundRect_borderColor="#C8CCD5"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/email_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/clear"
+                        android:hint="이메일을 입력해주세요"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="74dp"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textColorHint="@color/color_c8ccd5"
+                        android:textSize="14dp" />
+
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="비밀번호"
+                        android:textColor="@color/color_000000"
+                        android:textSize="16dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="*"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    app:shape_roundRect_borderColor="#C8CCD5"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/pw_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/clear"
+                        android:hint="영문, 숫자, 특수문자 조합 8~15자리로 입력해 주세요."
+                        android:inputType="textPassword"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="74dp"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textColorHint="@color/color_c8ccd5"
+                        android:textSize="14dp" />
+
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="비밀번호 확인"
+                        android:textColor="@color/color_000000"
+                        android:textSize="16dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="*"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    app:shape_roundRect_borderColor="#C8CCD5"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/pw_confirm_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/clear"
+                        android:hint="영문, 숫자, 특수문자 조합 8~15자리로 입력해 주세요."
+                        android:inputType="textPassword"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="74dp"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textColorHint="@color/color_c8ccd5"
+                        android:textSize="14dp" />
+
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="28dp"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="다음"
+            android:textColor="@color/color_ffffff"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+</RelativeLayout>

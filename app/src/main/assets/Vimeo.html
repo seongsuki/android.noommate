@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * { margin: 0; padding: 0; }
+      html, body { width: 100%; height: 100%; background: black;}
+    </style>
+  </head>
+  <body>
+    <div id="vimeo_player"></div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+      var videoPlayer; // 비메오 플레이어 
+      
+      
+      /*
+      * 플레이어 세팅 
+      */
+      function setPlayer(screenWidth, screenHeight) {
+//        var screenWidth = window.screen.width;
+//        var screenHeight = window.screen.height;
+        
+//        alert("Screen width = " + screenWidth);
+//        alert("Screen height = " + screenHeight);
+        
+        var options = {
+          url: "https://vimeo.com/375813834", //"https://vimeo.com/495709328", // https://vimeo.com/375813834
+          autoplay: true,
+          controls: false,
+          playsinline: true,
+          transparent: true,
+          loop: false,
+          width: screenWidth,
+          height: screenHeight
+        };
+        
+        videoPlayer = new Vimeo.Player('vimeo_player', options);
+        
+        videoPlayer.on('play', function() {
+          console.log('Played the video');
+        });
+        
+        videoPlayer.on('bufferend', function () {
+          videoPlayer.play();
+        })
+
+      }
+      
+      /*
+      * 플레이
+      */
+      
+      function play() {
+        videoPlayer.play();
+      }
+      
+      /*
+      * 일시 정지
+      */
+      function pause() {
+        videoPlayer.pause();
+      }
+      
+    </script>
+  </body>
+</html>

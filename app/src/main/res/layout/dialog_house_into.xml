@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/clear">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/clear">
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/clear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_topLeftRadius="20dp"
+            app:shape_roundRect_topRightRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_ffffff"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="초대 받은 하우스가 있으신가요?\n하우스코드를 입력해주세요!"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:layout_marginTop="40dp" />
+
+
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/house_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="24dp"
+                    app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/house_code_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="14dp"
+                        android:background="@color/clear"
+                        android:hint="하우스코드를 입력해주세요"
+                        android:textColorHint="@color/color_c8ccd5"
+                        android:padding="10dp"/>
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/default_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="하우스코드를 다시 확인해 주세요!"
+                    android:visibility="gone"
+                    android:textColor="@color/color_ff2525"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10dp"/>
+
+
+                <LinearLayout
+                    android:id="@+id/button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="43dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical"
+                    android:layout_below="@id/image_layout"
+                    android:background="@color/color_ffffff" >
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="16dp"
+                        app:shape_roundRect_topRightRadius="12dp"
+                        app:shape_roundRect_topLeftRadius="12dp"
+                        app:shape_roundRect_bottomRightRadius="12dp"
+                        app:shape_roundRect_bottomLeftRadius="12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/complete_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorAccent"
+                            android:text="입력완료"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:gravity="center"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:shape_roundRect_topRightRadius="12dp"
+                        app:shape_roundRect_topLeftRadius="12dp"
+                        app:shape_roundRect_bottomRightRadius="12dp"
+                        app:shape_roundRect_bottomLeftRadius="12dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cancel_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_6e7583"
+                            android:text="취소"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/color_ffffff"
+                            android:gravity="center"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>

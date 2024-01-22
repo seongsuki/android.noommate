@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_fafafc"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_right"
+                    android:stateListAnimator="@null" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:text="타이틀"
+                    android:textColor="@color/color_000000"
+                    android:textSize="16dp" />
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/add_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/all_delete_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@color/colorAccent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="4dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="4dp"
+                        android:text="전체삭제"
+                        android:textColor="@color/color_ffffff"
+                        android:textSize="12dp" />
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+            </RelativeLayout>
+
+
+
+        <!--    <LinearLayout-->
+        <!--      android:layout_width="match_parent"-->
+        <!--      android:layout_height="1dp"-->
+        <!--      android:background="@color/color_dddddd" />-->
+    </RelativeLayout>
+
+
+    <noommate.android.commons.TouchDetectableScrollView
+        android:id="@+id/more_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/alarm_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </noommate.android.commons.TouchDetectableScrollView>
+
+
+</LinearLayout>

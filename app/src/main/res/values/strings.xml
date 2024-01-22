@@ -1,0 +1,70 @@
+<resources>
+
+  <string name="app_name">눔메이트</string>
+
+  <string name="app_version">V</string>
+  <string name="version_unknown">V</string>
+
+  <string name="fileprovider">com.noommate.fileprovider</string>
+
+  <string name="common_auth"><![CDATA[&눔메이트를 이용하기 위하여 사진, 저장소, 위치 권한이 필요합니다.]]></string>
+  <string name="common_auth_denined"><![CDATA[[어플리케이션 > 눔메이트 > 권한 설정] 에서 권한 설정을 다시 할 수 있습니다.]]></string>
+  <string name="common_ok">확인</string>
+  <string name="common_select">선택</string>
+  <string name="common_cancel">취소</string>
+  <string name="common_delete">삭제</string>
+  <string name="common_err_api_msg">통신상태를 확인해 주세요.</string>
+  <string name="common_choose">선택해주세요.</string>
+  <string name="common_camera">카메라</string>
+  <string name="common_gallery">갤러리</string>
+  <string name="common_camera_auth">사진을 업로드 하기 위해 권한이 필요합니다.</string>
+  <string name="common_camera_auth_more">사진을 업로드 하기 위해 권한이 필요합니다.</string>
+  <string name="common_back">\'뒤로가기\'버튼을 한번 더 누르시면 종료됩니다.</string>
+  <string name="facebook_auth_info">페이스북으로 가입 버튼을 누르시면,\n서비스 약관에 동의하는 것으로 간주됩니다.</string>
+  <string name="login"><b><u>로그인</u></b></string>
+  <string name="find_pw_info">가입하신 이메일 주소를 입력해주시면 \n비밀번호 재설정이 가능한 링크가 발송됩니다.</string>
+  <string name="qa">QA 타이틀</string>
+  <string name="regist_button">등록버튼</string>
+
+  <array name="time_array">
+    <item>00시</item>
+    <item>01시</item>
+    <item>02시</item>
+    <item>03시</item>
+    <item>04시</item>
+    <item>05시</item>
+    <item>06시</item>
+    <item>07시</item>
+    <item>08시</item>
+    <item>09시</item>
+    <item>10시</item>
+    <item>11시</item>
+    <item>12시</item>
+    <item>13시</item>
+    <item>14시</item>
+    <item>15시</item>
+    <item>16시</item>
+    <item>17시</item>
+    <item>18시</item>
+    <item>19시</item>
+    <item>20시</item>
+    <item>21시</item>
+    <item>22시</item>
+    <item>23시</item>
+  </array>
+
+  <array name="qna">
+    <item>불편 신고</item>
+    <item>제보</item>
+    <item>기타</item>
+  </array>
+
+  <array name="reporting">
+    <item>영리목적 홍보성</item>
+    <item>음란성,선정성</item>
+    <item>욕설,인신공격</item>
+    <item>같은 내용 반복 게시 (도배)</item>
+    <item>기타</item>
+  </array>
+
+</resources>

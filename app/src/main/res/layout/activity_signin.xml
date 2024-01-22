@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_01"
+                android:layout_marginTop="48dp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/img_login"
+                android:layout_marginTop="28dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="클래스 메이트와\n우리집 일정을 공유해요"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:text="우리집 일정 관리 어플, 눔메이트"
+                android:textColor="@color/color_637583"
+                android:textSize="16dp" />
+
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="16dp"
+                app:shape_roundRect_topRightRadius="4dp"
+                app:shape_roundRect_topLeftRadius="4dp"
+                app:shape_roundRect_bottomRightRadius="4dp"
+                app:shape_roundRect_bottomLeftRadius="4dp"
+                app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                app:shape_roundRect_borderWidth="1dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/id_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="아이디"
+                    android:textSize="14dp"
+                    android:padding="10dp"
+                    android:background="@color/clear"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textColorHint="@color/color_c8ccd5"
+                    android:inputType="textEmailAddress" />
+
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                app:shape_roundRect_bottomRightRadius="4dp"
+                app:shape_roundRect_bottomLeftRadius="4dp"
+                app:shape_roundRect_topLeftRadius="4dp"
+                app:shape_roundRect_topRightRadius="4dp"
+                app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                app:shape_roundRect_borderWidth="1dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/pw_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/color_3a3a3c"
+                    android:padding="10dp"
+                    android:textColorHint="@color/color_c8ccd5"
+                    android:hint="비밀번호"
+                    android:textSize="14dp"
+                    android:background="@color/clear"
+                    android:inputType="textPassword" />
+
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+            
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:shape_roundRect_topRightRadius="12dp"
+                app:shape_roundRect_topLeftRadius="12dp"
+                app:shape_roundRect_bottomLeftRadius="12dp"
+                app:shape_roundRect_bottomRightRadius="12dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="24dp"
+                app:shape_roundRect_borderColor="@color/colorAccent"
+                app:shape_roundRect_borderWidth="1dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signin_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/clear"
+                android:text="로그인"
+                android:textColor="@color/colorAccent"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/find_pw_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="8dp"
+                    android:text="비밀번호 찾기"
+                    android:textSize="12dp"
+                    android:textColor="@color/color_3a3a3c"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textSize="12dp"
+                    android:textColor="@color/color_c8ccd5"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/signup_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="회원가입"
+                    android:textSize="12dp"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/color_3a3a3c"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/naver_button"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:src="@drawable/naver"/>
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/kakao_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:src="@drawable/kakao"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

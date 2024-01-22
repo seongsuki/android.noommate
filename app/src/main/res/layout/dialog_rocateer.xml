@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/clear">
+
+  <RelativeLayout
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="@color/clear">
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+      android:id="@+id/dialog_title_wrap_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:shape_roundRect_bottomLeftRadius="16dp"
+      app:shape_roundRect_bottomRightRadius="16dp"
+      app:shape_roundRect_topLeftRadius="16dp"
+      app:shape_roundRect_topRightRadius="16dp">
+
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ffffff">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/dialog_title_text_view"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginRight="10dp"
+          android:layout_marginBottom="20dp"
+          android:text="@string/app_name"
+          android:textColor="@color/color_000000"
+          android:textSize="20dp"
+          android:textStyle="bold"
+          android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/dialog_message_text_view"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/dialog_title_text_view"
+          android:layout_marginLeft="24dp"
+          android:layout_marginTop="24dp"
+          android:layout_marginRight="24dp"
+          android:gravity="center"
+            android:textStyle="bold"
+          android:text="팝업 텍스트"
+          android:textColor="@color/color_000000"
+          android:textSize="16dp" />
+
+
+        <LinearLayout
+          android:id="@+id/two_button_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/dialog_message_text_view"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+          android:layout_marginBottom="20dp"
+          android:visibility="visible">
+
+          <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/dialog_cancel_wrap_view"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+              android:layout_marginLeft="24dp"
+              android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@id/dialog_ok_wrap_view"
+            android:layout_weight="1"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/dialog_cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#6E7583"
+                android:text="@string/common_cancel"
+                android:textColor="@color/color_ffffff"
+                android:textStyle="bold" />
+            </RelativeLayout>
+
+          </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+          <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/dialog_ok_wrap_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+              android:layout_marginRight="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/dialog_ok_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorAccent"
+                android:text="@string/common_ok"
+                android:textColor="@color/color_ffffff"
+                android:textStyle="bold" />
+            </RelativeLayout>
+
+
+          </io.github.florent37.shapeofview.shapes.RoundRectView>
+        </LinearLayout>
+
+        <RelativeLayout
+          android:id="@+id/one_button_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/dialog_message_text_view"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginRight="10dp"
+          android:layout_marginBottom="20dp"
+          android:orientation="horizontal"
+          android:visibility="visible">
+
+          <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/dialog_confirm_wrap_view"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/dialog_confirm_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorAccent"
+                android:text="@string/common_ok"
+                android:textColor="@color/color_ffffff"
+                android:textStyle="bold" />
+            </RelativeLayout>
+
+          </io.github.florent37.shapeofview.shapes.RoundRectView>
+        </RelativeLayout>
+      </RelativeLayout>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+  </RelativeLayout>
+</RelativeLayout>

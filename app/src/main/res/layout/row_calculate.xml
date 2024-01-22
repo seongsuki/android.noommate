@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/category_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가스"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="16dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/price_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="12,000 원"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_3a3a3c"/>
+        </LinearLayout>
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            app:shape_roundRect_bottomLeftRadius="15dp"
+            app:shape_roundRect_bottomRightRadius="15dp"
+            app:shape_roundRect_topRightRadius="15dp"
+            app:shape_roundRect_topLeftRadius="15dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/div_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나누기"
+                android:textColor="@color/color_ffffff"
+                android:background="@color/colorAccent"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+    </RelativeLayout>
+
+</LinearLayout>

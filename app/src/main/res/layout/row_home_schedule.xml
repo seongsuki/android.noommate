@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:background="@color/color_fafafc"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/content_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:text="최대는9글자다"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:textSize="12dp"
+                android:text="11:00~"
+                android:textColor="@color/color_a3a7b6" />
+
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:shape_roundRect_bottomRightRadius="12dp"
+                app:shape_roundRect_topLeftRadius="12dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                app:shape_roundRect_topRightRadius="12dp"
+                app:shape_roundRect_bottomLeftRadius="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/state_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="완료"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@color/color_ffffff"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+        </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/default_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:text="하우스\n일정이 없어요."
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_e4e6eb"
+                android:background="@color/color_fafafc"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+</LinearLayout>

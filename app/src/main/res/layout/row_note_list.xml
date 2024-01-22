@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@color/color_fafafc"
+    android:orientation="vertical">
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/note_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    app:shape_roundRect_bottomLeftRadius="17dp"
+                    app:shape_roundRect_bottomRightRadius="17dp"
+                    app:shape_roundRect_topLeftRadius="17dp"
+                    app:shape_roundRect_topRightRadius="17dp">
+
+                    <RelativeLayout
+                        android:id="@+id/back_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/back_image_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/back5" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/face_image_view"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/group_191" />
+                    </RelativeLayout>
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/name_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="김성수"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/content_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="보일러 수리기사님 1월 10일 오전에 방문 예정이라 는데 그 날 집에 있는 사람은 문좀 열어줘"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="23-01-02 00:00"
+                    android:textColor="@color/color_c8ccd5"
+                    android:textSize="12dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/more_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/group_90" />
+            </RelativeLayout>
+            
+            <LinearLayout
+                android:id="@+id/my_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="-8dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+                
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:shape_roundRect_topRightRadius="12dp"
+                app:shape_roundRect_topLeftRadius="12dp"
+                app:shape_roundRect_bottomRightRadius="12dp"
+                app:shape_roundRect_bottomLeftRadius="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="수정"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:background="@color/colorAccent"
+                    android:textSize="12dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_ffffff"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    app:shape_roundRect_topRightRadius="12dp"
+                    app:shape_roundRect_topLeftRadius="12dp"
+                    app:shape_roundRect_bottomRightRadius="12dp"
+                    app:shape_roundRect_bottomLeftRadius="12dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/delete_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="삭제"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:background="@color/color_6e7583"
+                        android:textSize="12dp"
+                        android:gravity="center"
+                        android:textColor="@color/color_ffffff"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"/>
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/block_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_e4e6eb"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="차단한 알림장이에요."
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textColor="@color/color_c8ccd5"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/block_date_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="23-01-02 00:00"
+                    android:textColor="@color/color_c8ccd5"
+                    android:textSize="12dp" />
+
+            </RelativeLayout>
+
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="right"
+                app:shape_roundRect_topRightRadius="12dp"
+                app:shape_roundRect_topLeftRadius="12dp"
+                app:shape_roundRect_bottomRightRadius="12dp"
+                app:shape_roundRect_bottomLeftRadius="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/unblock_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="차단해제"
+                    android:paddingLeft="12dp"
+                    android:textStyle="bold"
+                    android:paddingRight="12dp"
+                    android:background="@color/color_87b7ff"
+                    android:textSize="12dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_ffffff"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+        </LinearLayout>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/report_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_e4e6eb"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="신고한 알림장이에요."
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textColor="@color/color_c8ccd5"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/report_date_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="23-01-02 00:00"
+                    android:textColor="@color/color_c8ccd5"
+                    android:textSize="12dp" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+</LinearLayout>

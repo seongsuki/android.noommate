@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- 해제상태 -->
+  <item android:color="@color/color_c8ccd5" android:state_selected="false" />
+  <!-- 선택상태 -->
+  <item android:color="@color/colorAccent" android:state_selected="true" />
+  <!-- default state -->
+  <item android:color="@color/color_c8ccd5" />
+</selector>
+

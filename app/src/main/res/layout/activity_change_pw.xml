@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <include layout="@layout/toolbar_back" />
+
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:id="@+id/before_pw_linear_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="46dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="기존 비밀번호"
+          android:textColor="@color/color_3a3a3c"
+          android:textSize="16dp"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="4dp"
+          android:text="*"
+          android:textColor="@color/colorAccent"
+          android:textSize="14dp" />
+      </LinearLayout>
+
+      <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_bottomLeftRadius="10dp"
+        app:shape_roundRect_bottomRightRadius="10dp"
+        app:shape_roundRect_topLeftRadius="10dp"
+        app:shape_roundRect_topRightRadius="10dp">
+
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <androidx.appcompat.widget.AppCompatEditText
+              android:id="@+id/before_pw_edit_text"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerInParent="true"
+              android:background="@color/clear"
+              android:hint="기존 비밀번호를 입력해주세요."
+              android:inputType="textPassword"
+              android:padding="10dp"
+              android:textColor="@color/color_3a3a3c"
+              android:textColorHint="@color/color_c8ccd5"
+              android:textSize="14dp" />
+        </RelativeLayout>
+      </io.github.florent37.shapeofview.shapes.RoundRectView>
+    </LinearLayout>
+
+
+    <LinearLayout
+      android:id="@+id/new_pw_linear_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/before_pw_linear_layout"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginRight="16dp"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="새 비밀번호"
+          android:textColor="@color/color_3a3a3c"
+          android:textSize="16dp"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="4dp"
+          android:text="*"
+          android:textColor="@color/colorAccent"
+          android:textSize="14dp" />
+      </LinearLayout>
+
+      <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_bottomLeftRadius="10dp"
+        app:shape_roundRect_bottomRightRadius="10dp"
+        app:shape_roundRect_topLeftRadius="10dp"
+        app:shape_roundRect_topRightRadius="10dp">
+
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <androidx.appcompat.widget.AppCompatEditText
+              android:id="@+id/new_pw_edit_text"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerInParent="true"
+              android:background="@color/clear"
+              android:textColor="@color/color_3a3a3c"
+              android:textColorHint="@color/color_c8ccd5"
+              android:hint="영문, 숫자 조합 8~15자리로 입력해 주세요."
+              android:inputType="textPassword"
+              android:padding="10dp"
+              android:textSize="14dp" />
+        </RelativeLayout>
+      </io.github.florent37.shapeofview.shapes.RoundRectView>
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/new_pw_linear_layout"
+      android:layout_marginLeft="15dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginRight="15dp"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="새 비밀번호 확인"
+            android:textStyle="bold"
+          android:textColor="@color/color_3a3a3c"
+          android:textSize="16dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="4dp"
+          android:text="*"
+          android:textColor="@color/colorAccent"
+          android:textSize="14dp" />
+      </LinearLayout>
+
+      <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_bottomLeftRadius="10dp"
+        app:shape_roundRect_bottomRightRadius="10dp"
+        app:shape_roundRect_topLeftRadius="10dp"
+        app:shape_roundRect_topRightRadius="10dp">
+
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <androidx.appcompat.widget.AppCompatEditText
+              android:id="@+id/new_pw_confirm_edit_text"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerInParent="true"
+              android:background="@color/clear"
+              android:textColor="@color/color_3a3a3c"
+              android:textColorHint="@color/color_c8ccd5"
+              android:hint="영문, 숫자 조합 8 ~ 15자리로 입력해 주세요"
+              android:inputType="textPassword"
+              android:padding="10dp"
+              android:textSize="14dp" />
+        </RelativeLayout>
+      </io.github.florent37.shapeofview.shapes.RoundRectView>
+    </LinearLayout>
+
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+      android:id="@+id/change_pw_round_rect_view"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_alignParentBottom="true"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:layout_marginBottom="30dp"
+      app:shape_roundRect_bottomLeftRadius="10dp"
+      app:shape_roundRect_bottomRightRadius="10dp"
+      app:shape_roundRect_topLeftRadius="10dp"
+      app:shape_roundRect_topRightRadius="10dp">
+
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/change_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:text="비밀번호 변경"
+            android:textColor="@color/color_ffffff"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+      </RelativeLayout>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+  </RelativeLayout>
+
+</LinearLayout>

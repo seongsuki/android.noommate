@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:id="@+id/profile_layout"
+        app:shape_roundRect_bottomLeftRadius="26dp"
+        app:shape_roundRect_topRightRadius="26dp"
+        app:shape_roundRect_topLeftRadius="26dp"
+        app:shape_roundRect_bottomRightRadius="26dp">
+
+        <RelativeLayout
+            android:id="@+id/back_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back5"
+                android:id="@+id/back_image_view"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/face_image_view"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/group_191" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/select_image_view"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:src="@drawable/select"/>
+
+
+        </RelativeLayout>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임"
+        android:textSize="12dp"
+        android:textColor="@color/color_3a3a3c"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"/>
+    
+</LinearLayout>

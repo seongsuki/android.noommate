@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/clear">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/clear">
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/clear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_topLeftRadius="20dp"
+            app:shape_roundRect_topRightRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_ffffff"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="부적절한 내용인가요?"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:layout_marginTop="40dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="깨끗한 눔메이트를 위해 신고가 필요합니다."
+                    android:textSize="16dp"
+                    android:textColor="@color/color_3a3a3c"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        app:shape_roundRect_borderWidth="1dp"
+                        app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                        app:shape_roundRect_bottomLeftRadius="8dp"
+                        app:shape_roundRect_bottomRightRadius="8dp"
+                        app:shape_roundRect_topLeftRadius="8dp"
+                        app:shape_roundRect_topRightRadius="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_ffffff"
+                            android:orientation="horizontal">
+
+                            <com.skydoves.powerspinner.PowerSpinnerView
+                                android:id="@+id/reporting_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:hint="선택하세요."
+                                android:paddingLeft="16dp"
+                                android:paddingTop="10dp"
+                                android:paddingRight="16dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/color_3a3a3c"
+                                android:textColorHint="@color/color_6e7583"
+                                android:textSize="14dp"
+                                app:spinner_arrow_show="true"
+                                app:spinner_arrow_tint="@color/color_000000"
+                                app:spinner_divider_color="@color/color_999999"
+                                app:spinner_divider_size="0dp"
+                                app:spinner_item_array="@array/reporting"
+                                app:spinner_popup_animation="dropdown"
+                                app:spinner_popup_background="@color/color_ffffff"
+                                app:spinner_popup_elevation="14dp" />
+
+
+                        </RelativeLayout>
+
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="* 신고사유 입력"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_6e7583"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="26dp"
+                        android:textSize="14dp" />
+
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                    app:shape_roundRect_topLeftRadius="8dp"
+                    app:shape_roundRect_topRightRadius="8dp"
+                    app:shape_roundRect_bottomRightRadius="8dp"
+                    app:shape_roundRect_bottomLeftRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/report_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"
+                            android:textColorHint="@color/color_c8ccd5"
+                            android:textSize="14dp"
+                            android:hint="신고 사유를 적어주세요"
+                            android:textColor="@color/color_3a3a3c"
+                            android:gravity="top"
+                            android:paddingTop="8dp"
+                            android:maxLength="100"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:background="@color/color_ffffff"/>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:src="@drawable/resizer"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"/>
+
+                    </RelativeLayout>
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/count_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="14dp"
+                        android:textColor="@color/color_c8ccd5"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/100"
+                        android:textSize="14dp"
+                        android:textColor="@color/color_c8ccd5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical"
+                    android:layout_below="@id/image_layout"
+                    android:background="@color/color_ffffff" >
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="4.5dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_bottomLeftRadius="10dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/reporting_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorAccent"
+                            android:text="신고하기"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:gravity="center"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        app:shape_roundRect_topRightRadius="10dp"
+                        app:shape_roundRect_topLeftRadius="10dp"
+                        app:shape_roundRect_bottomRightRadius="10dp"
+                        app:shape_roundRect_bottomLeftRadius="10dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cancel_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_6e7583"
+                            android:text="취소"
+                            android:textStyle="bold"
+                            android:textSize="14dp"
+                            android:textColor="@color/color_ffffff"
+                            android:gravity="center"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>

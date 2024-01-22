@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/menu_icon_image_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/selector_menu_1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/menu_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:text="menu"
+      android:layout_gravity="center"
+      android:textColor="@drawable/selector_menu_color"
+      android:textSize="9dp" />
+  </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_layout"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolBarPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@color/color_ffffff"
+                app:titleTextAppearance="@style/ToolbarTitleText">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/back_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="10dp"
+                        android:src="@drawable/icon_right"
+                        android:stateListAnimator="@null" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:text="타이틀"
+                        android:textColor="@color/color_000000"
+                        android:textSize="16dp" />
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:id="@+id/delete_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="16dp"
+                        app:shape_roundRect_bottomLeftRadius="4dp"
+                        app:shape_roundRect_bottomRightRadius="4dp"
+                        app:shape_roundRect_topLeftRadius="4dp"
+                        app:shape_roundRect_topRightRadius="4dp">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/delete_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:background="@color/color_a3a7b6"
+                        android:paddingRight="16dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="삭제"
+                        android:textColor="@color/color_ffffff"
+                        android:textSize="14dp"
+                        android:visibility="visible" />
+
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+
+                </RelativeLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <!--    <LinearLayout-->
+            <!--      android:layout_width="match_parent"-->
+            <!--      android:layout_height="1dp"-->
+            <!--      android:background="@color/color_dddddd" />-->
+        </RelativeLayout>
+
+
+        <noommate.android.commons.TouchDetectableScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:background="@color/color_ffffff" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="할 일"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    app:shape_roundRect_borderColor="@color/color_c8ccd5"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="4dp"
+                    app:shape_roundRect_bottomRightRadius="4dp"
+                    app:shape_roundRect_topLeftRadius="4dp"
+                    app:shape_roundRect_topRightRadius="4dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/title_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/clear"
+                        android:hint="할 일을 적어주세요."
+                        android:padding="10dp"
+                        android:inputType="text"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textColorHint="@color/color_c8ccd5"
+                        android:textSize="14dp" />
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/color_fafafc" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="알림 시간"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="지정하지 않을래요."
+                        android:textColor="@color/color_3a3a3c" />
+                </RelativeLayout>
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="20dp"
+                    app:shape_roundRect_borderColor="@color/color_dddddd"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="5dp"
+                    app:shape_roundRect_bottomRightRadius="5dp"
+                    app:shape_roundRect_topLeftRadius="5dp"
+                    app:shape_roundRect_topRightRadius="5dp">
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/time_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:hint="* 선택"
+                        android:padding="10dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:textColor="@color/color_000000"
+                        android:textColorHint="@color/color_000000"
+                        android:textSize="14dp"
+                        app:spinner_arrow_drawable="@drawable/arrow_down"
+                        app:spinner_arrow_gravity="end"
+                        app:spinner_arrow_padding="8dp"
+                        app:spinner_divider_color="@color/color_999999"
+                        app:spinner_divider_show="true"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_item_array="@array/time_array"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/color_ffffff"
+                        app:spinner_popup_elevation="14dp" />
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/color_fafafc" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="알림 시간"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        app:shape_roundRect_bottomLeftRadius="16dp"
+                        app:shape_roundRect_bottomRightRadius="16dp"
+                        app:shape_roundRect_topLeftRadius="16dp"
+                        app:shape_roundRect_topRightRadius="16dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/add_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorAccent"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="8dp"
+                            android:text="추가하기"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/schedule_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </noommate.android.commons.TouchDetectableScrollView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_ffffff"
+        android:orientation="vertical">
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="40dp"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/enroll_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"
+                android:text="등록"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/color_ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_fafafc"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_back" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/withdrawal_round_rect_view">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+               <io.github.florent37.shapeofview.shapes.RoundRectView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="24dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginRight="16dp"
+                   app:shape_roundRect_topRightRadius="8dp"
+                   app:shape_roundRect_topLeftRadius="8dp"
+                   app:shape_roundRect_bottomRightRadius="8dp"
+                   app:shape_roundRect_bottomLeftRadius="8dp">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/color_ffffff"
+                       android:orientation="vertical">
+
+
+                       <androidx.appcompat.widget.AppCompatTextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="※ 꼭 확인해주세요!"
+                           android:layout_marginTop="24dp"
+                           android:layout_marginLeft="16dp"
+                           android:textStyle="bold"
+                           android:textColor="@color/color_3a3a3c"
+                           android:textSize="16dp"/>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="8dp"
+                           android:layout_marginLeft="16dp"
+                           android:orientation="horizontal">
+
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:orientation="vertical">
+
+                               <androidx.appcompat.widget.AppCompatTextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="• 탈퇴 후 고객님의 정보가 삭제됩니다."
+                                   android:textColor="@color/color_3a3a3c"
+                                   android:textSize="14dp"/>
+
+                               <androidx.appcompat.widget.AppCompatTextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="     다시 복원할 수 없어요."
+                                   android:textSize="14dp"
+                                   android:textStyle="bold"
+                                   android:textColor="@color/color_3a3a3c"/>
+
+
+                           </LinearLayout>
+
+
+                       </LinearLayout>
+
+                       <androidx.appcompat.widget.AppCompatTextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="• 같은 아이디로 재가입이 어려워요."
+                           android:textColor="@color/color_3a3a3c"
+                           android:layout_marginLeft="16dp"
+                           android:layout_marginTop="8dp"
+                           android:layout_marginBottom="24dp"
+                           android:textSize="14dp"/>
+
+                   </LinearLayout>
+               </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="서비스 이용 중 어떤 부분이 불편하셨나요?"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="40dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_000000"
+                        android:textSize="14dp" />
+
+
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="16dp"
+                    app:shape_roundRect_borderColor="@color/color_dddddd"
+                    app:shape_roundRect_borderWidth="1dp"
+                    app:shape_roundRect_bottomLeftRadius="5dp"
+                    app:shape_roundRect_bottomRightRadius="5dp"
+                    app:shape_roundRect_topLeftRadius="5dp"
+                    app:shape_roundRect_topRightRadius="5dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/withdrawal_reason_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_ffffff"
+                        android:scrollbars="vertical"
+                        android:gravity="top"
+                        android:paddingTop="16dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/color_3a3a3c"
+                        android:textSize="14dp" />
+
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/withdrawal_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text=" 안내사항을 모두 확인하였으며, 이에 동의합니다."
+                    android:textColor="@color/color_666666"
+                    android:textSize="14dp" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/withdrawal_round_rect_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/withdrawal_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"
+                android:textStyle="bold"
+                android:text="탈퇴하기"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+    </RelativeLayout>
+
+
+</LinearLayout>

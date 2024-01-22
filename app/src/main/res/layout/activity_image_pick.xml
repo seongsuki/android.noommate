@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <include layout="@layout/toolbar_back" />
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:id="@+id/image_layout"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_centerHorizontal="true"
+      android:background="@color/color_000000"
+      android:gravity="center">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ef_ic_camera_white" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/image_layout"
+      android:layout_centerHorizontal="true"
+      android:layout_margin="@dimen/spacing_mlarge"
+      android:orientation="vertical">
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/camera_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카메라에서 선택" />
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/album_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_middle"
+        android:text="앨범에서 선택" />
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/multi_album_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_middle"
+        android:text="앨범에서 다중 선택" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/test_image_view"
+      android:layout_width="wrap_content"
+      android:layout_height="160dp"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true" />
+
+
+  </RelativeLayout>
+
+</LinearLayout>

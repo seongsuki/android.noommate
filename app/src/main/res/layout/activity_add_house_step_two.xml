@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_back"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="짝짝짝! 하우스가 지어졌습니다\n이제 메이트를 초대해주세요"
+        android:textSize="20dp"
+        android:textColor="@color/color_3a3a3c"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="초대하기를 통해 나의 하우스로 메이트를 초대해주세요"
+        android:textColor="@color/color_c8ccd5"
+        android:textSize="14dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+    
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        app:shape_roundRect_bottomLeftRadius="8dp"
+        app:shape_roundRect_bottomRightRadius="8dp"
+        app:shape_roundRect_topRightRadius="8dp"
+        app:shape_roundRect_topLeftRadius="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_fafafc">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="하우스 코드"
+                    android:textSize="12dp"
+                    android:textColor="@color/color_3a3a3c"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/house_code_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1sdasdz"
+                    android:textColor="@color/color_3a3a3c"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/copy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="복사"
+                android:layout_marginRight="6dp"
+                android:padding="10dp"
+                android:textSize="14dp"
+                android:textColor="@color/color_c8ccd5"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="40dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/invite_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="초대하기"
+            android:background="@color/colorAccent"
+            android:textColor="@color/color_ffffff"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_topLeftRadius="12dp"
+        app:shape_roundRect_topRightRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
+        app:shape_roundRect_borderColor="@color/colorAccent"
+        app:shape_roundRect_borderWidth="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/next_time_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="다음에 초대하기"
+            android:background="@color/color_ffffff"
+            android:textColor="@color/colorAccent"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    
+
+</LinearLayout>
