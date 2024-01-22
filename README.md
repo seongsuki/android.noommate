@@ -1,5 +1,4 @@
-# RocateerKit-android
-RocateerKit 안드로이드 버전
+# noommate-android
 
 # android.noommate
 # android.noommate
