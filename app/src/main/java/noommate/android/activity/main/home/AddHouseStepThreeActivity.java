@@ -5,10 +5,10 @@ import android.content.Intent;
 
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.main.MainActivity;
 
-public class AddHouseStepThreeActivity extends RocateerActivity {
+public class AddHouseStepThreeActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

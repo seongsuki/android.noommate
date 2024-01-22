@@ -24,9 +24,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,12 +32,12 @@ import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
+import noommate.android.activity.NoommateActivity;
+import noommate.android.activity.NoommateFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.activity.RocateerFragment;
 import noommate.android.activity.main.schedule.ScheduleFragment;
 import noommate.android.activity.main.schedule.schedulepage.AddScheduleActivity;
 import noommate.android.activity.main.schedule.schedulepage.ScheduleAdapter;
@@ -50,7 +48,7 @@ import noommate.android.models.ScheduleModel;
 import noommate.android.models.api.CommonRouter;
 import timber.log.Timber;
 
-public class HistoryFragment extends RocateerFragment {
+public class HistoryFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
@@ -244,7 +242,7 @@ public class HistoryFragment extends RocateerFragment {
 
                     }
                 });
-                startActivity(addScheduleActivity, RocateerActivity.TRANS.PUSH);
+                startActivity(addScheduleActivity, NoommateActivity.TRANS.PUSH);
             }
         });
         mHistoryRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));

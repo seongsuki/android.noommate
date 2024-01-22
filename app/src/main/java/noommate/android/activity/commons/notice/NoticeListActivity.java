@@ -12,18 +12,18 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
 import noommate.android.commons.TouchDetectableScrollView;
 import noommate.android.models.NoticeModel;
 import noommate.android.models.api.CommonRouter;
 
-public class NoticeListActivity extends RocateerActivity {
+public class NoticeListActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

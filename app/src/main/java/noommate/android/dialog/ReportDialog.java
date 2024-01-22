@@ -20,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.NoteModel;
@@ -31,7 +31,7 @@ public class ReportDialog extends BottomSheetDialogFragment {
         void onRefresh();
     }
 
-    public ReportDialog(RocateerActivity activity,String noteIdx, ReportListener reportListener) {
+    public ReportDialog(NoommateActivity activity, String noteIdx, ReportListener reportListener) {
         mActivity = activity;
         mNoteIdx = noteIdx;
         mReportListener = reportListener;
@@ -47,7 +47,7 @@ public class ReportDialog extends BottomSheetDialogFragment {
 
     private static ReportListener mReportListener;
     private static String mNoteIdx;
-    private RocateerActivity mActivity;
+    private NoommateActivity mActivity;
     private PowerSpinnerView mReportSpinnerView;
     private AppCompatEditText mReportEditText;
 

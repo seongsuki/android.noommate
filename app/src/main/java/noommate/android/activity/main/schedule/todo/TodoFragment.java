@@ -13,12 +13,12 @@ import com.pixplicity.easyprefs.library.Prefs;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import noommate.android.activity.NoommateActivity;
+import noommate.android.activity.NoommateFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.activity.RocateerFragment;
 import noommate.android.activity.main.schedule.ScheduleFragment;
 import noommate.android.activity.main.schedule.schedulepage.AddScheduleActivity;
 import noommate.android.commons.Constants;
@@ -27,7 +27,7 @@ import noommate.android.models.ScheduleModel;
 import noommate.android.models.api.CommonRouter;
 import timber.log.Timber;
 
-public class TodoFragment extends RocateerFragment {
+public class TodoFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ public class TodoFragment extends RocateerFragment {
 
                     }
                 });
-                startActivity(addScheduleActivity, RocateerActivity.TRANS.PUSH);
+                startActivity(addScheduleActivity, NoommateActivity.TRANS.PUSH);
 
             }
         });

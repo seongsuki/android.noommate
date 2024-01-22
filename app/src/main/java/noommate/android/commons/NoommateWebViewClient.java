@@ -5,10 +5,10 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class RocateerWebViewClient extends WebViewClient {
+public class NoommateWebViewClient extends WebViewClient {
   private Activity activity;
 
-  public RocateerWebViewClient(Activity activity) {
+  public NoommateWebViewClient(Activity activity) {
     this.activity = activity;
   }
 

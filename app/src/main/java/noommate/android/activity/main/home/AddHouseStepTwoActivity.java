@@ -10,11 +10,11 @@ import com.pixplicity.easyprefs.library.Prefs;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 
-public class AddHouseStepTwoActivity extends RocateerActivity {
+public class AddHouseStepTwoActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

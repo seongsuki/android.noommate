@@ -14,13 +14,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Tools;
 import noommate.android.models.NoticeModel;
 import noommate.android.models.api.CommonRouter;
 
 
-public class NoticeDetailActivity extends RocateerActivity {
+public class NoticeDetailActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

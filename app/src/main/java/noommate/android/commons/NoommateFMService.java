@@ -27,7 +27,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import noommate.android.R;
 import timber.log.Timber;
 
-public class RocateerFMService extends FirebaseMessagingService {
+public class NoommateFMService extends FirebaseMessagingService {
   public static int current_ID = 0;
 
   @Override

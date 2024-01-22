@@ -2,7 +2,6 @@ package noommate.android.activity.main.my;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.View;
 import android.widget.CheckBox;
 
 import androidx.appcompat.widget.AppCompatEditText;
@@ -12,9 +11,8 @@ import com.pixplicity.easyprefs.library.Prefs;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.signin.SigninActivity;
-import noommate.android.activity.signup.SignupCompleteActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.MemberModel;
@@ -23,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WithDrawalActivity extends RocateerActivity {
+public class WithDrawalActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

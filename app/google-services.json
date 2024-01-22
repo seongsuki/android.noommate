@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "899989826321",
-    "firebase_url": "https://rocateerkit.firebaseio.com",
-    "project_id": "rocateerkit",
-    "storage_bucket": "rocateerkit.appspot.com"
+    "firebase_url": "https://noommateandroid.firebaseio.com",
+    "project_id": "noommate.android",
+    "storage_bucket": "noommateandroid.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:899989826321:android:f775c6b50a4ad167163ab0",
         "android_client_info": {
-          "package_name": "rocateer.kit"
+          "package_name": "noommate.android"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "899989826321-3faur1upu83l272qn79k731use0etotg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "rocateer.kit",
+            "package_name": "noommate.android",
             "certificate_hash": "a0cdd3bd84c24e01b14b38edd8e05ad33a89e3ab"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "899989826321-6s3odk50388rfhi3kvco4ssutb87f9gm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "rocateer.kit",
+            "package_name": "noommate.android",
             "certificate_hash": "7598b59b2f1c777beb9a99dfbb0696f4ea82b403"
           }
         },
@@ -34,7 +34,7 @@
           "client_id": "899989826321-e4c3sjnj2pbc8vlo2vr5421r443ueed4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "rocateer.kit",
+            "package_name": "noommate.android",
             "certificate_hash": "c252f44d188cbeb57304c66a8b2ed987671dfa2b"
           }
         },
@@ -59,7 +59,7 @@
               "client_id": "899989826321-mcip6rkdj86kljpst8k17ekrve7ralnm.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "rocateer.RocateerKit",
+                "bundle_id": "noommate.android",
                 "app_store_id": "50928389"
               }
             }

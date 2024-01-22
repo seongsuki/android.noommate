@@ -6,12 +6,12 @@ import android.view.View;
 
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.main.MainActivity;
-import noommate.android.activity.signin.SigninActivity;;
+;
 
 
-public class SignupCompleteActivity extends RocateerActivity {
+public class SignupCompleteActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

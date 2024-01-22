@@ -14,16 +14,16 @@ import androidx.appcompat.widget.AppCompatTextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Tools;
 import noommate.android.models.MemberModel;
 import noommate.android.models.api.CommonRouter;
 
-public class SignupActivity extends RocateerActivity {
+public class SignupActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

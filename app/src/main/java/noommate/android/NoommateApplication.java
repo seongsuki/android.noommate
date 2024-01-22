@@ -23,7 +23,7 @@ import java.security.NoSuchAlgorithmException;
 import noommate.android.commons.Constants;
 import timber.log.Timber;
 
-public class RocateerApplication extends Application {
+public class NoommateApplication extends Application {
 
   //--------------------------------------------------------------------------------------------
   // MARK : Override
@@ -33,16 +33,9 @@ public class RocateerApplication extends Application {
     super.onCreate();
 
     if (BuildConfig.DEBUG) {
-      Timber.plant(new RocateerDebugTree());
+      Timber.plant(new NoommateDebugTree());
     }
 
-    Timber.i("=================================================");
-    Timber.i(" _____ _____ _____ _____ _____ _____ _____ _____ ");
-    Timber.i("| __  |     |     |  _  |_   _|   __|   __| __  |");
-    Timber.i("|    -|  |  |   --|     | | | |   __|   __|    -|");
-    Timber.i("|__|__|_____|_____|__|__| |_| |_____|_____|__|__|");
-    Timber.i("                                                 ");
-    Timber.i("=================================================");
     Timber.v("VERBOSE");
     Timber.d("DEBUG");
     Timber.i("INFO");
@@ -120,10 +113,10 @@ public class RocateerApplication extends Application {
   /**
    * Timber Debug tree
    */
-  public class RocateerDebugTree extends Timber.DebugTree {
+  public class NoommateDebugTree extends Timber.DebugTree {
     @Override
     protected String createStackElementTag(StackTraceElement element) {
-      return String.format("ROCATEER_LOG - (%s:%s) [%s] ", element.getFileName(), element.getLineNumber(), element.getMethodName());
+      return String.format("NOOMMATE_LOG - (%s:%s) [%s] ", element.getFileName(), element.getLineNumber(), element.getMethodName());
     }
   }
 

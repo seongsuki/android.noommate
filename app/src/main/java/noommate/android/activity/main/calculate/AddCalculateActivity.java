@@ -24,14 +24,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.BookModel;
 import noommate.android.models.api.CommonRouter;
 import timber.log.Timber;
 
-public class AddCalculateActivity extends RocateerActivity {
+public class AddCalculateActivity extends NoommateActivity {
     public interface OnCalculateListener {
         void OnResult();
     }

@@ -16,10 +16,9 @@ import com.pixplicity.easyprefs.library.Prefs;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.signup.AddCharActivity;
 import noommate.android.activity.signup.SignupCompleteActivity;
-import noommate.android.activity.signup.SignupStepTwoActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.MemberModel;
@@ -29,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
 
-public class AddInfoActivity extends RocateerActivity {
+public class AddInfoActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
@@ -106,7 +105,7 @@ public class AddInfoActivity extends RocateerActivity {
                     Prefs.putString(Constants.MEMBER_IDX, mMemberResposne.getMember_idx());
                     Prefs.putString(Constants.MEMBER_JOIN_TYPE, mMemberResposne.getMember_join_type());
                     Intent signUpCompleteActivity = SignupCompleteActivity.getStartIntent(mActivity);
-                    startActivity(signUpCompleteActivity, RocateerActivity.TRANS.PRESENT);
+                    startActivity(signUpCompleteActivity, NoommateActivity.TRANS.PRESENT);
                 }
             }
 
@@ -204,7 +203,7 @@ public class AddInfoActivity extends RocateerActivity {
                 }
             }
         });
-        startActivity(addCharActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(addCharActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**

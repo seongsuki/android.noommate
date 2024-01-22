@@ -2,7 +2,6 @@ package noommate.android.activity.main.schedule.schedulepage;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -27,11 +26,11 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
@@ -41,7 +40,7 @@ import noommate.android.models.ScheduleModel;
 import noommate.android.models.api.CommonRouter;
 import timber.log.Timber;
 
-public class AddScheduleActivity extends RocateerActivity {
+public class AddScheduleActivity extends NoommateActivity {
     public interface OnAddScheduleListener {
         void onRefresh();
     }

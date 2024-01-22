@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.dialog.ImagePickerDialog;
 
 
@@ -29,7 +29,7 @@ import noommate.android.dialog.ImagePickerDialog;
  * android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
  * android:theme="@style/Base.Theme.AppCompat" />
  */
-public class ImagePickActivity extends RocateerActivity {
+public class ImagePickActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

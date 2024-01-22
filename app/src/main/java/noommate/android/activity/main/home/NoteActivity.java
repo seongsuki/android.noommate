@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
@@ -27,7 +27,7 @@ import noommate.android.dialog.ReportDialog;
 import noommate.android.models.NoteModel;
 import noommate.android.models.api.CommonRouter;
 
-public class NoteActivity extends RocateerActivity {
+public class NoteActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

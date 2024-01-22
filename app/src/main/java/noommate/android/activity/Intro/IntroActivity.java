@@ -12,7 +12,7 @@ import com.pixplicity.easyprefs.library.Prefs;
 import java.util.List;
 
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.main.MainActivity;
 import noommate.android.activity.signin.SigninActivity;
 import noommate.android.commons.Constants;
@@ -20,7 +20,7 @@ import noommate.android.commons.Tools;
 import noommate.android.models.AlarmModel;
 import timber.log.Timber;
 
-public class IntroActivity extends RocateerActivity {
+public class IntroActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

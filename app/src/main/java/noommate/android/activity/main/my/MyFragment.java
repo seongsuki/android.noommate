@@ -16,12 +16,12 @@ import com.pixplicity.easyprefs.library.Prefs;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.activity.RocateerFragment;
+import noommate.android.activity.NoommateFragment;
 import noommate.android.activity.commons.notice.NoticeListActivity;
 import noommate.android.activity.commons.qna.QNAActivity;
 import noommate.android.activity.signin.SigninActivity;
@@ -31,7 +31,7 @@ import noommate.android.dialog.HouseIntoDialog;
 import noommate.android.models.MemberModel;
 import noommate.android.models.api.CommonRouter;
 
-public class MyFragment extends RocateerFragment {
+public class MyFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
@@ -216,7 +216,7 @@ public class MyFragment extends RocateerFragment {
                     Prefs.remove(Constants.HOUSE_IDX);
                     mActivity.removeAllActivity();
                     Intent signInActivity = SigninActivity.getStartIntent(mActivity);
-                    startActivity(signInActivity, RocateerActivity.TRANS.ZOOM);
+                    startActivity(signInActivity, NoommateActivity.TRANS.ZOOM);
                 }
             }
 
@@ -274,7 +274,7 @@ public class MyFragment extends RocateerFragment {
     @OnClick(R.id.edit_info_button)
     public void editInfoTouched() {
         Intent editInfoActivity = EditInfoActivity.getStartIntent(mActivity);
-        startActivity(editInfoActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(editInfoActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -305,7 +305,7 @@ public class MyFragment extends RocateerFragment {
     @OnClick(R.id.notice_button)
     public void noticeTouched() {
         Intent noticeActivity = NoticeListActivity.getStartIntent(mActivity);
-        startActivity(noticeActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(noticeActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -314,7 +314,7 @@ public class MyFragment extends RocateerFragment {
     @OnClick(R.id.qna_button)
     public void qnaTouched() {
         Intent qnaActivity = QNAActivity.getStartIntent(mActivity);
-        startActivity(qnaActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(qnaActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -322,11 +322,11 @@ public class MyFragment extends RocateerFragment {
      */
     @OnClick(R.id.house_out_button)
     public void houseOutTouched() {
-        showConfirmDialog("하우스의 일정, 가계부 등은\n삭제되어 더 이상 볼 수 없게 됩니다.\n" + mMemberResponse.getHouse_name() + "을(를) 나가시겠어요?", "취소", "하우스 나가기", new RocateerActivity.DialogEventListener() {
+        showConfirmDialog("하우스의 일정, 가계부 등은\n삭제되어 더 이상 볼 수 없게 됩니다.\n" + mMemberResponse.getHouse_name() + "을(를) 나가시겠어요?", "취소", "하우스 나가기", new NoommateActivity.DialogEventListener() {
             @Override
             public void onReceivedEvent() {
                 houseOutUpAPI();
-                showAlertDialog(mMemberResponse.getHouse_name() + "\n하우스를 나왔습니다.", "확인", new RocateerActivity.DialogEventListener() {
+                showAlertDialog(mMemberResponse.getHouse_name() + "\n하우스를 나왔습니다.", "확인", new NoommateActivity.DialogEventListener() {
                     @Override
                     public void onReceivedEvent() {
 
@@ -341,7 +341,7 @@ public class MyFragment extends RocateerFragment {
      */
     @OnClick(R.id.signout_button)
     public void signoutTouched() {
-        showConfirmDialog("로그아웃 하시겠어요?", "취소", "확인", new RocateerActivity.DialogEventListener() {
+        showConfirmDialog("로그아웃 하시겠어요?", "취소", "확인", new NoommateActivity.DialogEventListener() {
             @Override
             public void onReceivedEvent() {
                 memberLogoutAPI();
@@ -355,7 +355,7 @@ public class MyFragment extends RocateerFragment {
     @OnClick(R.id.alarm_button)
     public void alarmTouched() {
         Intent alarmSettingActivity = AlarmSettingActivity.getStartIntent(mActivity);
-        startActivity(alarmSettingActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(alarmSettingActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -364,7 +364,7 @@ public class MyFragment extends RocateerFragment {
     @OnClick(R.id.terms_button)
     public void termsTouched() {
         Intent termsListActivity = TermsListActivity.getStartIntent(mActivity);
-        startActivity(termsListActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(termsListActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -373,7 +373,7 @@ public class MyFragment extends RocateerFragment {
     @OnClick(R.id.withdrawal_button)
     public void withdrawalTouched() {
         Intent withdrawalActivity = WithDrawalActivity.getStartIntent(mActivity);
-        startActivity(withdrawalActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(withdrawalActivity, NoommateActivity.TRANS.PUSH);
     }
 
 

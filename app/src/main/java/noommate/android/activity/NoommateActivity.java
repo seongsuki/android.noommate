@@ -29,13 +29,13 @@ import butterknife.OnClick;
 import butterknife.Optional;
 import noommate.android.R;
 import noommate.android.commons.TouchDetectableScrollView;
-import noommate.android.dialog.RocateerDialog;
+import noommate.android.dialog.NoommateDialog;
 import noommate.android.models.ActivityModel;
 import noommate.android.commons.BackPressCloseHandler;
 import noommate.android.commons.Tools;
 import timber.log.Timber;
 
-public abstract class RocateerActivity extends AppCompatActivity {
+public abstract class NoommateActivity extends AppCompatActivity {
 
   //--------------------------------------------------------------------------------------------
   // MARK : Interface Area
@@ -87,7 +87,7 @@ public abstract class RocateerActivity extends AppCompatActivity {
   // MARK : Local variables
   //--------------------------------------------------------------------------------------------
   static ArrayList<ActivityModel> mListActivity = new ArrayList<>();
-  protected RocateerActivity mActivity;
+  protected NoommateActivity mActivity;
   private TRANS activityTrans = TRANS.PRESENT;
 
   private Snackbar mSnackbar;
@@ -213,7 +213,7 @@ public abstract class RocateerActivity extends AppCompatActivity {
    */
   public void finishMultiRemoveActivity(int count) {
     for (int i = 1; i < count + 1; i++) {
-      mListActivity.get(mListActivity.size() - 1).getRocateerActivity().finish();
+      mListActivity.get(mListActivity.size() - 1).getNoommateActivity().finish();
       mListActivity.remove(mListActivity.size() - 1);
     }
   }
@@ -224,7 +224,7 @@ public abstract class RocateerActivity extends AppCompatActivity {
    */
   public boolean removeAllActivity() {
     for (ActivityModel value : mListActivity) {
-      value.getRocateerActivity().finish();
+      value.getNoommateActivity().finish();
     }
     mListActivity.clear();
     return true;
@@ -301,12 +301,12 @@ public abstract class RocateerActivity extends AppCompatActivity {
       mDialogEventListener = dialogEventListener;
     }
 
-    final RocateerDialog rocateerDialog = new RocateerDialog(mActivity);
-    rocateerDialog.setDialog(message, confirmTitle);
-    rocateerDialog.addOKButton(new View.OnClickListener() {
+    final NoommateDialog noommateDialog = new NoommateDialog(mActivity);
+    noommateDialog.setDialog(message, confirmTitle);
+    noommateDialog.addOKButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
         if (mDialogEventListener != null) {
           mDialogEventListener.onReceivedEvent();
           mDialogEventListener = null;
@@ -328,12 +328,12 @@ public abstract class RocateerActivity extends AppCompatActivity {
       mDialogEventListener = dialogEventListener;
     }
 
-    final RocateerDialog rocateerDialog = new RocateerDialog(mActivity);
-    rocateerDialog.setDialog(message, confirmTitle, cancelTitle);
-    rocateerDialog.addOKButton(new View.OnClickListener() {
+    final NoommateDialog noommateDialog = new NoommateDialog(mActivity);
+    noommateDialog.setDialog(message, confirmTitle, cancelTitle);
+    noommateDialog.addOKButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
         if (mDialogEventListener != null) {
           mDialogEventListener.onReceivedEvent();
           mDialogEventListener = null;
@@ -341,10 +341,10 @@ public abstract class RocateerActivity extends AppCompatActivity {
 
       }
     });
-    rocateerDialog.addCancelButton(new View.OnClickListener() {
+    noommateDialog.addCancelButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
       }
     });
   }
@@ -353,12 +353,12 @@ public abstract class RocateerActivity extends AppCompatActivity {
    * 에러만 보여주는 다이얼로그
    */
   public void showErrorDialog() {
-    final RocateerDialog rocateerDialog = new RocateerDialog(mActivity);
-    rocateerDialog.setDialog(getString(R.string.common_err_api_msg), getString(R.string.common_ok));
-    rocateerDialog.addOKButton(new View.OnClickListener() {
+    final NoommateDialog noommateDialog = new NoommateDialog(mActivity);
+    noommateDialog.setDialog(getString(R.string.common_err_api_msg), getString(R.string.common_ok));
+    noommateDialog.addOKButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
       }
     });
   }
@@ -371,12 +371,12 @@ public abstract class RocateerActivity extends AppCompatActivity {
       mDialogEventListener = dialogEventListener;
     }
 
-    final RocateerDialog rocateerDialog = new RocateerDialog(mActivity);
-    rocateerDialog.setDialog(message, getString(R.string.common_ok));
-    rocateerDialog.addOKButton(new View.OnClickListener() {
+    final NoommateDialog noommateDialog = new NoommateDialog(mActivity);
+    noommateDialog.setDialog(message, getString(R.string.common_ok));
+    noommateDialog.addOKButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
         if (mDialogEventListener != null) {
           mDialogEventListener.onReceivedEvent();
           mDialogEventListener = null;

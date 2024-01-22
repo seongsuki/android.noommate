@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -32,12 +31,12 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.activity.RocateerFragment;
+import noommate.android.activity.NoommateFragment;
 import noommate.android.activity.commons.alarm.AlarmActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.DecorationHorizontal;
@@ -49,9 +48,8 @@ import noommate.android.dialog.ImagePickerDialog;
 import noommate.android.models.MemberModel;
 import noommate.android.models.api.BaseRouter;
 import noommate.android.models.api.CommonRouter;
-import timber.log.Timber;
 
-public class HomeFragment extends RocateerFragment {
+public class HomeFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
@@ -214,7 +212,7 @@ public class HomeFragment extends RocateerFragment {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.state_text_view) {
-                    showConfirmDialog(mTodoList.get(position).getPlan_name() + " 을(를) 완료하셨나요?", "취소", "수행 완료했어요.", new RocateerActivity.DialogEventListener() {
+                    showConfirmDialog(mTodoList.get(position).getPlan_name() + " 을(를) 완료하셨나요?", "취소", "수행 완료했어요.", new NoommateActivity.DialogEventListener() {
                         @Override
                         public void onReceivedEvent() {
                             todayScheduleEndAPI(mTodoList.get(position).getSchedule_idx());
@@ -383,7 +381,7 @@ public class HomeFragment extends RocateerFragment {
     @OnClick(R.id.alarm_list_button)
     public void alarmTouched() {
         Intent alarmActivity = AlarmActivity.getStartIntent(mActivity);
-        startActivity(alarmActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(alarmActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -392,7 +390,7 @@ public class HomeFragment extends RocateerFragment {
     @OnClick(R.id.add_house_button)
     public void addHouseTouched() {
         Intent addHouseActivity = AddHouseActivity.getStartIntent(mActivity);
-        startActivity(addHouseActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(addHouseActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -401,7 +399,7 @@ public class HomeFragment extends RocateerFragment {
     @OnClick(R.id.schedule_button)
     public void scheduleTouched() {
         Intent homeScheduleActivity = HomeScheduleActivity.getStartIntent(mActivity);
-        startActivity(homeScheduleActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(homeScheduleActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**
@@ -410,7 +408,7 @@ public class HomeFragment extends RocateerFragment {
     @OnClick(R.id.note_button)
     public void noteTouched() {
         Intent noteActivity = NoteActivity.getStartIntent(mActivity);
-        startActivity(noteActivity, RocateerActivity.TRANS.PUSH);
+        startActivity(noteActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**

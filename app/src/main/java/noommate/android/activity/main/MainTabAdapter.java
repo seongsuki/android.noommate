@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.main.calculate.CalculateFragment;
 import noommate.android.activity.main.home.HomeFragment;
 import noommate.android.activity.main.my.MyFragment;
@@ -17,7 +17,7 @@ public class MainTabAdapter extends FragmentStatePagerAdapter {
   private CalculateFragment calculateFragment;
   private MyFragment myFragment;
   private ScheduleFragment scheduleFragment;
-  private RocateerActivity mActivity;
+  private NoommateActivity mActivity;
 
   public MainTabAdapter(@NonNull FragmentManager fm) {
     super(fm);

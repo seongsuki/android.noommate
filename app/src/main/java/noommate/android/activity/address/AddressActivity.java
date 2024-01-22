@@ -11,11 +11,11 @@ import android.webkit.WebView;
 
 import butterknife.BindView;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.commons.RocateerWebViewClient;
+import noommate.android.activity.NoommateActivity;
+import noommate.android.commons.NoommateWebViewClient;
 import timber.log.Timber;
 
-public class AddressActivity extends RocateerActivity {
+public class AddressActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ public class AddressActivity extends RocateerActivity {
     webSettings.setJavaScriptEnabled(true);
 
     mWebView.setWebChromeClient(new WebChromeClient());
-    mWebView.setWebViewClient(new RocateerWebViewClient(this));
+    mWebView.setWebViewClient(new NoommateWebViewClient(this));
     mWebView.setVerticalScrollbarOverlay(true); //스크롤설정
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

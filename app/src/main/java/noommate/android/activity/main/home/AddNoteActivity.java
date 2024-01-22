@@ -17,13 +17,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.NoteModel;
 import noommate.android.models.api.CommonRouter;
 
-public class AddNoteActivity extends RocateerActivity {
+public class AddNoteActivity extends NoommateActivity {
     public interface OnAddNoteListener {
         void OnRefresh();
     }

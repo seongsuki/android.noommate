@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import butterknife.BindView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
 import noommate.android.models.ScheduleModel;
 import noommate.android.models.api.CommonRouter;
 
-public class HomeScheduleActivity extends RocateerActivity {
+public class HomeScheduleActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

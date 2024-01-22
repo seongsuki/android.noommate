@@ -20,11 +20,11 @@ import java.io.File;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.dialog.ImagePickerDialog;
@@ -32,7 +32,7 @@ import noommate.android.models.HouseModel;
 import noommate.android.models.api.BaseRouter;
 import noommate.android.models.api.CommonRouter;
 
-public class AddHouseActivity extends RocateerActivity {
+public class AddHouseActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

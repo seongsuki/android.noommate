@@ -10,11 +10,11 @@ import android.webkit.WebView;
 
 import butterknife.BindView;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.commons.RocateerWebViewClient;
+import noommate.android.activity.NoommateActivity;
+import noommate.android.commons.NoommateWebViewClient;
 
 
-public class TermsActivity extends RocateerActivity {
+public class TermsActivity extends NoommateActivity {
   public enum TermsType {
     SERVICE, PRI, MARKETING
   }
@@ -75,7 +75,7 @@ public class TermsActivity extends RocateerActivity {
     webSettings.setJavaScriptEnabled(true);
 
     mWebView.setWebChromeClient(new WebChromeClient());
-    mWebView.setWebViewClient(new RocateerWebViewClient(this));
+    mWebView.setWebViewClient(new NoommateWebViewClient(this));
     mWebView.setVerticalScrollbarOverlay(true); //스크롤설정
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

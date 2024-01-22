@@ -46,13 +46,13 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 
+import noommate.android.activity.NoommateActivity;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.models.BaseModel;
 import noommate.android.models.FileModel;
 import noommate.android.models.api.BaseRouter;
@@ -62,13 +62,13 @@ import timber.log.Timber;
 public class Tools {
 
   private static final Tools ourInstance = new Tools();
-  private static RocateerActivity mActivity;
+  private static NoommateActivity mActivity;
 
   public static Tools getInstance() {
     return ourInstance;
   }
 
-  public static Tools getInstance(RocateerActivity activity) {
+  public static Tools getInstance(NoommateActivity activity) {
     mActivity = activity;
     return ourInstance;
   }

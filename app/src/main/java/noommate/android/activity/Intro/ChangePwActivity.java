@@ -9,9 +9,9 @@ import androidx.appcompat.widget.AppCompatEditText;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 
-public class ChangePwActivity extends RocateerActivity {
+public class ChangePwActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

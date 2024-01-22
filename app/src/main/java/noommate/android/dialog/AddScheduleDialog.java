@@ -1,7 +1,6 @@
 package noommate.android.dialog;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +16,11 @@ import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.ArrayList;
 
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.activity.main.home.MateAdapter;
 import noommate.android.activity.main.schedule.schedulepage.YoilAdapter;
 import noommate.android.commons.Constants;
@@ -30,14 +29,13 @@ import noommate.android.commons.Tools;
 import noommate.android.models.MemberModel;
 import noommate.android.models.ScheduleModel;
 import noommate.android.models.api.CommonRouter;
-import timber.log.Timber;
 
 public class AddScheduleDialog extends BottomSheetDialogFragment {
     public interface AddScheduleListener {
         void onRefresh(ArrayList<String> dayList, ArrayList<MemberModel> selectList);
     }
 
-    public AddScheduleDialog(RocateerActivity activity, AddScheduleListener addScheduleListener) {
+    public AddScheduleDialog(NoommateActivity activity, AddScheduleListener addScheduleListener) {
         mActivity = activity;
         mAddScheduleListener = addScheduleListener;
 
@@ -60,7 +58,7 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
     }
 
     private static AddScheduleListener mAddScheduleListener;
-    private RocateerActivity mActivity;
+    private NoommateActivity mActivity;
     private int mIndex;
 
 

@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("rocateer.kit", appContext.getPackageName());
+        assertEquals("noommate.android", appContext.getPackageName());
     }
 }

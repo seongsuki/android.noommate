@@ -12,13 +12,13 @@ import com.pixplicity.easyprefs.library.Prefs;
 
 import butterknife.BindView;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.SwipeViewPager;
 import noommate.android.models.AlarmModel;
 
 
-public class MainActivity extends RocateerActivity {
+public class MainActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

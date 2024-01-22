@@ -14,11 +14,11 @@ import com.pixplicity.easyprefs.library.Prefs;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.commons.TouchDetectableScrollView;
@@ -26,7 +26,7 @@ import noommate.android.commons.TouchDetectableScrollView;
 import noommate.android.models.api.CommonRouter;
 import noommate.android.models.AlarmModel;
 
-public class AlarmActivity extends RocateerActivity {
+public class AlarmActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

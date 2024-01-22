@@ -21,7 +21,7 @@ import retrofit2.Response;
 
 import butterknife.BindView;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
@@ -29,7 +29,7 @@ import noommate.android.commons.TouchDetectableScrollView;
 import noommate.android.models.AlarmModel;
 import noommate.android.models.api.CommonRouter;
 
-public class AlarmActivity extends RocateerActivity {
+public class AlarmActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

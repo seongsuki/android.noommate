@@ -11,10 +11,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.models.MemberModel;
+import noommate.android.activity.NoommateActivity;
 
-public class FindPwActivity  extends RocateerActivity {
+public class FindPwActivity  extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

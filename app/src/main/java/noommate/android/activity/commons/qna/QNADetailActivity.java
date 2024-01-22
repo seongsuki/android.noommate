@@ -15,14 +15,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.QnaModel;
 import noommate.android.models.api.CommonRouter;
 
 
-public class QNADetailActivity extends RocateerActivity {
+public class QNADetailActivity extends NoommateActivity {
   public interface QaDetailListener {
     void onResult();
   }
@@ -161,7 +161,7 @@ public class QNADetailActivity extends RocateerActivity {
    */
   @OnClick(R.id.delete_button)
   public void qnaDeleteTouched() {
-    showConfirmDialog("헤딩 문의글을 삭제 하시겠습니까? 삭제하시면 해당 글은 다시 복구 할 수 없습니다.", getString(R.string.common_cancel), getString(R.string.common_ok), new RocateerActivity.DialogEventListener() {
+    showConfirmDialog("헤딩 문의글을 삭제 하시겠습니까? 삭제하시면 해당 글은 다시 복구 할 수 없습니다.", getString(R.string.common_cancel), getString(R.string.common_ok), new NoommateActivity.DialogEventListener() {
       @Override
       public void onReceivedEvent() {
         qaDelAPI();

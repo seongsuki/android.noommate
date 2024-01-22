@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import noommate.android.R;
 
-public class RocateerDialog  {
+public class NoommateDialog {
   private Context context;
   private Dialog dialog;
 
@@ -33,12 +33,12 @@ public class RocateerDialog  {
 
 
 
-  public RocateerDialog(Context context) {
+  public NoommateDialog(Context context) {
     this.context = context;
     dialog = new Dialog(context);
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-    dialog.setContentView(R.layout.dialog_rocateer);
+    dialog.setContentView(R.layout.dialog_noommate);
     dialog.setCancelable(false);
 
     mDialogMessageTextView = (AppCompatTextView) dialog.findViewById(R.id.dialog_message_text_view);

@@ -1,15 +1,15 @@
 package noommate.android.models;
 
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 
 public class ActivityModel {
 
   private String className;
-  private RocateerActivity rocateerActivity;
+  private NoommateActivity noommateActivity;
 
-  public ActivityModel(String className, RocateerActivity rocateerActivity) {
+  public ActivityModel(String className, NoommateActivity noommateActivity) {
     this.className = className;
-    this.rocateerActivity = rocateerActivity;
+    this.noommateActivity = noommateActivity;
   }
 
   public String getClassName() {
@@ -20,12 +20,12 @@ public class ActivityModel {
     this.className = className;
   }
 
-  public RocateerActivity getRocateerActivity() {
-    return rocateerActivity;
+  public NoommateActivity getNoommateActivity() {
+    return noommateActivity;
   }
 
-  public void setRocateerActivity(RocateerActivity rocateerActivity) {
-    this.rocateerActivity = rocateerActivity;
+  public void setNoommateActivity(NoommateActivity noommateActivity) {
+    this.noommateActivity = noommateActivity;
   }
 }
 

@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 
 
-public class FAQListActivity extends RocateerActivity {
+public class FAQListActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

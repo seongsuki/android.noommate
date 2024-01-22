@@ -22,12 +22,12 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
+import noommate.android.activity.NoommateActivity;
+import noommate.android.activity.NoommateFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
-import noommate.android.activity.RocateerFragment;
 import noommate.android.commons.Constants;
 import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
@@ -35,7 +35,7 @@ import noommate.android.dialog.DivDialog;
 import noommate.android.models.BookModel;
 import noommate.android.models.api.CommonRouter;
 
-public class CalculateFragment extends RocateerFragment {
+public class CalculateFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
@@ -258,7 +258,7 @@ public class CalculateFragment extends RocateerFragment {
 
                 }
             });
-            startActivity(addCalculateActivity, RocateerActivity.TRANS.PUSH);
+            startActivity(addCalculateActivity, NoommateActivity.TRANS.PUSH);
         } else {
             Intent addCalculateActivity = AddCalculateActivity.getStartIntent(mActivity, mBookResponse.getBook_idx(), new AddCalculateActivity.OnCalculateListener() {
                 @Override
@@ -269,7 +269,7 @@ public class CalculateFragment extends RocateerFragment {
 
                 }
             });
-            startActivity(addCalculateActivity, RocateerActivity.TRANS.PUSH);
+            startActivity(addCalculateActivity, NoommateActivity.TRANS.PUSH);
         }
     }
 

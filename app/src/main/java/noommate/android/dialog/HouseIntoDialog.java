@@ -13,11 +13,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import io.github.florent37.shapeofview.shapes.RoundRectView;
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.models.MemberModel;
@@ -28,7 +28,7 @@ public class HouseIntoDialog extends BottomSheetDialogFragment {
         void onRefresh();
     }
 
-    public HouseIntoDialog(RocateerActivity activity, IntoListener intoListener) {
+    public HouseIntoDialog(NoommateActivity activity, IntoListener intoListener) {
         mActivity = activity;
         mIntoListener = intoListener;
 
@@ -43,7 +43,7 @@ public class HouseIntoDialog extends BottomSheetDialogFragment {
     }
 
     private static IntoListener mIntoListener;
-    private RocateerActivity mActivity;
+    private NoommateActivity mActivity;
 
     private RoundRectView mHouseCodeLayout;
     private AppCompatEditText mHouseCodeEditText;

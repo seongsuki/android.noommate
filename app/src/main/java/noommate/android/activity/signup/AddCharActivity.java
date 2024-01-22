@@ -16,13 +16,13 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.DecorationHorizontal;
 import noommate.android.commons.Tools;
 import noommate.android.models.BaseModel;
 import timber.log.Timber;
 
-public class AddCharActivity extends RocateerActivity {
+public class AddCharActivity extends NoommateActivity {
     public interface OnAddCharListener {
         void onRefresh(String back, String face, String color);
     }

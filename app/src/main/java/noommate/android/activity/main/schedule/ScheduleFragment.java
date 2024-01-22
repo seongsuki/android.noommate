@@ -7,10 +7,10 @@ import com.google.android.material.tabs.TabLayout;
 
 import butterknife.BindView;
 import noommate.android.R;
-import noommate.android.activity.RocateerFragment;
+import noommate.android.activity.NoommateFragment;
 import noommate.android.commons.SwipeViewPager;
 
-public class ScheduleFragment extends RocateerFragment {
+public class ScheduleFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------

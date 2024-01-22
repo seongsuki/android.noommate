@@ -16,11 +16,11 @@ import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.ArrayList;
 
+import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
 import noommate.android.activity.main.home.MateAdapter;
 import noommate.android.commons.Constants;
 import noommate.android.commons.DecorationHorizontal;
@@ -34,7 +34,7 @@ public class DivDialog extends BottomSheetDialogFragment {
         void onRefresh();
     }
 
-    public DivDialog(RocateerActivity activity,BookModel bookModel, DivListener divListener) {
+    public DivDialog(NoommateActivity activity, BookModel bookModel, DivListener divListener) {
         mActivity = activity;
         mDivListener = divListener;
         mBookModel = bookModel;
@@ -54,7 +54,7 @@ public class DivDialog extends BottomSheetDialogFragment {
     }
 
     private static DivListener mDivListener;
-    private RocateerActivity mActivity;
+    private NoommateActivity mActivity;
 
 
 

@@ -1,27 +1,13 @@
 package noommate.android.activity.signin;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.util.Base64;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.kakao.sdk.auth.model.OAuthToken;
-import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
 import com.pixplicity.easyprefs.library.Prefs;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -33,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import noommate.android.R;
 import noommate.android.activity.Intro.FindPwActivity;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.main.MainActivity;
 import noommate.android.activity.signup.SignupActivity;
 import noommate.android.commons.Constants;
@@ -42,7 +28,7 @@ import noommate.android.models.MemberModel;
 import noommate.android.models.api.CommonRouter;
 import timber.log.Timber;
 
-public class SigninActivity extends RocateerActivity {
+public class SigninActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

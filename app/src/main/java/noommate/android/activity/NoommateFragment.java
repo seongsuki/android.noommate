@@ -31,13 +31,13 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Response;
 import noommate.android.R;
-import noommate.android.dialog.RocateerDialog;
+import noommate.android.dialog.NoommateDialog;
 import noommate.android.models.BaseListModel;
 import noommate.android.models.BaseModel;
 import noommate.android.commons.Tools;
 import timber.log.Timber;
 
-public abstract class RocateerFragment extends Fragment {
+public abstract class NoommateFragment extends Fragment {
   //--------------------------------------------------------------------------------------------
   // MARK : Interface Area
   //-------------------------------------------------------------------------------------------
@@ -66,8 +66,8 @@ public abstract class RocateerFragment extends Fragment {
   //--------------------------------------------------------------------------------------------
   private Unbinder mButterknife;
   public Context mContext;
-  public RocateerActivity mActivity;
-  private RocateerActivity.DialogEventListener mDialogEventListener;
+  public NoommateActivity mActivity;
+  private NoommateActivity.DialogEventListener mDialogEventListener;
   private Snackbar mSnackbar;
 
   //--------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ public abstract class RocateerFragment extends Fragment {
 
     mButterknife = ButterKnife.bind(this, view);
     mContext = getContext();
-    mActivity = ((RocateerActivity) getActivity());
+    mActivity = ((NoommateActivity) getActivity());
 
 //
     HideUtil.init(mActivity);
@@ -129,7 +129,7 @@ public abstract class RocateerFragment extends Fragment {
    *
    * @param trans
    */
-  public void startActivity(Intent intent, RocateerActivity.TRANS trans) {
+  public void startActivity(Intent intent, NoommateActivity.TRANS trans) {
     intent.putExtra("ANIMATION", trans.ordinal());
     super.startActivity(intent);
     switch (trans) {
@@ -150,7 +150,7 @@ public abstract class RocateerFragment extends Fragment {
    *
    * @param intent
    */
-  public void startActivityForResult(Intent intent, int requestCode, RocateerActivity.TRANS trans) {
+  public void startActivityForResult(Intent intent, int requestCode, NoommateActivity.TRANS trans) {
     intent.putExtra("ANIMATION", trans.ordinal());
     super.startActivityForResult(intent, requestCode);
     switch (trans) {
@@ -251,17 +251,17 @@ public abstract class RocateerFragment extends Fragment {
    * @param confirmTitle
    * @param dialogEventListener
    */
-  public void showConfirmDialog(String message, String cancelTitle, String confirmTitle, RocateerActivity.DialogEventListener dialogEventListener) {
+  public void showConfirmDialog(String message, String cancelTitle, String confirmTitle, NoommateActivity.DialogEventListener dialogEventListener) {
     if (dialogEventListener != null) {
       mDialogEventListener = dialogEventListener;
     }
 
-    final RocateerDialog rocateerDialog = new RocateerDialog(mActivity);
-    rocateerDialog.setDialog(message, confirmTitle, cancelTitle);
-    rocateerDialog.addOKButton(new View.OnClickListener() {
+    final NoommateDialog noommateDialog = new NoommateDialog(mActivity);
+    noommateDialog.setDialog(message, confirmTitle, cancelTitle);
+    noommateDialog.addOKButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
         if (mDialogEventListener != null) {
           mDialogEventListener.onReceivedEvent();
           mDialogEventListener = null;
@@ -269,10 +269,10 @@ public abstract class RocateerFragment extends Fragment {
 
       }
     });
-    rocateerDialog.addCancelButton(new View.OnClickListener() {
+    noommateDialog.addCancelButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
       }
     });
   }
@@ -284,17 +284,17 @@ public abstract class RocateerFragment extends Fragment {
    * @param confirmTitle
    * @param dialogEventListener
    */
-  public void showAlertDialog(String message, String confirmTitle, RocateerActivity.DialogEventListener dialogEventListener) {
+  public void showAlertDialog(String message, String confirmTitle, NoommateActivity.DialogEventListener dialogEventListener) {
     if (dialogEventListener != null) {
       mDialogEventListener = dialogEventListener;
     }
 
-    final RocateerDialog rocateerDialog = new RocateerDialog(mActivity);
-    rocateerDialog.setDialog(message, confirmTitle);
-    rocateerDialog.addOKButton(new View.OnClickListener() {
+    final NoommateDialog noommateDialog = new NoommateDialog(mActivity);
+    noommateDialog.setDialog(message, confirmTitle);
+    noommateDialog.addOKButton(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        rocateerDialog.dismiss();
+        noommateDialog.dismiss();
         if (mDialogEventListener != null) {
           mDialogEventListener.onReceivedEvent();
           mDialogEventListener = null;

@@ -8,11 +8,11 @@ import android.provider.SyncStateContract;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import noommate.android.R;
-import noommate.android.activity.RocateerActivity;
+import noommate.android.activity.NoommateActivity;
 
 import timber.log.Timber;
 
-public class IntroAlarmActivity extends RocateerActivity {
+public class IntroAlarmActivity extends NoommateActivity {
   //--------------------------------------------------------------------------------------------
   // MARK : GET START INTENT
   //--------------------------------------------------------------------------------------------

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class RocateerPreference {
+public class NoommatePreference {
   private static String PREF_NAME = "_pref_tb";
 
   @SuppressLint("WrongConstant")

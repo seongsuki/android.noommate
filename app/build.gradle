@@ -7,7 +7,7 @@ apply plugin: 'com.google.firebase.firebase-perf'
 android {
     compileSdkVersion 31
     defaultConfig {
-        applicationId "rocateer.kit"
+        applicationId "noommate.android"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 1
