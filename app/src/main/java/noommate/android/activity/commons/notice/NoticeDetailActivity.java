@@ -56,7 +56,7 @@ public class NoticeDetailActivity extends NoommateActivity {
 
   @Override
   protected void initLayout() {
-    initToolbar("공지사항 상세");
+    initToolbar("공지사항");
   }
 
   @Override

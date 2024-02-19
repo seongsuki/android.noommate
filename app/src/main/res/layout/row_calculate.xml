@@ -51,10 +51,11 @@
                 android:text="나누기"
                 android:textColor="@color/color_ffffff"
                 android:background="@color/colorAccent"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"/>
+                android:textSize="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"/>
         </io.github.florent37.shapeofview.shapes.RoundRectView>
     </RelativeLayout>
 

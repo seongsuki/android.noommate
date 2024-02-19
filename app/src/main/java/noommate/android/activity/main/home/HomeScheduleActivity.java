@@ -15,6 +15,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import noommate.android.activity.NoommateActivity;
+import noommate.android.models.MemberModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,7 +77,13 @@ public class HomeScheduleActivity extends NoommateActivity {
      * 일정 리스트
      */
     private void initHomeScheduleListAdapter() {
-        mHomeScheduleListAdapter = new HomeScheduleListAdapter(mHomeScheduleList);
+        mHomeScheduleListAdapter = new HomeScheduleListAdapter(mHomeScheduleList, new HomeScheduleListAdapter.OnHomeScheduleListener() {
+            @Override
+            public void OnRefresh() {
+                mHomeScheduleList.clear();
+                todayScheduleListAPI();
+            }
+        });
         mHomeScheduleListAdapter.setEmptyView(new EmptyView(mActivity, "오늘은 하우스 일정이 없어요."));
         mScheduleRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         mScheduleRecyclerView.setAdapter(mHomeScheduleListAdapter);
@@ -97,6 +104,9 @@ public class HomeScheduleActivity extends NoommateActivity {
                 if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
                     if (mScheduleResponse.getData_array() != null) {
                         for (ScheduleModel value : mScheduleResponse.getData_array()) {
+                            for (MemberModel member : value.getSchedule_item_member_list()) {
+                                member.setCoc_cnt("3");
+                            }
                             HomeScheduleListItem homeScheduleListItem = new HomeScheduleListItem(value.getPlan_name());
                             HomeScheduleDetailItem homeScheduleDetailItem = new HomeScheduleDetailItem(value);
                             homeScheduleListItem.addSubItem(homeScheduleDetailItem);

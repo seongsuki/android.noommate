@@ -2,10 +2,14 @@ package noommate.android.activity.commons.qna;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.MotionEvent;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import com.pixplicity.easyprefs.library.Prefs;
+import com.skydoves.powerspinner.OnSpinnerOutsideTouchListener;
 import com.skydoves.powerspinner.PowerSpinnerView;
 
 import butterknife.BindView;
@@ -61,6 +65,15 @@ public class AddQnaActivity extends NoommateActivity {
   @Override
   protected void initLayout() {
     mToolbarTitle.setText("1:1 문의 등록");
+
+    mCategorySpinner.setSpinnerOutsideTouchListener(new OnSpinnerOutsideTouchListener() {
+      @Override
+      public void onSpinnerOutsideTouch(@NonNull View view, @NonNull MotionEvent motionEvent) {
+        mCategorySpinner.dismiss();
+      }
+    });
+
+    mCategorySpinner.selectItemByIndex(0);
 
   }
 

@@ -53,7 +53,7 @@ public class TodoListAdapter extends BaseQuickAdapter<ScheduleModel, BaseViewHol
         if (item.getWeek_arr() != null) {
             String[] yoil = item.getWeek_arr().split(",");
             for (String value : yoil) {
-                mYoilList.get(Integer.parseInt(value)).setSelected(true);
+                mYoilList.get(Integer.parseInt(value) - 1).setSelected(true);
             }
         }
         mYoilAdapter.setNewData(mYoilList);

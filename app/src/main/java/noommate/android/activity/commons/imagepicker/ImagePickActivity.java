@@ -9,8 +9,6 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import com.bumptech.glide.request.RequestOptions;
-import com.esafirm.imagepicker.features.ImagePicker;
-import com.esafirm.imagepicker.features.ReturnMode;
 
 
 import java.util.ArrayList;
@@ -135,27 +133,27 @@ public class ImagePickActivity extends NoommateActivity {
     mImagePickerDialog.mCameraButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        ImagePicker.create(mActivity)
-            .imageDirectory(getString(R.string.app_name))
-            .cameraOnly()
-            .start(mActivity);
+//        ImagePicker.create(mActivity)
+//            .imageDirectory(getString(R.string.app_name))
+//            .cameraOnly()
+//            .start(mActivity);
       }
     });
     mImagePickerDialog.mAlbumButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        ImagePicker.create(mActivity)
-            .returnMode(ReturnMode.ALL)
-            .folderMode(true)
-            .toolbarFolderTitle(getString(R.string.app_name))
-            .toolbarImageTitle(getString(R.string.app_name))
-            .includeVideo(false)
-            .includeAnimation(false)
-            .imageDirectory(getString(R.string.app_name))
-            .single()
-            .theme(R.style.ImagePickerTheme)
-            .showCamera(false)
-            .start();
+//        ImagePicker.create(mActivity)
+//            .returnMode(ReturnMode.ALL)
+//            .folderMode(true)
+//            .toolbarFolderTitle(getString(R.string.app_name))
+//            .toolbarImageTitle(getString(R.string.app_name))
+//            .includeVideo(false)
+//            .includeAnimation(false)
+//            .imageDirectory(getString(R.string.app_name))
+//            .single()
+//            .theme(R.style.ImagePickerTheme)
+//            .showCamera(false)
+//            .start();
       }
     });
     mImagePickerDialog.show();
@@ -166,17 +164,17 @@ public class ImagePickActivity extends NoommateActivity {
    */
   @OnClick(R.id.multi_album_button)
   public void multiAlbumTouched() {
-    ImagePicker.create(mActivity)
-        .returnMode(ReturnMode.CAMERA_ONLY)
-        .folderMode(false)
-        .toolbarFolderTitle("감동팁")
-        .toolbarImageTitle("감동팁")
-        .includeVideo(false)
-        .includeAnimation(false)
-        .imageDirectory(getString(R.string.app_name))
-        .multi()
-        .theme(R.style.ImagePickerTheme)
-        .showCamera(false)
-        .start();
+//    ImagePicker.create(mActivity)
+//        .returnMode(ReturnMode.CAMERA_ONLY)
+//        .folderMode(false)
+//        .toolbarFolderTitle("감동팁")
+//        .toolbarImageTitle("감동팁")
+//        .includeVideo(false)
+//        .includeAnimation(false)
+//        .imageDirectory(getString(R.string.app_name))
+//        .multi()
+//        .theme(R.style.ImagePickerTheme)
+//        .showCamera(false)
+//        .start();
   }
 }

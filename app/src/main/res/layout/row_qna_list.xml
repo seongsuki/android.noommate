@@ -10,6 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="불편신고"
+        android:textSize="12dp"
+        android:textColor="@color/color_3a3a3c"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
 

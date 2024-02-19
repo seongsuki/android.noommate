@@ -11,6 +11,7 @@ public class ScheduleModel extends BaseListModel {
     private String schedule_w;
     // 타이틀
     private String plan_name;
+    private String coc_cnt;
     // 시작 날짜
     private String s_date;
     // 종료 날짜
@@ -260,5 +261,13 @@ public class ScheduleModel extends BaseListModel {
 
     public void setSelect_member(ArrayList<MemberModel> select_member) {
         this.select_member = select_member;
+    }
+
+    public String getCoc_cnt() {
+        return coc_cnt;
+    }
+
+    public void setCoc_cnt(String coc_cnt) {
+        this.coc_cnt = coc_cnt;
     }
 }

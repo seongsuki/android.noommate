@@ -49,6 +49,7 @@
                     android:background="@color/color_87b7ff"
                     android:paddingLeft="16dp"
                     android:paddingTop="4dp"
+                    android:textStyle="bold"
                     android:paddingRight="16dp"
                     android:paddingBottom="4dp"
                     android:text="문의"
@@ -60,7 +61,7 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,7 +79,7 @@
                     android:id="@+id/qna_list_recycler_view"
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

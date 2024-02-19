@@ -4,20 +4,39 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title_text_view"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="대청소"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/color_3a3a3c"/>
+        android:layout_marginRight="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대청소"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_3a3a3c"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_small_right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list_recycler_view"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/color_fafafc"
+        android:layout_marginTop="24dp"/>
 </LinearLayout>

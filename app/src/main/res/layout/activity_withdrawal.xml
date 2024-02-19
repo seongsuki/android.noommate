@@ -74,7 +74,7 @@
                                <androidx.appcompat.widget.AppCompatTextView
                                    android:layout_width="wrap_content"
                                    android:layout_height="wrap_content"
-                                   android:text="     다시 복원할 수 없어요."
+                                   android:text="   다시 복원할 수 없어요."
                                    android:textSize="14dp"
                                    android:textStyle="bold"
                                    android:textColor="@color/color_3a3a3c"/>

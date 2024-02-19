@@ -23,6 +23,8 @@
                 android:id="@+id/profile_layout"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
+                app:shape_roundRect_borderWidth="2dp"
+                app:shape_roundRect_borderColor="@color/color_f1f1f4"
                 app:shape_roundRect_bottomLeftRadius="17dp"
                 app:shape_roundRect_bottomRightRadius="17dp"
                 app:shape_roundRect_topLeftRadius="17dp"

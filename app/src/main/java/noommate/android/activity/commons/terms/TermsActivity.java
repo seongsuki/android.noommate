@@ -12,6 +12,7 @@ import butterknife.BindView;
 import noommate.android.R;
 import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.NoommateWebViewClient;
+import noommate.android.models.api.BaseRouter;
 
 
 public class TermsActivity extends NoommateActivity {
@@ -86,7 +87,13 @@ public class TermsActivity extends NoommateActivity {
       cookieManager.setAcceptCookie(true);
       cookieManager.setAcceptThirdPartyCookies(mWebView, true);
     }
-    mWebView.loadUrl("http://p-api.moaboom.site/terms_web_view_v_1_0_0/terms_detail?type=0");
+    if (mTermType == TermsType.SERVICE) {
+      mWebView.loadUrl(BaseRouter.BASE_URL + "terms_web_view_v_1_0_0/terms_detail?type=1");
+    } else if (mTermType == TermsType.PRI) {
+      mWebView.loadUrl(BaseRouter.BASE_URL + "terms_web_view_v_1_0_0/terms_detail?type=2");
+    } else {
+      mWebView.loadUrl(BaseRouter.BASE_URL + "terms_web_view_v_1_0_0/terms_detail?type=3");
+    }
   }
   //--------------------------------------------------------------------------------------------
   // MARK : Bind Actions

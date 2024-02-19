@@ -81,6 +81,7 @@ public class AddScheduleActivity extends NoommateActivity {
     private static OnAddScheduleListener mOnAddScheduleListener;
     private ScheduleModel mDetailResponse = new ScheduleModel();
     private static String mPlanIdx;
+    private static ArrayList<String> mDayList = new ArrayList<>();
     private ArrayList<String> memberIdxs = new ArrayList<>();
 
 
@@ -160,14 +161,24 @@ public class AddScheduleActivity extends NoommateActivity {
             scheduleRequest.setHouse_idx(Prefs.getString(Constants.HOUSE_IDX, ""));
             scheduleRequest.setPlan_name(mTitleEditText.getText().toString());
             scheduleRequest.setAlarm_yn(mCheckBox.isChecked() ? "N" : "Y");
-            scheduleRequest.setAlarm_hour(mTimeSpinner.getText().toString());
+            String time = mTimeSpinner.getText().toString();
+            String[] array = time.split("시");
+            scheduleRequest.setAlarm_hour(array[0]);
             scheduleRequest.setItem_array(jsonArray.toString());
             CommonRouter.api().plan_reg_in(Tools.getInstance().getMapper(scheduleRequest)).enqueue(new Callback<ScheduleModel>() {
                 @Override
                 public void onResponse(Call<ScheduleModel> call, Response<ScheduleModel> response) {
-                    if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
-                        finishWithRemove();
+                    ScheduleModel mAddResponse = response.body();
+                    if (mAddResponse.getCode().equals("1000")) {
                         mOnAddScheduleListener.onRefresh();
+                        finishWithRemove();
+                    } else {
+                        showAlertDialog(mAddResponse.getCode_msg(), "확인", new DialogEventListener() {
+                            @Override
+                            public void onReceivedEvent() {
+
+                            }
+                        });
                     }
                 }
 
@@ -181,7 +192,6 @@ public class AddScheduleActivity extends NoommateActivity {
             throw new RuntimeException(e);
         }
     }
-
     /**
      * 일정 수정 API
      */
@@ -200,15 +210,15 @@ public class AddScheduleActivity extends NoommateActivity {
             scheduleRequest.setPlan_name(mTitleEditText.getText().toString());
             scheduleRequest.setAlarm_yn(mCheckBox.isChecked() ? "N" : "Y");
             scheduleRequest.setPlan_idx(mPlanIdx);
-            scheduleRequest.setAlarm_hour(mTimeSpinner.getText().toString());
+            String time = mTimeSpinner.getText().toString();
+            String[] array = time.split("시");
+            scheduleRequest.setAlarm_hour(array[0]);
             scheduleRequest.setItem_array(jsonArray.toString());
             CommonRouter.api().plan_mod_up(Tools.getInstance().getMapper(scheduleRequest)).enqueue(new Callback<ScheduleModel>() {
                 @Override
                 public void onResponse(Call<ScheduleModel> call, Response<ScheduleModel> response) {
                     ScheduleModel scheduleResponse = response.body();
                     if (scheduleResponse.getCode().equals("1000")) {
-
-
                         finishWithRemove();
                         mOnAddScheduleListener.onRefresh();
                     } else {
@@ -246,7 +256,7 @@ public class AddScheduleActivity extends NoommateActivity {
                 if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
                     mTitleEditText.setText(mDetailResponse.getPlan_name());
                     mCheckBox.setChecked(mDetailResponse.getAlarm_yn() == "Y" ? true : false);
-                    mTimeSpinner.setText(mDetailResponse.getAlarm_hour());
+                    mTimeSpinner.setText(mDetailResponse.getAlarm_hour() + "시");
                     if (mDetailResponse.getPlan_item_list() != null) {
                         mScheduleList.addAll(mDetailResponse.getPlan_item_list());
                         Timber.i(mDetailResponse.getPlan_item_list().get(0).getMember_arr());
@@ -294,10 +304,11 @@ public class AddScheduleActivity extends NoommateActivity {
      */
     @OnClick(R.id.add_button)
     public void addTouched() {
-        AddScheduleDialog addScheduleDialog = new AddScheduleDialog(mActivity, new AddScheduleDialog.AddScheduleListener() {
+        AddScheduleDialog addScheduleDialog = new AddScheduleDialog(mActivity,mDayList, new AddScheduleDialog.AddScheduleListener() {
             @Override
             public void onRefresh(ArrayList<String> dayList, ArrayList<MemberModel> selectList) {
                 ScheduleModel scheduleModel = new ScheduleModel();
+                mDayList = dayList;
                 // 요일
                 String strArrayToString = String.join(",", dayList);
                 scheduleModel.setWeek_arr(strArrayToString);
@@ -339,7 +350,12 @@ public class AddScheduleActivity extends NoommateActivity {
      */
     @OnClick(R.id.delete_button)
     public void deleteTouched() {
-        planDelAPI();
+        showConfirmDialog("할 일을 삭제할까요?", "취소", "확인", new DialogEventListener() {
+            @Override
+            public void onReceivedEvent() {
+                planDelAPI();
+            }
+        });
 
     }
 
@@ -349,7 +365,16 @@ public class AddScheduleActivity extends NoommateActivity {
     @OnClick(R.id.enroll_button)
     public void enrollTouched() {
         if (mPlanIdx.equals("")) {
-            planRegInAPI();
+            if (mScheduleList.size() > 0) {
+                planRegInAPI();
+            } else {
+                showAlertDialog("추가된 일정이 없습니다. 일정을\n추가해 주세요.", "확인", new DialogEventListener() {
+                    @Override
+                    public void onReceivedEvent() {
+
+                    }
+                });
+            }
         } else {
             planModUpAPI();
         }

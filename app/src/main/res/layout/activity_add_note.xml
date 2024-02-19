@@ -29,11 +29,12 @@
             android:layout_centerInParent="true"/>
 
         <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/add_round"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="24dp"
             app:shape_roundRect_bottomLeftRadius="4dp"
             app:shape_roundRect_bottomRightRadius="4dp"
             app:shape_roundRect_topLeftRadius="4dp"
@@ -43,18 +44,17 @@
                 android:id="@+id/add_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/color_87b7ff"
+                android:paddingLeft="16dp"
+                android:paddingTop="4dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="4dp"
                 android:text="등록"
                 android:textColor="@color/color_ffffff"
-                android:textSize="12dp"
-                android:textStyle="bold"
-                android:background="@color/color_87b7ff"
-                android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"/>
-
+                android:textSize="12dp" />
         </io.github.florent37.shapeofview.shapes.RoundRectView>
+
     </RelativeLayout>
     
     <io.github.florent37.shapeofview.shapes.RoundRectView
@@ -82,6 +82,7 @@
                 android:textColor="@color/color_3a3a3c"
                 android:inputType="textMultiLine"
                 android:maxLength="200"
+                android:gravity="top"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:background="@color/color_ffffff"
@@ -92,7 +93,7 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:textSize="16dp"
-                android:hint="하우스 메이트에게 알리고 싶은 내용을\n작성해 보세요! "
+                android:hint="하우스 메이트에게 알리고 싶은 내용을 작성해 보세요!\n\n"
                 android:textColorHint="@color/color_c8ccd5"/>
 
             <androidx.appcompat.widget.AppCompatImageView

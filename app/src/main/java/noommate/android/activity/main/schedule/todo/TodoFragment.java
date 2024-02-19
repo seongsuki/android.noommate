@@ -1,7 +1,9 @@
 package noommate.android.activity.main.schedule.todo;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,6 +50,14 @@ public class TodoFragment extends NoommateFragment {
     private TodoAdapter mTodoAdapter;
     private ArrayList<ScheduleModel> mTodoList = new ArrayList<>();
     private ScheduleModel mScheduleResponse = new ScheduleModel();
+    private BroadcastReceiver mScheduleReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            mTodoList.clear();
+            planListAPI();
+
+        }
+    };
 
     //--------------------------------------------------------------------------------------------
     // MARK : Override
@@ -59,6 +69,9 @@ public class TodoFragment extends NoommateFragment {
 
     @Override
     protected void initLayout() {
+        mActivity.registerReceiver(mScheduleReceiver, new IntentFilter(Constants.SCHEDULE_REFRESH3));
+
+
 
     }
 

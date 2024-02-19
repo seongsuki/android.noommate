@@ -20,7 +20,7 @@
 
   <io.github.florent37.shapeofview.shapes.RoundRectView
       android:layout_width="match_parent"
-      android:layout_height="65dp"
+      android:layout_height="wrap_content"
       android:layout_marginLeft="16dp"
       android:layout_marginRight="16dp"
     app:shape_roundRect_bottomLeftRadius="12dp"
@@ -37,7 +37,7 @@
         android:text="Empty Text"
         android:background="@color/clear"
         android:textColor="@color/color_999999"
-        android:textSize="14dp" />
+        android:textSize="16dp" />
 
 
   </io.github.florent37.shapeofview.shapes.RoundRectView>

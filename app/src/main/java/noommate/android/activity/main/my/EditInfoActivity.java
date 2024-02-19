@@ -26,11 +26,15 @@ import noommate.android.models.api.CommonRouter;
 import timber.log.Timber;
 
 public class EditInfoActivity extends NoommateActivity {
+    public interface OnEditListener {
+        void onRefresh();
+    }
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
-    public static Intent getStartIntent(Context context) {
+    public static Intent getStartIntent(Context context, OnEditListener onEditListener) {
         Intent intent = new Intent(context, EditInfoActivity.class);
+        mOnEditListener = onEditListener;
         return intent;
     }
 
@@ -54,6 +58,8 @@ public class EditInfoActivity extends NoommateActivity {
     private String mFace;
     private String mBack;
     private String mColor;
+    private MemberModel mMemberResponse;
+    private static OnEditListener mOnEditListener;
 
     //--------------------------------------------------------------------------------------------
     // MARK : Override
@@ -90,7 +96,7 @@ public class EditInfoActivity extends NoommateActivity {
         CommonRouter.api().member_info_detail(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
-                MemberModel mMemberResponse = response.body();
+                mMemberResponse = response.body();
                 if (Tools.getInstance().isSuccessResponse(response)) {
                     mNicknameEditText.setText(mMemberResponse.getMember_name());
                     if (mMemberResponse.getMember_role1().equals("")) {
@@ -169,8 +175,24 @@ public class EditInfoActivity extends NoommateActivity {
         CommonRouter.api().member_info_mod_up(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
-                if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
+                MemberModel mMemberResponse = response.body();
+                if (mMemberResponse.getCode().equals("1000")) {
+
                     finishWithRemove();
+                    mOnEditListener.onRefresh();
+                    Intent scheduleRefresh = new Intent(Constants.SCHEDULE_REFRESH1);
+                    mActivity.sendBroadcast(scheduleRefresh);
+                    Intent historyRefresh = new Intent(Constants.SCHEDULE_REFRESH2);
+                    mActivity.sendBroadcast(historyRefresh);
+                    Intent todoRefresh = new Intent(Constants.SCHEDULE_REFRESH3);
+                    mActivity.sendBroadcast(todoRefresh);
+                } else {
+                    showAlertDialog(mMemberResponse.getCode_msg(), "확인", new DialogEventListener() {
+                        @Override
+                        public void onReceivedEvent() {
+
+                        }
+                    });
                 }
             }
 
@@ -192,7 +214,7 @@ public class EditInfoActivity extends NoommateActivity {
      */
     @OnClick(R.id.back_layout)
     public void backLayoutTouched() {
-        Intent addCharActivity = AddCharActivity.getStartIntent(mActivity, new AddCharActivity.OnAddCharListener() {
+        Intent addCharActivity = AddCharActivity.getStartIntent(mActivity, mMemberResponse.getMember_role1(), mMemberResponse.getMember_role2(), mMemberResponse.getMember_role3(), new AddCharActivity.OnAddCharListener() {
             @Override
             public void onRefresh(String back, String face, String color) {
                 mBack = back;

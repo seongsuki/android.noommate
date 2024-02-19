@@ -19,6 +19,10 @@ public class Constants {
 
 
   public static String HOME_REFRESH = "home_refresh";
+  public static String SCHEDULE_REFRESH1 = "schedule_refresh1";
+  public static String SCHEDULE_REFRESH2 = "schedule_refresh2";
+  public static String SCHEDULE_REFRESH3 = "schedule_refresh3";
+
   public static String MY_REFRESH = "my_refresh";
   public static String CALCULATE_REFRESH = "calculate_refresh";
 

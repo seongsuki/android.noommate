@@ -9,6 +9,8 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import noommate.android.R;
@@ -19,6 +21,7 @@ public class HomeScheduleAdapter extends BaseQuickAdapter<MemberModel, BaseViewH
         super(layoutResId, data);
     }
 
+
     @Override
     protected void convert(BaseViewHolder helper, MemberModel item) {
         AppCompatTextView mStateTextView = helper.getView(R.id.state_text_view);
@@ -26,7 +29,10 @@ public class HomeScheduleAdapter extends BaseQuickAdapter<MemberModel, BaseViewH
         LinearLayout mContentLayout = helper.getView(R.id.content_layout);
         helper.addOnClickListener(R.id.state_text_view);
         helper.setText(R.id.content_text_view, item.getPlan_name());
-        helper.setText(R.id.date_text_view, item.getSchedule_date());
+//        String date = item.getAlarm_hour();
+//        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa ~");
+//        String time1 = sdf.format(date);
+//        helper.setText(R.id.date_text_view, time1);
 
         if (item.getSchedule_idx() != null) {
             mDefaultTextView.setVisibility(View.GONE);

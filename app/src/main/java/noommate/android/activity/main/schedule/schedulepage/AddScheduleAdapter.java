@@ -51,12 +51,15 @@ public class AddScheduleAdapter extends BaseQuickAdapter<ScheduleModel, BaseView
         for (int i = 0; i < 7; i++) {
             mYoilList.add(new ScheduleModel());
         }
-        if (item.getWeek_arr() != null) {
-            String[] yoil = item.getWeek_arr().split(",");
-            for (String value : yoil) {
-                mYoilList.get(Integer.parseInt(value)).setSelected(true);
+        if (item.getWeek_arr().length() > 0) {
+            if (item.getWeek_arr() != null) {
+                String[] yoil = item.getWeek_arr().split(",");
+                for (String value : yoil) {
+                    mYoilList.get(Integer.parseInt(value) - 1).setSelected(true);
+                }
             }
         }
+
         mYoilAdapter.setNewData(mYoilList);
 
         }

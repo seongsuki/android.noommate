@@ -7,7 +7,7 @@
 
   <string name="fileprovider">com.noommateandroid.fileprovider</string>
 
-  <string name="common_auth"><![CDATA[&눔메이트를 이용하기 위하여 사진, 저장소, 위치 권한이 필요합니다.]]></string>
+  <string name="common_auth"><![CDATA[눔메이트를 이용하기 위하여 사진, 저장소 권한이 필요합니다.]]></string>
   <string name="common_auth_denined"><![CDATA[[어플리케이션 > 눔메이트 > 권한 설정] 에서 권한 설정을 다시 할 수 있습니다.]]></string>
   <string name="common_ok">확인</string>
   <string name="common_select">선택</string>

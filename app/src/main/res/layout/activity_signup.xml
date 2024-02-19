@@ -115,19 +115,32 @@
                     android:id="@+id/info_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="16dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/circle_image_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="3dp"
+                        android:layout_height="3dp"
                         android:layout_marginRight="3dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/red_circle"/>
+                        app:shape_roundRect_bottomLeftRadius="1.5dp"
+                        app:shape_roundRect_bottomRightRadius="1.5dp"
+                        app:shape_roundRect_topLeftRadius="1.5dp"
+                        app:shape_roundRect_topRightRadius="1.5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/circle_layout"
+                            android:orientation="vertical"
+                            android:background="@color/color_ff2525"/>
+
+
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/default_text_view"
@@ -187,7 +200,7 @@
                         android:hint="이메일을 입력해주세요"
                         android:inputType="textEmailAddress"
                         android:paddingLeft="10dp"
-                        android:paddingRight="74dp"
+                        android:paddingRight="10dp"
                         android:textColor="@color/color_3a3a3c"
                         android:textColorHint="@color/color_c8ccd5"
                         android:textSize="14dp" />
@@ -243,7 +256,7 @@
                         android:hint="영문, 숫자, 특수문자 조합 8~15자리로 입력해 주세요."
                         android:inputType="textPassword"
                         android:paddingLeft="10dp"
-                        android:paddingRight="74dp"
+                        android:paddingRight="10dp"
                         android:textColor="@color/color_3a3a3c"
                         android:textColorHint="@color/color_c8ccd5"
                         android:textSize="14dp" />
@@ -299,7 +312,7 @@
                         android:hint="영문, 숫자, 특수문자 조합 8~15자리로 입력해 주세요."
                         android:inputType="textPassword"
                         android:paddingLeft="10dp"
-                        android:paddingRight="74dp"
+                        android:paddingRight="10dp"
                         android:textColor="@color/color_3a3a3c"
                         android:textColorHint="@color/color_c8ccd5"
                         android:textSize="14dp" />

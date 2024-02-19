@@ -1,18 +1,40 @@
 package noommate.android.activity.main.calculate;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnPaidEventListener;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.ResponseInfo;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.text.SimpleDateFormat;
@@ -34,6 +56,7 @@ import noommate.android.commons.Tools;
 import noommate.android.dialog.DivDialog;
 import noommate.android.models.BookModel;
 import noommate.android.models.api.CommonRouter;
+import timber.log.Timber;
 
 public class CalculateFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
@@ -75,6 +98,9 @@ public class CalculateFragment extends NoommateFragment {
     private BookModel mBookResponse = new BookModel();
     private BookModel mBookListResponse = new BookModel();
 
+    private RewardedAd rewardedAd;
+
+
     private BroadcastReceiver mCalculateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -96,8 +122,10 @@ public class CalculateFragment extends NoommateFragment {
 
     @Override
     protected void initLayout() {
+        loadAd();
         mActivity.registerReceiver(mCalculateReceiver, new IntentFilter(Constants.CALCULATE_REFRESH));
         mDateTextView.setText(sdf.format(mNowDate));
+
 
 
     }
@@ -114,18 +142,52 @@ public class CalculateFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
 
     /**
+     * 광고 보여주기
+     */
+    public void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        RewardedAd.load(getContext(), "ca-app-pub-3940256099942544/5224354917", adRequest, new RewardedAdLoadCallback() {
+            @Override
+            public void onAdFailedToLoad(LoadAdError loadAdError) {
+                // 광고 로드 실패
+                Timber.i(loadAdError.toString());
+            }
+
+            @Override
+            public void onAdLoaded(RewardedAd ad) {
+                rewardedAd = ad;
+            }
+        });
+
+    }
+
+    private void showRewardedAd() {
+        if (rewardedAd != null) {
+            rewardedAd.show(requireActivity(), rewardItem -> {
+                // 사용자에게 보상 제공 및 관련 작업 수행
+                Timber.i("광고 노출");
+            });
+        } else {
+            // 리워드 광고가 아직 로드되지 않았음을 알림
+            Timber.i("로드되지 않음");
+        }
+    }
+
+
+    /**
      * 가계부 리스트
      */
     private void initCalculateAdapter() {
         mCalculateAdapter = new CalculateAdapter(R.layout.row_calculate, mCalculateList);
-        mCalculateAdapter.setEmptyView(new EmptyView(mActivity,"이번 달 가계부 내역이 없습니다.\n지금 바로 작성해보세요!"));
+        mCalculateAdapter.setEmptyView(new EmptyView(mActivity, "이번 달 가계부 내역이 없습니다.\n지금 바로 작성해보세요!"));
         mCalculateAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.div_button) {
-                    DivDialog divDialog = new DivDialog(mActivity ,mCalculateList.get(position), new DivDialog.DivListener() {
+                    DivDialog divDialog = new DivDialog(mActivity, mCalculateList.get(position), new DivDialog.DivListener() {
                         @Override
                         public void onRefresh() {
+                            showRewardedAd();
 
                         }
                     });
@@ -142,9 +204,8 @@ public class CalculateFragment extends NoommateFragment {
      * 전체 가계부
      */
     private void initAllCalculateAdapter() {
-
         mAllCalculateAdapter = new AllCalculateAdapter(mAllCalculateList);
-        mAllCalculateAdapter.setEmptyView(new EmptyView(mActivity,"작성 된 가계부\n없습니다"));
+        mAllCalculateAdapter.setEmptyView(new EmptyView(mActivity, "작성 된 가계부\n없습니다"));
         mAllCalculateRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         mAllCalculateRecyclerView.setAdapter(mAllCalculateAdapter);
         bookListAPI();

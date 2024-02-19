@@ -5,29 +5,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_fafafc"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        >
+        android:layout_marginTop="24dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:id="@+id/yoil_recycler_view"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/delete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginTop="24dp"
-            android:paddingRight="10dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginRight="16dp"
             android:src="@drawable/x"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"/>
@@ -40,10 +35,5 @@
         android:layout_marginTop="8dp"
         android:id="@+id/char_recycler_view"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="@color/color_fafafc"
-        android:layout_marginTop="24dp"/>
 
 </LinearLayout>

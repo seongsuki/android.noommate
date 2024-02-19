@@ -29,9 +29,12 @@ public class AddCharActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
-    public static Intent getStartIntent(Context context, OnAddCharListener onAddCharListener) {
+    public static Intent getStartIntent(Context context,String back,String face, String color, OnAddCharListener onAddCharListener) {
         Intent intent = new Intent(context, AddCharActivity.class);
         mOnAddCharListener = onAddCharListener;
+        mBack = back;
+        mFace = face;
+        mColor = color;
         return intent;
     }
 
@@ -57,9 +60,9 @@ public class AddCharActivity extends NoommateActivity {
     private BackAdapter mBackAdapter;
     private FaceAdapter mFaceAdapter;
     private ColorAdapter mColorAdapter;
-    private String mBack = "0";
-    private String mFace = "0";
-    private String mColor = "0";
+    private static String mBack;
+    private static String mFace;
+    private static String mColor;
     private static OnAddCharListener mOnAddCharListener;
 
     ArrayList<BaseModel> mBackImageList = new ArrayList<>();
@@ -76,8 +79,8 @@ public class AddCharActivity extends NoommateActivity {
 
     @Override
     protected void initLayout() {
-        initToolbar("아바타 만들기");
-        for (int i = 0; i < 5; i++) {
+        initToolbar("캐릭터 만들기");
+        for (int i = 0; i < 6; i++) {
             mBackImageList.add(new BaseModel());
         }
         for (int i = 0; i < 6; i++) {
@@ -87,9 +90,69 @@ public class AddCharActivity extends NoommateActivity {
             mBackColorList.add(new BaseModel());
         }
 
-        mBackImageList.get(0).setSelected(true);
-        mFaceImageList.get(0).setSelected(true);
-        mBackColorList.get(0).setSelected(true);
+
+        if (mBack == null) {
+            mBack = "0";
+            mBackImageList.get(0).setSelected(true);
+        } else {
+            mBackImageList.get(Integer.parseInt(mBack)).setSelected(true);
+        }
+
+        if (mFace == null) {
+            mFace = "0";
+            mFaceImageList.get(0).setSelected(true);
+        } else {
+            mFaceImageList.get(Integer.parseInt(mFace)).setSelected(true);
+        }
+
+        if (mColor ==  null) {
+            mColor = "0";
+            mBackColorList.get(0).setSelected(true);
+        } else {
+            mBackColorList.get(Integer.parseInt(mColor)).setSelected(true);
+        }
+
+        if (mBack.equals("0")) {
+            mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back5));
+        } else if (mBack.equals("1")) {
+            mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back4));
+        } else if (mBack.equals("2")) {
+            mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back3));
+        } else if (mBack.equals("3")) {
+            mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back2));
+        } else if (mBack.equals("4")) {
+            mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back1));
+        }
+        // 표정
+        if (mFace.equals("0")) {
+            mFaceImageView.setImageDrawable(mActivity.getDrawable(R.drawable.group_191));
+        } else if (mFace.equals("1")) {
+            mFaceImageView.setImageDrawable(mActivity.getDrawable(R.drawable.group_197));
+        } else if (mFace.equals("2")) {
+            mFaceImageView.setImageDrawable(mActivity.getDrawable(R.drawable.group_193));
+        } else if (mFace.equals("3")) {
+            mFaceImageView.setImageDrawable(mActivity.getDrawable(R.drawable.group_194));
+        } else if (mFace.equals("4")) {
+            mFaceImageView.setImageDrawable(mActivity.getDrawable(R.drawable.group_195));
+        } else if (mFace.equals("5")) {
+            mFaceImageView.setImageDrawable(mActivity.getDrawable(R.drawable.group_196));
+        }
+        // 색상
+        if (mColor.equals("0")) {
+            mBackLayout.setBackgroundColor(mActivity.getColor(R.color.color_ff6d6d));
+        } else if (mColor.equals("1")) {
+            mBackLayout.setBackgroundColor(mActivity.getColor(R.color.color_ffcd4b));
+        } else if (mColor.equals("2")) {
+            mBackLayout.setBackgroundColor(mActivity.getColor(R.color.color_63d08f));
+        } else if (mColor.equals("3")) {
+            mBackLayout.setBackgroundColor(mActivity.getColor(R.color.color_87b7ff));
+        } else if (mColor.equals("4")) {
+            mBackLayout.setBackgroundColor(mActivity.getColor(R.color.color_798ed6));
+        } else if (mColor.equals("5")) {
+            mBackLayout.setBackgroundColor(mActivity.getColor(R.color.color_bfa0ff));
+        }
+
+
 
     }
 
@@ -128,6 +191,8 @@ public class AddCharActivity extends NoommateActivity {
                         mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back2));
                     } else if (position == 4) {
                         mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back1));
+                    } else if (position == 5) {
+                        mBackImageView.setImageDrawable(mActivity.getDrawable(R.drawable.back0));
                     }
             }
         });

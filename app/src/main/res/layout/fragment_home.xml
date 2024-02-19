@@ -6,15 +6,23 @@
     android:background="@color/color_ffffff"
     android:orientation="vertical">
 
+    <com.faltenreich.skeletonlayout.SkeletonLayout
+        android:id="@+id/skeleton_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/default_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/color_fafafc"
         android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:background="@color/color_ffffff"
             android:layout_height="48dp">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -43,8 +51,11 @@
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_makehouse"
+            android:layout_gravity="center"
+            android:background="@color/color_f9f9f9"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,6 +125,7 @@
             app:shape_roundRect_topRightRadius="8dp">
 
             <RelativeLayout
+                android:id="@+id/house_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/color_ffffff">
@@ -135,7 +147,6 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:text="하우스 코드 입력하기"
                         android:textColor="@color/color_3a3a3c"
                         android:textSize="16dp"
@@ -159,19 +170,24 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/house_layout"
         android:layout_width="match_parent"
+        android:elevation="0dp"
         android:layout_height="match_parent"
+        android:visibility="visible"
         android:orientation="vertical">
 
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:elevation="0dp"
                 android:fitsSystemWindows="true"
+                android:background="@color/color_ffffff"
                 app:contentScrim="@color/color_ffffff"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -239,7 +255,7 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/anim_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
+                    android:layout_height="?android:attr/actionBarSize"
                     android:background="@color/color_ffffff"
                     app:contentInsetStart="0dp"
                     app:layout_collapseMode="pin"
@@ -332,17 +348,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="24dp"
-                    android:background="@color/color_ffffff" />
 
                 <RelativeLayout
                     android:id="@+id/schedule_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
 
@@ -355,12 +366,6 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/icon_small_right" />
                 </RelativeLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -419,26 +424,20 @@
                         android:layout_height="match_parent"
                         android:background="@color/colorAccent"
                         android:gravity="center"
-                        android:text="더보기"
+                        android:text="할 일 보기"
                         android:textColor="@color/color_ffffff"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
                 </io.github.florent37.shapeofview.shapes.RoundRectView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="32dp"
-                    android:background="@color/color_ffffff" />
 
                 <RelativeLayout
                     android:id="@+id/note_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="34dp"
                     android:layout_marginRight="16dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -461,6 +460,7 @@
                     android:id="@+id/note_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="24dp"
                     android:layout_marginTop="8dp" />
 
 
@@ -469,4 +469,6 @@
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </com.faltenreich.skeletonlayout.SkeletonLayout>
 </LinearLayout>

@@ -300,6 +300,15 @@ public class CommonRouter extends BaseRouter {
     Call<BookModel> book_view(@FieldMap Map<String, Object> map);
 
     /**
+     * 비용알리기
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("book_v_1_0_0/book_alarm")
+    Call<BookModel> book_alarm(@FieldMap Map<String, Object> map);
+
+    /**
      * 전체 가계부
      * @param map
      * @return

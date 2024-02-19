@@ -12,8 +12,7 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.kakao.sdk.common.KakaoSdk;
 import com.pixplicity.easyprefs.library.Prefs;
 
@@ -53,24 +52,25 @@ public class NoommateApplication extends Application {
 
     // Firebase 초기화
     FirebaseApp.initializeApp(this);
-    FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-      @Override
-      public void onComplete(@NonNull Task<InstanceIdResult> task) {
-        if (!task.isSuccessful()) {
-          Timber.e("getInstanceId failed : " + task.getException());
-          return;
-        }
-        String token = task.getResult().getToken();
-        Timber.i("FCM KEY ===============================");
-        Prefs.putString(Constants.FCM_TOKEN, token);
-        Timber.i(Prefs.getString(Constants.FCM_TOKEN, ""));
-        Timber.i("FCM KEY ===============================");
-      }
-    });
+
+    FirebaseMessaging.getInstance().getToken()
+            .addOnCompleteListener(new OnCompleteListener<String>() {
+              @Override
+              public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful()) {
+                  return;
+                }
+
+                // Get new FCM registration token
+                String token = task.getResult();
+                Timber.i("FCM KEY ===============================");
+                Prefs.putString(Constants.FCM_TOKEN, token);
+                Timber.i(Prefs.getString(Constants.FCM_TOKEN, ""));
+                Timber.i("FCM KEY ===============================");
+              }
+            });
     KakaoSdk.init(this, Constants.KAKAO_APP_KEY);
 
-
-//    NaverMapSdk.getInstance(this).setClient(new NaverMapSdk.NaverCloudPlatformClient("um5pfkx9jv"));
   }
 
   //-------------------------------------------------------------------------------------------

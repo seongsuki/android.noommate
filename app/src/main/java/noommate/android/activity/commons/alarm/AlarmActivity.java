@@ -1,19 +1,25 @@
 package noommate.android.activity.commons.alarm;
 
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.gms.ads.MobileAds;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.ArrayList;
 
 import butterknife.OnClick;
+import noommate.android.activity.main.MainActivity;
+import noommate.android.activity.main.home.HomeScheduleActivity;
+import noommate.android.activity.main.home.NoteActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -48,8 +54,8 @@ public class AlarmActivity extends NoommateActivity {
   // MARK : Local variables
   //--------------------------------------------------------------------------------------------
   private AlarmAdapter mAlarmAdapter;
-  ArrayList<AlarmModel> mAlarmList = new ArrayList<>();
-  AlarmModel mAlarmResponse = new AlarmModel();
+  private ArrayList<AlarmModel> mAlarmList = new ArrayList<>();
+  private AlarmModel mAlarmResponse = new AlarmModel();
 
   //--------------------------------------------------------------------------------------------
   // MARK : Override
@@ -71,6 +77,14 @@ public class AlarmActivity extends NoommateActivity {
 
   }
 
+//  @Override
+//  protected void onCreate(Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    // ...
+//    MobileAds.initialize(mActivity);
+//  }
+
+
   //--------------------------------------------------------------------------------------------
   // MARK : Local functions
   //--------------------------------------------------------------------------------------------
@@ -85,9 +99,25 @@ public class AlarmActivity extends NoommateActivity {
       @Override
       public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         AlarmModel alarmData = mAlarmList.get(position).getData();
-//        switch (alarmData.getIndex()) {
-//          break;
-//        }
+        switch (alarmData.getIndex()) {
+          case "101":
+          case "105":
+          case "201":
+            Intent mainActivity = MainActivity.getStartIntent(mActivity);
+            startActivity(mainActivity, TRANS.ZOOM);
+            break;
+          case "102":
+            Intent noteActivity = NoteActivity.getStartIntent(mActivity);
+            startActivity(noteActivity, TRANS.PUSH);
+
+            break;
+          case "103":
+          case "104":
+            Intent homeScheduleActivity = HomeScheduleActivity.getStartIntent(mActivity);
+            startActivity(homeScheduleActivity, TRANS.PUSH);
+            break;
+        }
+
       }
     });
     mAlarmAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {

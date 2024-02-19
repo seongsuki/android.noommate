@@ -8,10 +8,15 @@
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+  <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
   <uses-permission android:name="android.permission.VIBRATE" />
   <uses-permission android:name="android.permission.BLUETOOTH" />
   <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!--  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
 
   <application
     android:name=".NoommateApplication"
@@ -40,6 +45,14 @@
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:host="noommate" android:scheme="noommate" />
       </intent-filter>
     </activity>
 
@@ -277,6 +290,10 @@
       android:name="firebase_performance_logcat_enabled"
       android:value="false" />
 
+    <meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="ca-app-pub-7966904614140801~4024086431"/>
+
 <!--    <meta-data-->
 <!--        android:name="com.google.android.gms.version"-->
 <!--        android:value="@integer/google_play_services_version" />-->
@@ -291,6 +308,7 @@
         android:name="android.support.FILE_PROVIDER_PATHS"
         android:resource="@xml/file_path_public" />
     </provider>
+
 
   </application>
 

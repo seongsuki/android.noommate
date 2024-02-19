@@ -37,6 +37,8 @@ public class BackAdapter extends BaseQuickAdapter<BaseModel, BaseViewHolder> {
             helper.setImageDrawable(R.id.image_view, mContext.getDrawable(R.drawable.back2));
         } else if (helper.getLayoutPosition() == 4) {
             helper.setImageDrawable(R.id.image_view, mContext.getDrawable(R.drawable.back1));
+        } else if (helper.getLayoutPosition() == 5) {
+            helper.setImageDrawable(R.id.image_view, mContext.getDrawable(R.drawable.back0));
         }
 //
     }

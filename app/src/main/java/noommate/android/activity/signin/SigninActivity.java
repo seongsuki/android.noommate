@@ -6,6 +6,7 @@ import android.content.Intent;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import com.kakao.sdk.auth.model.OAuthToken;
+import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
 import com.pixplicity.easyprefs.library.Prefs;
 
@@ -83,18 +84,25 @@ public class SigninActivity extends NoommateActivity {
     CommonRouter.api().member_login(Tools.getInstance(mActivity).getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
       @Override
       public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
-        if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
           MemberModel memberResponse = response.body();
-          Prefs.putString(Constants.MEMBER_ID, mIdEditText.getText().toString());
-          Prefs.putString(Constants.MEMBER_PW, mPwEditText.getText().toString());
-          Prefs.putString(Constants.MEMBER_IDX, memberResponse.getMember_idx());
-          Prefs.putString(Constants.HOUSE_IDX, memberResponse.getHouse_idx());
-          Prefs.putString(Constants.HOUSE_CODE, memberResponse.getHouse_code());
-          Prefs.putString(Constants.MEMBER_JOIN_TYPE, memberResponse.getMember_join_type());
-          Intent mainActivity = MainActivity.getStartIntent(mActivity);
-          startActivity(mainActivity,TRANS.ZOOM);
-          removeAllActivity();
-        }
+          if (memberResponse.getCode().equals("1000")) {
+            Prefs.putString(Constants.MEMBER_ID, mIdEditText.getText().toString());
+            Prefs.putString(Constants.MEMBER_PW, mPwEditText.getText().toString());
+            Prefs.putString(Constants.MEMBER_IDX, memberResponse.getMember_idx());
+            Prefs.putString(Constants.HOUSE_IDX, memberResponse.getHouse_idx());
+            Prefs.putString(Constants.HOUSE_CODE, memberResponse.getHouse_code());
+            Prefs.putString(Constants.MEMBER_JOIN_TYPE, memberResponse.getMember_join_type());
+            Intent mainActivity = MainActivity.getStartIntent(mActivity);
+            startActivity(mainActivity,TRANS.ZOOM);
+            removeAllActivity();
+          } else {
+            showAlertDialog(memberResponse.getCode_msg(), "확인", new DialogEventListener() {
+              @Override
+              public void onReceivedEvent() {
+
+              }
+            });
+          }
       }
 
       @Override

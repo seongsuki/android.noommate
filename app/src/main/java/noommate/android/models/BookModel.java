@@ -9,6 +9,8 @@ public class BookModel extends BaseListModel{
     private String house_idx;
     // 하우스 코드
     private String house_code;
+    private String member_arr;
+    private String mate_cnt;
     // 달
     private String month;
     // 가스
@@ -151,5 +153,21 @@ public class BookModel extends BaseListModel{
 
     public void setItem_list(ArrayList<BookModel> item_list) {
         this.item_list = item_list;
+    }
+
+    public String getMember_arr() {
+        return member_arr;
+    }
+
+    public void setMember_arr(String member_arr) {
+        this.member_arr = member_arr;
+    }
+
+    public String getMate_cnt() {
+        return mate_cnt;
+    }
+
+    public void setMate_cnt(String mate_cnt) {
+        this.mate_cnt = mate_cnt;
     }
 }

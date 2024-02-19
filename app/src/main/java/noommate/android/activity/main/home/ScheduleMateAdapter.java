@@ -34,6 +34,8 @@ public class ScheduleMateAdapter extends BaseQuickAdapter<MemberModel, BaseViewH
         AppCompatTextView mCocButton = helper.getView(R.id.coc_button);
         AppCompatImageView mCheckImageView = helper.getView(R.id.check_image_view);
 
+        helper.addOnClickListener(R.id.coc_button);
+
         ArrayList<Drawable> mBackImageList = new ArrayList<>();
         ArrayList<Drawable> mFaceImageList = new ArrayList<>();
         ArrayList<Integer> mBackColorList = new ArrayList<>();
@@ -68,10 +70,20 @@ public class ScheduleMateAdapter extends BaseQuickAdapter<MemberModel, BaseViewH
         }
         if (item.getMy_yn() != null) {
             if (item.getMy_yn().equals("Y")) {
-                mProfileLayout.setBorderWidth(3);
+                mProfileLayout.setBorderWidth(5);
+                mCocButton.setText("완료");
+                if (item.getSchedule_yn().equals("Y")) {
+                    mCocButton.setTextColor(mContext.getColor(R.color.color_c8ccd5));
+                    mCocButton.setBackgroundColor(mContext.getColor(R.color.color_e4e6eb));
+                } else {
+                    mCocButton.setBackgroundColor(mContext.getColor(R.color.color_87b7ff));
+                }
                 mProfileLayout.setBorderColor(mContext.getColor(R.color.colorAccent));
             } else {
-                mProfileLayout.setBorderWidth(0);
+                mProfileLayout.setBorderWidth(5);
+                mProfileLayout.setBorderColor(mContext.getColor(R.color.color_f1f1f4));
+                mCocButton.setText("콕찌르기");
+                mCocButton.setBackgroundColor(mContext.getColor(R.color.colorAccent));
             }
         }
     }

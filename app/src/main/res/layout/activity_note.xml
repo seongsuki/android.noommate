@@ -6,6 +6,7 @@
     android:background="@color/color_fafafc"
     android:orientation="vertical">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -56,24 +57,32 @@
         </io.github.florent37.shapeofview.shapes.RoundRectView>
     </RelativeLayout>
 
-    <noommate.android.commons.TouchDetectableScrollView
-        android:id="@+id/more_scroll_view"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <noommate.android.commons.TouchDetectableScrollView
+            android:id="@+id/more_scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/note_recycler_view"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp" />
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/note_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp" />
 
-    </noommate.android.commons.TouchDetectableScrollView>
+            </LinearLayout>
+
+        </noommate.android.commons.TouchDetectableScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

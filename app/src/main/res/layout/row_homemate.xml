@@ -6,19 +6,22 @@
     android:orientation="vertical">
     
     <io.github.florent37.shapeofview.shapes.RoundRectView
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:id="@+id/profile_layout"
+        app:shape_roundRect_borderWidth="3dp"
+        app:shape_roundRect_borderColor="@color/color_f1f1f4"
         app:shape_roundRect_bottomLeftRadius="26dp"
         app:shape_roundRect_topRightRadius="26dp"
         app:shape_roundRect_topLeftRadius="26dp"
         app:shape_roundRect_bottomRightRadius="26dp">
 
         <RelativeLayout
-            android:id="@+id/back_layout"
+            android:id="@id/back_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent">
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"

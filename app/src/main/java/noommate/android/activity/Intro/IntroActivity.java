@@ -3,6 +3,7 @@ package noommate.android.activity.Intro;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 
 import com.gun0912.tedpermission.PermissionListener;
@@ -97,14 +98,28 @@ public class IntroActivity extends NoommateActivity {
       }
     };
 
-    TedPermission.with(mActivity)
-        .setPermissionListener(permissionlistener)
-        .setRationaleMessage(R.string.common_auth)
-        .setDeniedMessage(R.string.common_auth_denined)
-        .setPermissions(Manifest.permission.CAMERA,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        .check();
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+      TedPermission.with(mActivity)
+          .setPermissionListener(permissionlistener)
+          .setRationaleMessage(R.string.common_auth)
+          .setDeniedMessage(R.string.common_auth_denined)
+          .setPermissions(Manifest.permission.CAMERA,
+                  Manifest.permission.POST_NOTIFICATIONS,
+                  Manifest.permission.READ_MEDIA_IMAGES,
+                  Manifest.permission.READ_MEDIA_AUDIO,
+                  Manifest.permission.READ_MEDIA_VIDEO)
+          .check();
+    } else {
+      TedPermission.with(mActivity)
+              .setPermissionListener(permissionlistener)
+              .setRationaleMessage(R.string.common_auth)
+              .setDeniedMessage(R.string.common_auth_denined)
+              .setPermissions(Manifest.permission.CAMERA,
+                      Manifest.permission.POST_NOTIFICATIONS,
+                      Manifest.permission.READ_EXTERNAL_STORAGE,
+                      Manifest.permission.WRITE_EXTERNAL_STORAGE)
+              .check();
+    }
   }
 
   /**

@@ -22,6 +22,8 @@
                 android:layout_height="119dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="24dp"
+                app:shape_roundRect_borderWidth="3dp"
+                app:shape_roundRect_borderColor="@color/color_f1f1f4"
                 app:shape_roundRect_bottomLeftRadius="30dp"
                 app:shape_roundRect_bottomRightRadius="30dp"
                 app:shape_roundRect_topLeftRadius="30dp"

@@ -1,14 +1,19 @@
 package noommate.android.activity.main.home;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Handler;
+
 import android.view.View;
 import android.widget.LinearLayout;
 
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -19,9 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.esafirm.imagepicker.features.ImagePicker;
-import com.esafirm.imagepicker.features.ReturnMode;
-import com.esafirm.imagepicker.model.Image;
+import com.faltenreich.skeletonlayout.SkeletonLayout;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.io.File;
@@ -31,6 +35,8 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +54,7 @@ import noommate.android.dialog.ImagePickerDialog;
 import noommate.android.models.MemberModel;
 import noommate.android.models.api.BaseRouter;
 import noommate.android.models.api.CommonRouter;
+import timber.log.Timber;
 
 public class HomeFragment extends NoommateFragment {
     //--------------------------------------------------------------------------------------------
@@ -83,6 +90,8 @@ public class HomeFragment extends NoommateFragment {
     AppCompatImageView mHouseImageView;
     @BindView(R.id.default_text_view)
     AppCompatTextView mDefaultTextView;
+    @BindView(R.id.skeleton_layout)
+    SkeletonLayout mSkeletonLayout;
 
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
@@ -129,6 +138,9 @@ public class HomeFragment extends NoommateFragment {
 
     @Override
     protected void initLayout() {
+
+//        mSkeletonLayout.showSkeleton();
+
         mActivity.registerReceiver(mHomeReceiver, new IntentFilter(Constants.HOME_REFRESH));
         if (Prefs.getString(Constants.HOUSE_CODE, "").equals("")) {
             mHouseLayout.setVisibility(View.GONE);
@@ -150,35 +162,41 @@ public class HomeFragment extends NoommateFragment {
 
     @Override
     protected void initRequest() {
-
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-//        Timber.i("data : " + data + "reqeulstCode : " + requestCode);
-        mImagePickDialog.dismiss();
-        Image image = ImagePicker.getFirstImageOrNull(data);
-        Uri imageUri = Uri.fromFile(new File(image.getPath()));
-        File file = Tools.getInstance().compressImage(imageUri);
-
-        Tools.getInstance().fileUploadAction(file, new Tools.FileUploadListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onResult(boolean isSuccess, String filePath) {
-
-                RequestOptions requestOptions = new RequestOptions();
-                requestOptions.centerCrop();
-
-                Glide.with(mActivity)
-                        .load(BaseRouter.BASE_URL + filePath)
-                        .apply(requestOptions)
-                        .into(mHouseImageView);
-                mImagePath = filePath;
-                houseModUpAPI();
-
+            public void run() {
+                mSkeletonLayout.showOriginal();
             }
-        });
+        }, 1000);
+
     }
+
+    private ActivityResultLauncher<Intent> startForProfileImageResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), result -> {
+                int resultCode = result.getResultCode();
+                Intent data = result.getData();
+
+                Uri uri = data.getData();
+                Timber.i("image_url" + data);
+                File file = Tools.getInstance().compressImage(uri);
+                Tools.getInstance().fileUploadAction(file, new Tools.FileUploadListener() {
+                    @Override
+                    public void onResult(boolean isSuccess, String filePath) {
+
+                        RequestOptions requestOptions = new RequestOptions();
+                        requestOptions.centerCrop();
+
+                        Glide.with(mActivity)
+                                .load(BaseRouter.BASE_URL + filePath)
+                                .apply(requestOptions)
+                                .into(mHouseImageView);
+                        mImagePath = filePath;
+
+                        houseModUpAPI();
+
+                    }
+                });
+            });
 
 
     @Override
@@ -208,16 +226,19 @@ public class HomeFragment extends NoommateFragment {
     private void initHomeScheduleAdapter() {
         mHomeScheduleAdapter = new HomeScheduleAdapter(R.layout.row_home_schedule, mTodoList);
         mHomeScheduleAdapter.setEmptyView(new EmptyView(mActivity, "하우스 일정이 없어요"));
-        mHomeScheduleAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+        mHomeScheduleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if (view.getId() == R.id.state_text_view) {
-                    showConfirmDialog(mTodoList.get(position).getPlan_name() + " 을(를) 완료하셨나요?", "취소", "수행 완료했어요.", new NoommateActivity.DialogEventListener() {
-                        @Override
-                        public void onReceivedEvent() {
-                            todayScheduleEndAPI(mTodoList.get(position).getSchedule_idx());
-                        }
-                    });
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                if (mTodoList.get(position).getSchedule_yn() != null) {
+                    if (mTodoList.get(position).getSchedule_yn().equals("N")) {
+                        showConfirmDialog(mTodoList.get(position).getPlan_name() + " 을(를) 완료하셨나요?", "취소", "수행 완료했어요.", new NoommateActivity.DialogEventListener() {
+                            @Override
+                            public void onReceivedEvent() {
+                                todayScheduleEndAPI(mTodoList.get(position).getSchedule_idx());
+                            }
+                        });
+
+                    }
                 }
             }
         });
@@ -266,18 +287,22 @@ public class HomeFragment extends NoommateFragment {
                     // 일정
                     mDateTextView.setText(sdf.format(mNowDate));
                     mCntTextView.setText("나의 할 일 " + mMemberResponse.getMy_schedule_count() + "개");
-                    mTodoList.add(new MemberModel());
-                    mTodoList.add(new MemberModel());
-                    mTodoList.add(new MemberModel());
-                    mTodoList.add(new MemberModel());
+
                     if (mMemberResponse.getMy_schedule_array().size() > 0) {
                         for (int j = 0; j < mMemberResponse.getMy_schedule_array().size(); j++) {
-                            mHomeScheduleAdapter.addData(j,mMemberResponse.getMy_schedule_array().get(j));
+                            mHomeScheduleAdapter.addData(j, mMemberResponse.getMy_schedule_array().get(j));
                         }
                         mDefaultTextView.setVisibility(View.GONE);
                         mTodoRecyclerView.setVisibility(View.VISIBLE);
-                        if (mTodoList.size() > 4) {
-                            mTodoList.remove(4);
+                        if (mMemberResponse.getMy_schedule_array().size() == 1) {
+                            mTodoList.add(new MemberModel());
+                            mTodoList.add(new MemberModel());
+                            mTodoList.add(new MemberModel());
+                        } else if (mMemberResponse.getMy_schedule_array().size() == 2) {
+                            mTodoList.add(new MemberModel());
+                            mTodoList.add(new MemberModel());
+                        } else if (mMemberResponse.getMy_schedule_array().size() == 3) {
+                            mTodoList.add(new MemberModel());
                         }
                     } else {
                         mDefaultTextView.setVisibility(View.VISIBLE);
@@ -327,7 +352,7 @@ public class HomeFragment extends NoommateFragment {
      */
     private void houseModUpAPI() {
         MemberModel memberRequest = new MemberModel();
-        memberRequest.setHouse_idx(Prefs.getString(Constants.HOUSE_IDX, ""));
+        memberRequest.setHouse_code(Prefs.getString(Constants.HOUSE_CODE, ""));
         memberRequest.setHouse_img(mImagePath);
         CommonRouter.api().house_mod_up(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
@@ -394,9 +419,38 @@ public class HomeFragment extends NoommateFragment {
     }
 
     /**
+     * 하우스 코드 입력하기
+     */
+    @OnClick(R.id.house_button)
+    public void houseTouched() {
+        HouseIntoDialog houseIntoDialog = new HouseIntoDialog(mActivity, new HouseIntoDialog.IntoListener() {
+            @Override
+            public void onRefresh() {
+                if (Prefs.getString(Constants.HOUSE_CODE, "").equals("")) {
+                    mHouseLayout.setVisibility(View.GONE);
+                    mDefaultLayout.setVisibility(View.VISIBLE);
+                } else if (!Prefs.getString(Constants.HOUSE_CODE, "").equals("")) {
+                    mHouseLayout.setVisibility(View.VISIBLE);
+                    mDefaultLayout.setVisibility(View.GONE);
+                    initMateAdapter();
+                    initNoteAdapter();
+                    initHomeScheduleAdapter();
+                    mMateList.clear();
+                    mNoteList.clear();
+                    mTodoList.clear();
+                    homeAPI();
+                }
+
+
+            }
+        });
+        houseIntoDialog.show(getChildFragmentManager(), "");
+    }
+
+    /**
      * 일정 이동
      */
-    @OnClick(R.id.schedule_button)
+    @OnClick(R.id.more_button)
     public void scheduleTouched() {
         Intent homeScheduleActivity = HomeScheduleActivity.getStartIntent(mActivity);
         startActivity(homeScheduleActivity, NoommateActivity.TRANS.PUSH);
@@ -416,36 +470,17 @@ public class HomeFragment extends NoommateFragment {
      */
     @OnClick(R.id.add_button)
     public void addTouched() {
-        mImagePickDialog = new ImagePickerDialog(mActivity);
-        mImagePickDialog.mCameraButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 카메라 선택
-                ImagePicker.create(mActivity)
-                        .imageDirectory(getString(R.string.app_name))
-                        .cameraOnly()
-                        .start(mActivity);
-            }
-        });
-        mImagePickDialog.mAlbumButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 앨범에서 선택
-                ImagePicker.create(mActivity)
-                        .returnMode(ReturnMode.ALL)
-                        .folderMode(true)
-                        .toolbarFolderTitle(getString(R.string.app_name))
-                        .toolbarImageTitle(getString(R.string.app_name))
-                        .includeVideo(false)
-                        .includeAnimation(false)
-                        .imageDirectory(getString(R.string.app_name))
-                        .single()
-                        .theme(R.style.ImagePickerTheme)
-                        .showCamera(false)
-                        .start();
-            }
-        });
-        mImagePickDialog.show();
+
+        ImagePicker.Companion.with(this)
+                .compress(1024)         // Final image size will be less than 1 MB(Optional)
+                .maxResultSize(1080, 1080)  // Final image resolution will be less than 1080 x 1080(Optional)
+                .createIntent(new Function1<Intent, Unit>() {
+                    @Override
+                    public Unit invoke(Intent intent) {
+                        startForProfileImageResult.launch(intent);
+                        return null;
+                    }
+                });
     }
 
 

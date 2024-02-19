@@ -70,7 +70,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:background="@color/color_e4e6eb">
+        android:background="@color/color_ffffff">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/house_image_view"

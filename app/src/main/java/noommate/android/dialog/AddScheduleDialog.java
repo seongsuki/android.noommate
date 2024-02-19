@@ -35,8 +35,9 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
         void onRefresh(ArrayList<String> dayList, ArrayList<MemberModel> selectList);
     }
 
-    public AddScheduleDialog(NoommateActivity activity, AddScheduleListener addScheduleListener) {
+    public AddScheduleDialog(NoommateActivity activity, ArrayList<String> dayList, AddScheduleListener addScheduleListener) {
         mActivity = activity;
+        mEnableList = dayList;
         mAddScheduleListener = addScheduleListener;
 
     }
@@ -44,11 +45,12 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
     private RecyclerView mMemberRecyclerView;
     private RecyclerView mYoilRecyclerView;
     private YoilAdapter mYoilAdapter;
-    private ArrayList<ScheduleModel> mYoilList =new ArrayList<>();
+    private ArrayList<ScheduleModel> mYoilList = new ArrayList<>();
     private MateAdapter mMateAdapter;
     private ArrayList<MemberModel> mMemberList = new ArrayList<>();
     private ArrayList<MemberModel> mSelectMemberList = new ArrayList<>();
     private ArrayList<String> mDayList = new ArrayList<>();
+    private static ArrayList<String> mEnableList = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +62,6 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
     private static AddScheduleListener mAddScheduleListener;
     private NoommateActivity mActivity;
     private int mIndex;
-
 
 
     @Nullable
@@ -77,19 +78,24 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dismiss();
-                for (int i = 0; i <  mYoilList.size(); i++) {
+                for (int i = 0; i < mYoilList.size(); i++) {
                     if (mYoilList.get(i).isSelected()) {
-                        mDayList.add(String.valueOf(i));
+                        mDayList.add(String.valueOf(i + 1));
                     }
                 }
 
-                for (int i = 0; i <  mMemberList.size(); i++) {
+                for (int i = 0; i < mMemberList.size(); i++) {
                     if (mMemberList.get(i).isSelected()) {
                         mSelectMemberList.add(mMemberList.get(i));
                     }
                 }
-                mAddScheduleListener.onRefresh(mDayList, mSelectMemberList);
+                if (mSelectMemberList.size() > 0 && mDayList.size() > 0) {
+                    mAddScheduleListener.onRefresh(mDayList, mSelectMemberList);
+                    dismiss();
+                } else {
+                    mSelectMemberList.clear();
+                    mDayList.clear();
+                }
 
             }
         });
@@ -109,7 +115,7 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
                 mYoilAdapter.setNewData(mYoilList);
             }
         });
-        mYoilRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL,false));
+        mYoilRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
         mYoilRecyclerView.addItemDecoration(new DecorationHorizontal(mActivity, Tools.getInstance().dpTopx(mActivity, 8), Tools.getInstance().dpTopx(mActivity, 16)));
         mYoilRecyclerView.setAdapter(mYoilAdapter);
 
@@ -124,23 +130,24 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
         mMateAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if (mMemberList.get(position).isSelected() == true) {
-                    mMemberList.get(position).setSelected(false);
+                if (mEnableList.contains(position + 1)) {
+
                 } else {
-                    mMemberList.get(position).setSelected(true);
+                    if (mMemberList.get(position).isSelected() == true) {
+                        mMemberList.get(position).setSelected(false);
+                    } else {
+                        mMemberList.get(position).setSelected(true);
+                    }
+                    mMateAdapter.setNewData(mMemberList);
                 }
-                mMateAdapter.setNewData(mMemberList);
+
             }
         });
-        mMemberRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL,false));
+        mMemberRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false));
         mMemberRecyclerView.addItemDecoration(new DecorationHorizontal(mActivity, Tools.getInstance().dpTopx(mActivity, 8), Tools.getInstance().dpTopx(mActivity, 16)));
         mMemberRecyclerView.setAdapter(mMateAdapter);
 
         mateListAPI();
-
-
-
-
 
 
         return view;
@@ -151,8 +158,8 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
      */
     private void mateListAPI() {
         MemberModel memberRequest = new MemberModel();
-        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX,""));
-        memberRequest.setHouse_code(Prefs.getString(Constants.HOUSE_CODE,""));
+        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX, ""));
+        memberRequest.setHouse_code(Prefs.getString(Constants.HOUSE_CODE, ""));
         CommonRouter.api().mate_list(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
@@ -169,8 +176,6 @@ public class AddScheduleDialog extends BottomSheetDialogFragment {
             }
         });
     }
-
-
 
 
 }

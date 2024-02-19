@@ -22,8 +22,7 @@
         android:id="@+id/image_view"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ef_ic_camera_white" />
+        android:layout_centerHorizontal="true" />
 
     </LinearLayout>
 

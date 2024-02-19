@@ -22,6 +22,8 @@
             <io.github.florent37.shapeofview.shapes.RoundRectView
                 android:layout_width="123dp"
                 android:layout_height="123dp"
+                app:shape_roundRect_borderWidth="3dp"
+                app:shape_roundRect_borderColor="@color/color_f1f1f4"
                 app:shape_roundRect_bottomLeftRadius="62dp"
                 app:shape_roundRect_bottomRightRadius="62dp"
                 app:shape_roundRect_topLeftRadius="62dp"

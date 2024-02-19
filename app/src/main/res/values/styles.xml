@@ -17,23 +17,23 @@
 
 
   <style name="NanumTextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">
-    <item name="android:fontFamily">@font/nanum_square_font</item>
+    <item name="android:fontFamily">@font/spoqa_han_snas_font</item>
   </style>
 
   <style name="NanumButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
-    <item name="android:fontFamily">@font/nanum_square_font</item>
+    <item name="android:fontFamily">@font/spoqa_han_snas_font</item>
   </style>
 
   <style name="NanumEditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">
-    <item name="android:fontFamily">@font/nanum_square_font</item>
+    <item name="android:fontFamily">@font/spoqa_han_snas_font</item>
   </style>
 
   <style name="NanumRadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
-    <item name="android:fontFamily">@font/nanum_square_font</item>
+    <item name="android:fontFamily">@font/spoqa_han_snas_font</item>
   </style>
 
   <style name="NanumCheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
-    <item name="android:fontFamily">@font/nanum_square_font</item>
+    <item name="android:fontFamily">@font/spoqa_han_snas_font</item>
   </style>
 
 
@@ -92,11 +92,11 @@
   </style>
 
   <!-- 이미지 피커 테마 -->
-  <style name="ImagePickerTheme" parent="ef_BaseTheme">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimary</item>
-    <item name="colorAccent">@color/colorAccent</item>
-  </style>
+<!--  <style name="ImagePickerTheme" parent="ef_BaseTheme">-->
+<!--    <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--    <item name="colorPrimaryDark">@color/colorPrimary</item>-->
+<!--    <item name="colorAccent">@color/colorAccent</item>-->
+<!--  </style>-->
 
   <!-- 탭 레이아웃 -->
   <style name="TabLayoutStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
@@ -114,7 +114,7 @@
 
   <!-- 탭 레이아웃 -->
   <style name="TabLayoutTextStyle">
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">14dp</item>
     <item name="android:textStyle">bold</item>
     <item name="android:textColor">@color/colorPrimary</item>
   </style>
@@ -132,6 +132,6 @@
   <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">@color/colorPrimary</item>
   </style>
-  ​
+
 
 </resources>

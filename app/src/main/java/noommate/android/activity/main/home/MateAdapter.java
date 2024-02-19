@@ -2,6 +2,7 @@ package noommate.android.activity.main.home;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
@@ -34,7 +35,8 @@ public class MateAdapter extends BaseQuickAdapter<MemberModel, BaseViewHolder> {
         ArrayList<Drawable> mBackImageList = new ArrayList<>();
         ArrayList<Drawable> mFaceImageList = new ArrayList<>();
         ArrayList<Integer> mBackColorList = new ArrayList<>();
-        mBackImageList = new ArrayList<>(Arrays.asList(mContext.getDrawable(R.drawable.back5), mContext.getDrawable(R.drawable.back4), mContext.getDrawable(R.drawable.back3), mContext.getDrawable(R.drawable.back2), mContext.getDrawable(R.drawable.back1)));
+        mBackImageList = new ArrayList<>(Arrays.asList(mContext.getDrawable(R.drawable.back5), mContext.getDrawable(R.drawable.back4), mContext.getDrawable(R.drawable.back3), mContext.getDrawable(R.drawable.back2), mContext.getDrawable(R.drawable.back1), mContext.getDrawable(R.drawable.back0)));
+
         mFaceImageList = new ArrayList<>(Arrays.asList(mContext.getDrawable(R.drawable.group_191), mContext.getDrawable(R.drawable.group_197), mContext.getDrawable(R.drawable.group_193), mContext.getDrawable(R.drawable.group_194), mContext.getDrawable(R.drawable.group_195), mContext.getDrawable(R.drawable.group_196)));
         mBackColorList = new ArrayList<>(Arrays.asList(mContext.getColor(R.color.color_ff6d6d), mContext.getColor(R.color.color_ffcd4b), mContext.getColor(R.color.color_63d08f), mContext.getColor(R.color.color_87b7ff), mContext.getColor(R.color.color_798ed6), mContext.getColor(R.color.color_bfa0ff)));
 
@@ -62,10 +64,12 @@ public class MateAdapter extends BaseQuickAdapter<MemberModel, BaseViewHolder> {
 
         if (item.getMy_yn() != null) {
             if (item.getMy_yn().equals("Y")) {
-                mProfileLayout.setBorderWidth(3);
+                mProfileLayout.setBorderWidth(5);
                 mProfileLayout.setBorderColor(mContext.getColor(R.color.colorAccent));
             } else {
-                mProfileLayout.setBorderWidth(0);
+                mProfileLayout.setBorderWidth(5);
+                mProfileLayout.setBorderColor(mContext.getColor(R.color.color_f1f1f4));
+
             }
         }
 

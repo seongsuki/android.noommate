@@ -20,46 +20,53 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <io.github.florent37.shapeofview.shapes.RoundRectView
-                android:id="@+id/profile_layout"
+            <RelativeLayout
                 android:layout_width="52dp"
-                android:layout_height="52dp"
-                app:shape_roundRect_bottomLeftRadius="26dp"
-                app:shape_roundRect_bottomRightRadius="26dp"
-                app:shape_roundRect_topLeftRadius="26dp"
-                app:shape_roundRect_topRightRadius="26dp">
+                android:layout_height="52dp">
 
-                <RelativeLayout
-                    android:id="@+id/back_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorAccent">
+                <io.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/profile_layout"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:shape_roundRect_bottomLeftRadius="26dp"
+                    app:shape_roundRect_bottomRightRadius="26dp"
+                    app:shape_roundRect_topLeftRadius="26dp"
+                    app:shape_roundRect_topRightRadius="26dp">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/back_image_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/back5" />
+                    <RelativeLayout
+                        android:id="@+id/back_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/face_image_view"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/group_191" />
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/back_image_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/back5" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/check"
-                        android:visibility="gone"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:id="@+id/check_image_view"/>
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/face_image_view"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/group_191" />
 
 
-                </RelativeLayout>
-            </io.github.florent37.shapeofview.shapes.RoundRectView>
+                    </RelativeLayout>
+                </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/check"
+                    android:visibility="visible"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/check_image_view"/>
+            </RelativeLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name_text_view"
@@ -70,12 +77,12 @@
                 android:layout_marginLeft="12dp"
                 android:text="빨래하기"
                 android:textColor="@color/color_3a3a3c"
-                android:textSize="20dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <io.github.florent37.shapeofview.shapes.RoundRectView
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"

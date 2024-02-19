@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.pixplicity.easyprefs.library.Prefs;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.activity.NoommateActivity;
+import noommate.android.commons.TouchDetectableScrollView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,12 +62,38 @@ public class NoteActivity extends NoommateActivity {
     @Override
     protected void initLayout() {
 
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mRefreshLayout.setRefreshing(false);
+                mNoteResponse.resetPage();
+                mNoteList.clear();
+                noteListAPI();
+            }
+        });
+
+        mMoreScrollView.setMyScrollChangeListener(new TouchDetectableScrollView.OnMyScrollChangeListener() {
+            @Override
+            public void onBottomReached() {
+                if (mNoteResponse.isMore()) {
+                    noteListAPI();
+                }
+            }
+        });
+
 
     }
 
     @Override
     protected void initRequest() {
         initNoteAdapter();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent feedRefresh = new Intent(Constants.HOME_REFRESH);
+        mActivity.sendBroadcast(feedRefresh);
     }
 
     //--------------------------------------------------------------------------------------------
@@ -226,6 +254,16 @@ public class NoteActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : Bind Actions
     //--------------------------------------------------------------------------------------------
+
+    /**
+     * 뒤로가기 새로고침
+     */
+    @OnClick(R.id.back_button)
+    public void backTouched() {
+        finishWithRemove();
+        Intent feedRefresh = new Intent(Constants.HOME_REFRESH);
+        mActivity.sendBroadcast(feedRefresh);
+    }
 
     /**
      * 작성

@@ -1,7 +1,9 @@
 package noommate.android.activity.main.schedule.history;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.view.View;
 
@@ -90,6 +92,14 @@ public class HistoryFragment extends NoommateFragment {
     private ArrayList<String> mYesDateList = new ArrayList();
     private ScheduleModel mCircleResponse = new ScheduleModel();
     private List<String> mRecordDateList = new ArrayList<>();
+    private BroadcastReceiver mScheduleReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            mHistoryList.clear();
+            scheduleDateMemberListAPI();
+
+        }
+    };
 
 
     //--------------------------------------------------------------------------------------------
@@ -111,6 +121,8 @@ public class HistoryFragment extends NoommateFragment {
             initCalendar();
             scheduleDateMemberListAPI();
         }
+        mActivity.registerReceiver(mScheduleReceiver, new IntentFilter(Constants.SCHEDULE_REFRESH3));
+
 
 
     }
@@ -139,7 +151,6 @@ public class HistoryFragment extends NoommateFragment {
         YearMonth firstMonth = currentMonth.minusYears(100);
         YearMonth lastMonth = currentMonth.plusYears(100);
 //    DayOfWeek dayOfWeek = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
-
         mCalendarView.setup(firstMonth, lastMonth, DayOfWeek.MONDAY);
         mCalendarView.scrollToMonth(currentMonth);
         mCalendarView.setDayBinder(new DayBinder<DayViewContainer>() {
@@ -154,10 +165,17 @@ public class HistoryFragment extends NoommateFragment {
 
                 AppCompatTextView dayTextView = viewContainer.mDayTextView;
                 RoundRectView recordPointLayout = viewContainer.mRecordPointLayout;
+                AppCompatTextView todayTextView = viewContainer.mTodayTextView;
                 dayTextView.setText(String.valueOf(calendarDay.getDate().getDayOfMonth()));
 
                 mDateList.add(String.valueOf(calendarDay.getDate()));
 
+
+                if (calendarDay.getDate().isEqual(LocalDate.now())) {
+                    todayTextView.setVisibility(View.VISIBLE);
+                } else {
+                    todayTextView.setVisibility(View.GONE);
+                }
 
                 if (calendarDay.getDate().isEqual(mSelectedDay)) {
                     dayTextView.setBackgroundColor(mActivity.getColor(R.color.colorAccent));
@@ -166,6 +184,7 @@ public class HistoryFragment extends NoommateFragment {
                     dayTextView.setBackgroundColor(mActivity.getColor(R.color.color_ffffff));
                     dayTextView.setTextColor(mActivity.getColor(R.color.color_222b45));
                 }
+
 
                 // 예약 여부 원 표시
                 if (mCircleResponse.getData_array() != null) {
@@ -189,31 +208,26 @@ public class HistoryFragment extends NoommateFragment {
                     dayTextView.setVisibility(View.GONE);
                 }
 
-                dayTextView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mCalendarView.notifyDateChanged(mSelectedDay);
-                        mSelectedDay = calendarDay.getDate();
-                        mCalendarView.notifyDateChanged(mSelectedDay);
-                        mHistoryList.clear();
-                        scheduleDateMemberListAPI();
+                if (calendarDay.getDate().isBefore(LocalDate.now()) || calendarDay.getDate().isEqual(LocalDate.now())) {
+                    dayTextView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mCalendarView.notifyDateChanged(mSelectedDay);
+                            mSelectedDay = calendarDay.getDate();
+                            mCalendarView.notifyDateChanged(mSelectedDay);
+                            mHistoryList.clear();
+                            scheduleDateMemberListAPI();
 
-//                        if (mRecordTabLayout.getSelectedTabPosition() == 0) {
-//                            mWeightList.clear();
-//                            healthInfoListAPI();
-//                        } else {
-//                            mHeartList.clear();
-//                            heartRateInfoListAPI();
-//                        }
-                    }
-                });
+                        }
+                    });
+                }
             }
         });
 
         mCalendarView.setMonthScrollListener(new Function1<CalendarMonth, Unit>() {
             @Override
             public Unit invoke(CalendarMonth calendarMonth) {
-                mMonthTextView.setText(calendarMonth.getYear() + "." + calendarMonth.getMonth());
+                mMonthTextView.setText(calendarMonth.getYear() + "년 " + calendarMonth.getMonth() + "월");
                 mSelectedMonth = calendarMonth.getYearMonth();
                 SimpleDateFormat sdfMonth = new SimpleDateFormat("MM");
                 mMonth = String.valueOf(calendarMonth.getMonth());

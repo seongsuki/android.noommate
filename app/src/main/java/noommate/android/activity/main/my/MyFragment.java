@@ -72,18 +72,18 @@ public class MyFragment extends NoommateFragment {
     private BroadcastReceiver mMyReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-                if (Prefs.getString(Constants.HOUSE_CODE, "").equals("")) {
-                    mDefaultHouseLayout.setVisibility(View.VISIBLE);
-                    mInviteLayout.setVisibility(View.GONE);
-                    mHouseOutButton.setVisibility(View.GONE);
-                    mHouseNameTextView.setVisibility(View.GONE);
-                } else {
-                    mDefaultHouseLayout.setVisibility(View.GONE);
-                    mInviteLayout.setVisibility(View.VISIBLE);
-                    mHouseOutButton.setVisibility(View.VISIBLE);
-                    mHouseNameTextView.setVisibility(View.VISIBLE);
+            if (Prefs.getString(Constants.HOUSE_CODE, "").equals("")) {
+                mDefaultHouseLayout.setVisibility(View.VISIBLE);
+                mInviteLayout.setVisibility(View.GONE);
+                mHouseOutButton.setVisibility(View.GONE);
+                mHouseNameTextView.setVisibility(View.GONE);
+            } else {
+                mDefaultHouseLayout.setVisibility(View.GONE);
+                mInviteLayout.setVisibility(View.VISIBLE);
+                mHouseOutButton.setVisibility(View.VISIBLE);
+                mHouseNameTextView.setVisibility(View.VISIBLE);
 
-                }
+            }
 
         }
     };
@@ -118,12 +118,13 @@ public class MyFragment extends NoommateFragment {
      */
     private void memberInfoDetailAPI() {
         MemberModel memberRequest = new MemberModel();
-        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX,""));
+        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX, ""));
         CommonRouter.api().member_info_detail(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
                 mMemberResponse = response.body();
                 if (Tools.getInstance().isSuccessResponse(response)) {
+                    Prefs.putString(Constants.HOUSE_CODE, mMemberResponse.getHouse_code());
                     mNameTextView.setText(mMemberResponse.getMember_name());
                     if (mMemberResponse.getMember_role1().equals("")) {
                         mProfileLayout.setVisibility(View.GONE);
@@ -173,7 +174,7 @@ public class MyFragment extends NoommateFragment {
                         }
                     }
                     Prefs.putString(Constants.HOUSE_CODE, mMemberResponse.getHouse_code());
-                    if (mMemberResponse.getHouse_code()!= null) {
+                    if (mMemberResponse.getHouse_code() != null) {
                         mHouseOutButton.setVisibility(View.VISIBLE);
                         mDefaultHouseLayout.setVisibility(View.GONE);
                         mHouseNameTextView.setVisibility(View.VISIBLE);
@@ -231,7 +232,7 @@ public class MyFragment extends NoommateFragment {
      */
     private void houseOutUpAPI() {
         MemberModel memberRequest = new MemberModel();
-        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX,""));
+        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX, ""));
         CommonRouter.api().house_out_up(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
@@ -273,9 +274,32 @@ public class MyFragment extends NoommateFragment {
      */
     @OnClick(R.id.edit_info_button)
     public void editInfoTouched() {
-        Intent editInfoActivity = EditInfoActivity.getStartIntent(mActivity);
+        Intent editInfoActivity = EditInfoActivity.getStartIntent(mActivity, new EditInfoActivity.OnEditListener() {
+            @Override
+            public void onRefresh() {
+                memberInfoDetailAPI();
+            }
+        });
         startActivity(editInfoActivity, NoommateActivity.TRANS.PUSH);
     }
+
+    /**
+     * 눔메이트 초대하기
+     */
+    @OnClick(R.id.invite_layout)
+    public void inviteLayout() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+
+        // String으로 받아서 넣기
+        String sendMessage = "'" + mMemberResponse.getHouse_name() + "'" + " 초대장이 도착했어요.\n\n" +"http://noom.api.hollysome.com/share/house_share?member_idx=2&house_code="+ mMemberResponse.getHouse_code();
+        intent.putExtra(Intent.EXTRA_TEXT,sendMessage);
+
+        Intent shareIntent = Intent.createChooser(intent, "share");
+
+        startActivity(shareIntent);
+    }
+
 
     /**
      * 하우스 코드 입력하기
@@ -286,8 +310,8 @@ public class MyFragment extends NoommateFragment {
             @Override
             public void onRefresh() {
                 if (Prefs.getString(Constants.HOUSE_CODE, "").equals("")) {
-                   mDefaultHouseLayout.setVisibility(View.VISIBLE);
-                   mInviteLayout.setVisibility(View.GONE);
+                    mDefaultHouseLayout.setVisibility(View.VISIBLE);
+                    mInviteLayout.setVisibility(View.GONE);
                 } else {
                     mDefaultHouseLayout.setVisibility(View.GONE);
                     mInviteLayout.setVisibility(View.VISIBLE);
@@ -329,7 +353,6 @@ public class MyFragment extends NoommateFragment {
                 showAlertDialog(mMemberResponse.getHouse_name() + "\n하우스를 나왔습니다.", "확인", new NoommateActivity.DialogEventListener() {
                     @Override
                     public void onReceivedEvent() {
-
                     }
                 });
             }

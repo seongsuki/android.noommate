@@ -148,7 +148,7 @@ public class AddInfoActivity extends NoommateActivity {
      */
     @OnClick(R.id.back_layout)
     public void backLayoutTouched() {
-        Intent addCharActivity = AddCharActivity.getStartIntent(mActivity, new AddCharActivity.OnAddCharListener() {
+        Intent addCharActivity = AddCharActivity.getStartIntent(mActivity,"0","0","0", new AddCharActivity.OnAddCharListener() {
             @Override
             public void onRefresh(String back, String face, String color) {
                 mAddTextView.setVisibility(View.GONE);

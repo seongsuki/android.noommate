@@ -16,6 +16,7 @@ import com.pixplicity.easyprefs.library.Prefs;
 import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.activity.NoommateActivity;
+import noommate.android.activity.commons.terms.TermsActivity;
 import noommate.android.commons.Constants;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -152,7 +153,7 @@ public class SignupStepTwoActivity extends NoommateActivity {
      */
     @OnClick(R.id.back_layout)
     public void backLayoutTouched() {
-        Intent addCharActivity = AddCharActivity.getStartIntent(mActivity, new AddCharActivity.OnAddCharListener() {
+        Intent addCharActivity = AddCharActivity.getStartIntent(mActivity,"0","0","0", new AddCharActivity.OnAddCharListener() {
             @Override
             public void onRefresh(String back, String face, String color) {
                 mAddTextView.setVisibility(View.GONE);
@@ -222,6 +223,24 @@ public class SignupStepTwoActivity extends NoommateActivity {
             mTerm01CheckBox.setChecked(false);
             mTerm02CheckBox.setChecked(false);
         }
+    }
+
+    /**
+     * 서비스
+     */
+    @OnClick(R.id.terms1_button)
+    public void terms1Touched() {
+        Intent termsActivity = TermsActivity.getStartIntent(mActivity, TermsActivity.TermsType.SERVICE);
+        startActivity(termsActivity, TRANS.PUSH);
+    }
+
+    /**
+     * 개인정보
+     */
+    @OnClick(R.id.terms2_button)
+    public void terms2Touched() {
+        Intent termsActivity = TermsActivity.getStartIntent(mActivity, TermsActivity.TermsType.PRI);
+        startActivity(termsActivity, TRANS.PUSH);
     }
 
     /**

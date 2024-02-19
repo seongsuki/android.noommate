@@ -5,7 +5,6 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import noommate.android.models.BookModel;
 
-
 public class CalculateListItem extends AbstractExpandableItem<CalculateDetailItem> implements MultiItemEntity {
     public BookModel bookModel;
 

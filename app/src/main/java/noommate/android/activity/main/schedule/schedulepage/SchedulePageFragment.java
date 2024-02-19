@@ -1,7 +1,9 @@
 package noommate.android.activity.main.schedule.schedulepage;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -71,8 +73,18 @@ public class SchedulePageFragment extends NoommateFragment {
     private static String mYear = "";
     private static String mMonth = "";
     private static String mDay = "";
+    private static String mYoil = "";
     private Date mToday = new Date();
     private SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 E요일");
+
+    private BroadcastReceiver mScheduleReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            mScheduleList.clear();
+           scheduleListAPI();
+
+        }
+    };
 
 
 
@@ -87,6 +99,8 @@ public class SchedulePageFragment extends NoommateFragment {
     @Override
     protected void initLayout() {
         mDateTextView.setText(sdf.format(mToday));
+        mActivity.registerReceiver(mScheduleReceiver, new IntentFilter(Constants.SCHEDULE_REFRESH1));
+
 
 
 
@@ -161,7 +175,6 @@ public class SchedulePageFragment extends NoommateFragment {
                 AppCompatTextView dayCalendarTextView = calendarViewHolder.itemView.findViewById(R.id.yoil_text_view);
                 dayCalendarTextView.setText(dayOfTheWeek);
 
-                mDateTextView.setText(monthNumber + "월 " + day + "일 " + yoil+"요일");
 
 
                 if (i == 0) {
@@ -216,10 +229,15 @@ public class SchedulePageFragment extends NoommateFragment {
                 String monthString = (String) DateFormat.format("MMM", date); // Jun
                 String monthNumber = (String) DateFormat.format("MM", date); // 06
                 String year = (String) DateFormat.format("yyyy", date); // 2013
+                String yoil = (String) DateFormat.format("E", date); // MON
 
                 mYear = year;
                 mMonth = monthNumber;
                 mDay = day;
+                mYoil = yoil;
+
+                mDateTextView.setText(mMonth + "월 " + mDay + "일 " + mYoil + "요일");
+
 
 
             }

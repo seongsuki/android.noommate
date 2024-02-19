@@ -9,8 +9,10 @@ public class MemberModel extends BaseModel {
     /// 회원 아이디
     private String member_id;
     private String ins_date;
+    private String alarm_hour;
     // 하우스 이미지
     private String house_img;
+    private String coc_cnt;
     // 하우스 키
     private String house_idx;
     private String member_new_pw;
@@ -415,5 +417,21 @@ public class MemberModel extends BaseModel {
 
     public void setMember_leave_yn(String member_leave_yn) {
         this.member_leave_yn = member_leave_yn;
+    }
+
+    public String getAlarm_hour() {
+        return alarm_hour;
+    }
+
+    public void setAlarm_hour(String alarm_hour) {
+        this.alarm_hour = alarm_hour;
+    }
+
+    public String getCoc_cnt() {
+        return coc_cnt;
+    }
+
+    public void setCoc_cnt(String coc_cnt) {
+        this.coc_cnt = coc_cnt;
     }
 }

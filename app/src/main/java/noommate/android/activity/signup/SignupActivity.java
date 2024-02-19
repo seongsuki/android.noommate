@@ -47,8 +47,8 @@ public class SignupActivity extends NoommateActivity {
   AppCompatEditText mPwConfirmEditText;
   @BindView(R.id.id_round_view)
   RoundRectView mIdRoundView;
-  @BindView(R.id.circle_image_view)
-  AppCompatImageView mCircleImageView;
+  @BindView(R.id.circle_layout)
+  LinearLayout mCircleLayout;
   @BindView(R.id.info_layout)
   LinearLayout mInfoLayout;
   //--------------------------------------------------------------------------------------------
@@ -77,6 +77,7 @@ public class SignupActivity extends NoommateActivity {
       @Override
       public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
         mYn = "N";
+        mInfoLayout.setVisibility(View.GONE);
       }
 
       @Override
@@ -108,17 +109,17 @@ public class SignupActivity extends NoommateActivity {
         MemberModel mMemberResponse = response.body();
         if (mMemberResponse.getCode().equals("1000")) {
           mYn = "Y";
+          mDefaultTextView.setText(mMemberResponse.getCode_msg());
           mIdRoundView.setBorderColor(mActivity.getColor(R.color.color_87b7ff));
           mInfoLayout.setVisibility(View.VISIBLE);
-          mDefaultTextView.setText("사용가능한 아이디 입니다.");
-          mCircleImageView.setImageDrawable(mActivity.getDrawable(R.drawable.blue_circle));
+          mCircleLayout.setBackgroundColor(mActivity.getColor(R.color.color_87b7ff));
           mDefaultTextView.setTextColor(mActivity.getColor(R.color.color_87b7ff));
         } else {
           mYn = "N";
+          mDefaultTextView.setText(mMemberResponse.getCode_msg());
           mIdRoundView.setBorderColor(mActivity.getColor(R.color.colorPoint));
           mInfoLayout.setVisibility(View.VISIBLE);
-          mDefaultTextView.setText("아이디를 입력해주세요.");
-          mCircleImageView.setImageDrawable(mActivity.getDrawable(R.drawable.red_circle));
+          mCircleLayout.setBackgroundColor(mActivity.getColor(R.color.colorPoint));
           mDefaultTextView.setTextColor(mActivity.getColor(R.color.colorPoint));
         }
       }

@@ -1,16 +1,24 @@
 package noommate.android.dialog;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.pixplicity.easyprefs.library.Prefs;
 
@@ -28,6 +36,7 @@ import noommate.android.commons.Tools;
 import noommate.android.models.BookModel;
 import noommate.android.models.MemberModel;
 import noommate.android.models.api.CommonRouter;
+import timber.log.Timber;
 
 public class DivDialog extends BottomSheetDialogFragment {
     public interface DivListener {
@@ -44,6 +53,8 @@ public class DivDialog extends BottomSheetDialogFragment {
     private RecyclerView mMemberRecyclerView;
     private MateAdapter mMateAdapter;
     private static BookModel mBookModel;
+    private ArrayList<String> mMateList = new ArrayList<>();
+
     private ArrayList<MemberModel> mMemberList = new ArrayList<>();
 
     @Override
@@ -86,7 +97,15 @@ public class DivDialog extends BottomSheetDialogFragment {
         mDivButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                for (int i = 0; i <  mMemberList.size(); i++) {
+                    if (mMemberList.get(i).isSelected()) {
+                        mMateList.add(String.valueOf(mMemberList.get(i).getMember_idx()));
+                    }
+                }
 
+
+                String members = String.join(",", mMateList);
+                bookAlarmAPI(members, mBookModel.getItem_name(), mBookModel.getItem_bill());
             }
         });
 
@@ -139,6 +158,30 @@ public class DivDialog extends BottomSheetDialogFragment {
             }
         });
     }
+
+    /**
+     * 비용 알리기 API
+     */
+    private void bookAlarmAPI(String memberArr,String itemBill, String itemName) {
+        BookModel bookRequest = new BookModel();
+        bookRequest.setMember_arr(memberArr);
+        bookRequest.setMate_cnt(String.valueOf(mMemberList.size()));
+        bookRequest.setItem_bill(itemBill);
+        bookRequest.setItem_name(itemName);
+        CommonRouter.api().book_alarm(Tools.getInstance().getMapper(bookRequest)).enqueue(new Callback<BookModel>() {
+            @Override
+            public void onResponse(Call<BookModel> call, Response<BookModel> response) {
+                dismiss();
+                mDivListener.onRefresh();
+            }
+
+            @Override
+            public void onFailure(Call<BookModel> call, Throwable t) {
+
+            }
+        });
+    }
+
 
 
 

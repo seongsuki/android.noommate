@@ -17,6 +17,8 @@ public class AlarmModel extends BaseListModel {
   private String read_yn;
   /// 삭제 유무: (Y: 삭제, N: 정상)
   private String del_yn;
+  private String index;
+  private String title;
   /// 알림 등록일
   private String ins_date;
   // 알림
@@ -157,5 +159,21 @@ public class AlarmModel extends BaseListModel {
 
   public void setAlarm_yn(String alarm_yn) {
     this.alarm_yn = alarm_yn;
+  }
+
+  public String getIndex() {
+    return index;
+  }
+
+  public void setIndex(String index) {
+    this.index = index;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 }

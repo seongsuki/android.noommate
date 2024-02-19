@@ -54,12 +54,23 @@ public class TermsListActivity extends NoommateActivity {
     /**
      * 이용약관 이동
      */
-    @OnClick({R.id.service_button, R.id.pri_button, R.id.marketing_button})
+    @OnClick(R.id.service_button)
     public void termsTouched() {
         Intent termsActivity = TermsActivity.getStartIntent(mActivity, TermsActivity.TermsType.SERVICE);
         startActivity(termsActivity,TRANS.PUSH);
     }
 
+    @OnClick(R.id.pri_button)
+    public void priTouched() {
+        Intent termsActivity = TermsActivity.getStartIntent(mActivity, TermsActivity.TermsType.PRI);
+        startActivity(termsActivity,TRANS.PUSH);
+    }
+
+    @OnClick(R.id.marketing_button)
+    public void marketingTouched() {
+        Intent termsActivity = TermsActivity.getStartIntent(mActivity, TermsActivity.TermsType.MARKETING);
+        startActivity(termsActivity,TRANS.PUSH);
+    }
 
 
 }

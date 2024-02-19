@@ -20,8 +20,8 @@ public class AlarmAdapter extends BaseQuickAdapter<AlarmModel, BaseViewHolder> {
   @Override
   protected void convert(BaseViewHolder helper, AlarmModel item) {
 
-//    helper.setText(R.id.title_text_view, item.getMsg());
-//    helper.setText(R.id.date_text_view, item.getIns_date());
+    helper.setText(R.id.title_text_view, item.getMsg());
+    helper.setText(R.id.date_text_view, item.getIns_date());
 
     helper.addOnClickListener(R.id.del_button);
   }

@@ -234,7 +234,7 @@
                 android:minHeight="0dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="  개인정보 취급방침 (필수)"
+                android:text="  서비스 이용약관 (필수)"
                 android:textColor="@color/color_666666"
                 android:textSize="14dp" />
 
@@ -262,7 +262,7 @@
                 android:minHeight="0dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="  위치기반 서비스 이용약관 (필수)"
+                android:text="  개인정보 취급방침 (필수)"
                 android:textColor="@color/color_666666"
                 android:textSize="14dp" />
 
