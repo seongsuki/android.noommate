@@ -9,32 +9,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.OnPaidEventListener;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.ResponseInfo;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
-import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
-import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.text.SimpleDateFormat;
@@ -46,6 +30,10 @@ import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
 import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.NoommateFragment;
+import noommate.android.activity.commons.faq.FAQDetailItem;
+import noommate.android.activity.commons.faq.FAQListAdapter;
+import noommate.android.activity.commons.faq.FAQListItem;
+import noommate.android.models.FaqModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -105,9 +93,9 @@ public class CalculateFragment extends NoommateFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             mCalculateList.clear();
-            mAllCalculateList.clear();
+//            mAllCalculateList.clear();
             bookListAPI();
-            bookViewAPI();
+//            bookViewAPI();
 
         }
     };
@@ -126,17 +114,19 @@ public class CalculateFragment extends NoommateFragment {
         mActivity.registerReceiver(mCalculateReceiver, new IntentFilter(Constants.CALCULATE_REFRESH));
         mDateTextView.setText(sdf.format(mNowDate));
 
-
-
     }
 
     @Override
     protected void initRequest() {
         initCalculateAdapter();
         initAllCalculateAdapter();
-
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mActivity.unregisterReceiver(mCalculateReceiver);
+    }
     //--------------------------------------------------------------------------------------------
     // MARK : Local functions
     //--------------------------------------------------------------------------------------------
@@ -205,11 +195,14 @@ public class CalculateFragment extends NoommateFragment {
      */
     private void initAllCalculateAdapter() {
         mAllCalculateAdapter = new AllCalculateAdapter(mAllCalculateList);
-        mAllCalculateAdapter.setEmptyView(new EmptyView(mActivity, "작성 된 가계부\n없습니다"));
+        mAllCalculateAdapter.setEmptyView(new EmptyView(mActivity, "작성 된 가계부가\n없습니다."));
         mAllCalculateRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         mAllCalculateRecyclerView.setAdapter(mAllCalculateAdapter);
         bookListAPI();
     }
+
+
+
 
     /**
      * 가계부 리스트 API
@@ -276,19 +269,18 @@ public class CalculateFragment extends NoommateFragment {
         CommonRouter.api().book_list(Tools.getInstance().getMapper(bookRequest)).enqueue(new Callback<BookModel>() {
             @Override
             public void onResponse(Call<BookModel> call, Response<BookModel> response) {
+                mBookListResponse = response.body();
                 if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
-                    mBookListResponse = response.body();
+//                    mAllCalculateList.clear();
                     if (mBookListResponse.getData_array() != null) {
-                        mAllCalculateList.clear();
                         for (BookModel value : mBookListResponse.getData_array()) {
                             CalculateListItem calculateListItem = new CalculateListItem(value);
                             CalculateDetailItem calculateDetailItem = new CalculateDetailItem(value.getItem_list(), value);
                             calculateListItem.addSubItem(calculateDetailItem);
                             mAllCalculateList.add(calculateListItem);
                         }
-                        mAllCalculateAdapter.setNewData(mAllCalculateList);
-
                     }
+                    mAllCalculateAdapter.setNewData(mAllCalculateList);
                 }
             }
 

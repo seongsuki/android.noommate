@@ -64,10 +64,10 @@ public class MateAdapter extends BaseQuickAdapter<MemberModel, BaseViewHolder> {
 
         if (item.getMy_yn() != null) {
             if (item.getMy_yn().equals("Y")) {
-                mProfileLayout.setBorderWidth(5);
+                mProfileLayout.setBorderWidth(7);
                 mProfileLayout.setBorderColor(mContext.getColor(R.color.colorAccent));
             } else {
-                mProfileLayout.setBorderWidth(5);
+                mProfileLayout.setBorderWidth(7);
                 mProfileLayout.setBorderColor(mContext.getColor(R.color.color_f1f1f4));
 
             }

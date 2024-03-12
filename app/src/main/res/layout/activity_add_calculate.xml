@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
+                android:orientation="vertical"
                 android:background="@color/color_fafafc" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -61,7 +61,7 @@
 
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -78,9 +78,10 @@
                             android:hint="0"
                             android:inputType="number"
                             android:padding="10dp"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -93,6 +94,7 @@
                         android:textSize="16dp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -119,7 +121,7 @@
 
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -134,11 +136,12 @@
                             android:background="@color/clear"
                             android:gravity="right"
                             android:hint="0"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:inputType="number"
                             android:padding="10dp"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -177,7 +180,7 @@
 
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -192,11 +195,12 @@
                             android:background="@color/clear"
                             android:gravity="right"
                             android:hint="0"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:inputType="number"
                             android:padding="10dp"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -216,6 +220,7 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="36dp"
                 android:layout_marginBottom="36dp"
+                android:orientation="vertical"
                 android:background="@color/color_fafafc" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -236,7 +241,7 @@
                 android:layout_marginRight="16dp"
                 android:text="필요한 항목을 더 추가해 보세요."
                 android:textColor="@color/color_a3a7b6"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -249,7 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="항목 1"
+                    android:text="항목명"
                     android:textColor="@color/color_3a3a3c"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -263,7 +268,7 @@
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:id="@+id/name1_round"
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -277,12 +282,13 @@
                             android:layout_height="match_parent"
                             android:background="@color/clear"
                             android:gravity="right"
-                            android:hint="항목추가"
+                            android:hint="넷플릭스"
                             android:inputType="text"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:padding="10dp"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -322,7 +328,7 @@
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:id="@+id/price1_round"
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -339,9 +345,10 @@
                             android:hint="0"
                             android:inputType="number"
                             android:padding="10dp"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -367,7 +374,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="항목 2"
+                    android:text="항목명"
                     android:textColor="@color/color_3a3a3c"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -381,7 +388,7 @@
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:id="@+id/name2_round"
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -395,12 +402,13 @@
                             android:layout_height="match_parent"
                             android:background="@color/clear"
                             android:gravity="right"
-                            android:hint="항목추가"
+                            android:hint="관리비"
                             android:inputType="text"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:padding="10dp"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -440,7 +448,7 @@
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:id="@+id/price2_round"
                         android:layout_width="223dp"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         app:shape_roundRect_borderColor="@color/color_c8ccd5"
                         app:shape_roundRect_borderWidth="1dp"
                         app:shape_roundRect_bottomLeftRadius="4dp"
@@ -456,10 +464,11 @@
                             android:gravity="right"
                             android:hint="0"
                             android:inputType="number"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:padding="10dp"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -485,7 +494,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="항목 3"
+                    android:text="항목명"
                     android:textColor="@color/color_3a3a3c"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -513,9 +522,10 @@
                             android:layout_height="match_parent"
                             android:background="@color/clear"
                             android:gravity="right"
-                            android:hint="항목추가"
+                            android:hint="인터넷"
                             android:inputType="text"
                             android:padding="10dp"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
                             android:textSize="14dp" />
@@ -574,6 +584,7 @@
                             android:gravity="right"
                             android:hint="0"
                             android:inputType="number"
+                            android:fontFamily="@font/spoqahansansneoregular"
                             android:padding="10dp"
                             android:textColor="@color/color_3a3a3c"
                             android:textColorHint="@color/color_c8ccd5"
@@ -655,6 +666,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>

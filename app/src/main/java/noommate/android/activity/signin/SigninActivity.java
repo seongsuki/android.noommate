@@ -118,9 +118,12 @@ public class SigninActivity extends NoommateActivity {
   private void kakaoLoginAPI() {
     if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(mActivity)) { // 카카오톡 설치 유무
       UserApiClient.getInstance().loginWithKakaoTalk(mActivity, (oAuthToken, throwable) -> {
+
+
         if (oAuthToken != null) {
           kakaoMeAPI();
         }
+        Timber.i("KAKAO TALK Access token : " + oAuthToken.getAccessToken());
         return null;
       });
     } else {
@@ -128,6 +131,7 @@ public class SigninActivity extends NoommateActivity {
         if (oAuthToken != null) {
           kakaoMeAPI();
         }
+        Timber.i("KAKAO TALK Access token : " + oAuthToken.getAccessToken());
         return null;
       });
     }

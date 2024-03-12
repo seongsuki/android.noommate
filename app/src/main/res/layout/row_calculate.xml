@@ -52,10 +52,11 @@
                 android:textColor="@color/color_ffffff"
                 android:background="@color/colorAccent"
                 android:textSize="12dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"/>
+                android:textStyle="bold"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"/>
         </io.github.florent37.shapeofview.shapes.RoundRectView>
     </RelativeLayout>
 

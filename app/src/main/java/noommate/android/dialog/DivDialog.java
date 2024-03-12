@@ -105,7 +105,7 @@ public class DivDialog extends BottomSheetDialogFragment {
 
 
                 String members = String.join(",", mMateList);
-                bookAlarmAPI(members, mBookModel.getItem_name(), mBookModel.getItem_bill());
+                bookAlarmAPI(members,mBookModel.getItem_bill(), mBookModel.getItem_name());
             }
         });
 

@@ -42,7 +42,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="10dp"
-                    android:singleLine="true"
+                    android:maxLines="2"
                     android:text="연휴동안 서비스 안내 드립니다."
                     android:textColor="@color/color_3a3a3c"
                     android:textSize="14dp" />
@@ -64,12 +64,11 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/del_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="6dp"
-                android:src="@drawable/close"
-                android:padding="10dp" />
+                android:layout_marginRight="11dp"
+                android:src="@drawable/close" />
 
         </LinearLayout>
 

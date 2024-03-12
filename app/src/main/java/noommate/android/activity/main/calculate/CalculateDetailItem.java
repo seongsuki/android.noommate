@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import noommate.android.models.BookModel;
 
 public class CalculateDetailItem extends AbstractExpandableItem<CalculateDetailItem> implements MultiItemEntity {
-    ArrayList<BookModel> item_list;
-    BookModel bookModel;
+    public ArrayList<BookModel> item_list;
+    public BookModel bookModel;
 
     public CalculateDetailItem(ArrayList<BookModel> ltem_list, BookModel bookModel) {
         this.item_list = ltem_list;

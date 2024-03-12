@@ -8,15 +8,25 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.florent37.shapeofview.shapes.RoundRectView;
 import noommate.android.activity.NoommateActivity;
+import noommate.android.activity.commons.faq.FAQListActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,6 +73,8 @@ public class MyFragment extends NoommateFragment {
     RelativeLayout mBackLayout;
     @BindView(R.id.profile_layout)
     RoundRectView mProfileLayout;
+    @BindView(R.id.banner_view)
+    AdView mBannerView;
 
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
@@ -101,17 +113,77 @@ public class MyFragment extends NoommateFragment {
         mActivity.registerReceiver(mMyReceiver, new IntentFilter(Constants.MY_REFRESH));
         mToolbarTitle.setText("마이페이지");
         mBackButton.setVisibility(View.GONE);
+
+        // 하단 배너 세팅
+        AdView adView = new AdView(mActivity);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+
+
     }
 
     @Override
     protected void initRequest() {
         memberInfoDetailAPI();
+        initBannerView();
+
 
     }
 
     //--------------------------------------------------------------------------------------------
     // MARK : Local functions
     //--------------------------------------------------------------------------------------------
+
+    /**
+     * 배너 광고
+     */
+    private void initBannerView() {
+        MobileAds.initialize(mActivity, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mBannerView.loadAd(adRequest);
+    }
+
+    /**
+     * 배너 이벤트
+     */
+    private void initBannerEvent() {
+        mBannerView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+            }
+
+            @Override
+            public void onAdImpression() {
+                super.onAdImpression();
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+            }
+        });
+    }
 
     /**
      * 내 정보
@@ -233,6 +305,7 @@ public class MyFragment extends NoommateFragment {
     private void houseOutUpAPI() {
         MemberModel memberRequest = new MemberModel();
         memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX, ""));
+        memberRequest.setHouse_idx(Prefs.getString(Constants.HOUSE_IDX,""));
         CommonRouter.api().house_out_up(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
@@ -339,6 +412,15 @@ public class MyFragment extends NoommateFragment {
     public void qnaTouched() {
         Intent qnaActivity = QNAActivity.getStartIntent(mActivity);
         startActivity(qnaActivity, NoommateActivity.TRANS.PUSH);
+    }
+
+    /**
+     * faq
+     */
+    @OnClick(R.id.faq_button)
+    public void faqTouched() {
+        Intent faqActivity = FAQListActivity.getStartIntent(mActivity);
+        startActivity(faqActivity, NoommateActivity.TRANS.PUSH);
     }
 
     /**

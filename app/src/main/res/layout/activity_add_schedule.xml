@@ -170,9 +170,10 @@
                         android:id="@+id/checkbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:button="@drawable/selector_check_box"
                         android:layout_alignParentRight="true"
-                        android:text="지정하지 않을래요."
+                        android:gravity="center"
+                        android:text="  지정하지 않을래요."
                         android:textColor="@color/color_3a3a3c" />
                 </RelativeLayout>
 

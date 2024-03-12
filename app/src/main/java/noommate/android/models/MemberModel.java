@@ -81,6 +81,8 @@ public class MemberModel extends BaseModel {
     private ArrayList<MemberModel> my_schedule_array;
     // 알림장 리스트
     private ArrayList<MemberModel> note_array;
+    // 페이지 리스트
+    private ArrayList<MemberModel> page_array;
 
     public String getMember_id() {
         return member_id;
@@ -433,5 +435,13 @@ public class MemberModel extends BaseModel {
 
     public void setCoc_cnt(String coc_cnt) {
         this.coc_cnt = coc_cnt;
+    }
+
+    public ArrayList<MemberModel> getPage_array() {
+        return page_array;
+    }
+
+    public void setPage_array(ArrayList<MemberModel> page_array) {
+        this.page_array = page_array;
     }
 }

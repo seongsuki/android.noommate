@@ -52,6 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
     implementation 'com.android.support:multidex:2.0.1'
+//    implementation 'com.google.firebase:firebase-admin:7.2.0'
 
 
 //    implementation 'com.google.firebase:firebase-analytics:18.0.0'
@@ -86,11 +87,14 @@ dependencies {
     implementation 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'             // Image Viewer
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'           // View pager dot
     implementation 'com.github.skydoves:powerspinner:1.2.3'                     // POWER Spinner
+    implementation 'com.github.mmin18:realtimeblurview:1.2.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
     // POWER Spinner (If your project using Java, add a below dependency code.)
     implementation 'com.github.kizitonwose:CalendarView:1.1.0'                  // 캘린더
     implementation 'com.michalsvec:single-row-calednar:1.0.0'                   // 달력
     implementation 'com.faltenreich:skeletonlayout:4.0.0'                       // Skeleton
+    implementation 'com.github.IslamKhSh:CardSlider:1.0.1'                       // Card Slider
+
 
     implementation 'com.github.dhaval2404:imagepicker:2.1'
 

@@ -1,17 +1,14 @@
 package noommate.android.activity.commons.alarm;
 
 
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.android.gms.ads.MobileAds;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.ArrayList;
@@ -77,12 +74,6 @@ public class AlarmActivity extends NoommateActivity {
 
   }
 
-//  @Override
-//  protected void onCreate(Bundle savedInstanceState) {
-//    super.onCreate(savedInstanceState);
-//    // ...
-//    MobileAds.initialize(mActivity);
-//  }
 
 
   //--------------------------------------------------------------------------------------------
@@ -173,6 +164,7 @@ public class AlarmActivity extends NoommateActivity {
    * @param alarmIdx
    */
   private void alarmDelAPI(String alarmIdx) {
+    showProgressBar();
     AlarmModel alarmModel = new AlarmModel();
     alarmModel.setAlarm_idx(alarmIdx);
 
@@ -180,6 +172,7 @@ public class AlarmActivity extends NoommateActivity {
       @Override
       public void onResponse(Call<AlarmModel> call, Response<AlarmModel> response) {
         if (Tools.getInstance().isSuccessResponse(response)) {
+          hideProgressBar();
           mAlarmList.clear();
           mAlarmResponse.resetPage();
           alarmListAPI();

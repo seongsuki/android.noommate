@@ -10,6 +10,10 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
+//import com.google.firebase.messaging.Message;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +42,7 @@ public class HomeScheduleListAdapter extends BaseMultiItemQuickAdapter<MultiItem
     public static final int SCHEDULE_LIST = 0;
     public static final int SCHEDULE_DETAIL = 1;
     private static OnHomeScheduleListener mOnHomeScheduleListener;
+    private static NoommateActivity mActivity;
 
     private ArrayList<BaseModel> mDetailList = new ArrayList<>();
     private ScheduleMateAdapter mScheduleMateAdapter;
@@ -46,9 +51,10 @@ public class HomeScheduleListAdapter extends BaseMultiItemQuickAdapter<MultiItem
     //--------------------------------------------------------------------------------------------
     // MARK : Override
     //--------------------------------------------------------------------------------------------
-    public HomeScheduleListAdapter(List<MultiItemEntity> data, OnHomeScheduleListener onHomeScheduleListener) {
+    public HomeScheduleListAdapter(List<MultiItemEntity> data,NoommateActivity activity, OnHomeScheduleListener onHomeScheduleListener) {
         super(data);
         mOnHomeScheduleListener = onHomeScheduleListener;
+        mActivity = activity;
         addItemType(SCHEDULE_LIST, R.layout.row_schedule_list);
         addItemType(SCHEDULE_DETAIL, R.layout.row_schedule_detail);
     }
@@ -83,20 +89,30 @@ public class HomeScheduleListAdapter extends BaseMultiItemQuickAdapter<MultiItem
                             if (((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMy_yn().equals("Y")) {
                                 todayScheduleEndAPI(((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getSchedule_idx());
                             } else {
-                                CocDialog cocDialog = new CocDialog(mContext,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role1(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role2(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role3(),
-                                        mTitle,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_nickname(), ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getCoc_cnt(), new CocDialog.OnCocListener() {
-                                    @Override
-                                    public void onCoc(String cocCnt) {
-                                        ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).setCoc_cnt(cocCnt);
-                                        mOnHomeScheduleListener.OnRefresh();
-                                        Intent feedRefresh = new Intent(Constants.HOME_REFRESH);
-                                        mContext.sendBroadcast(feedRefresh);
+                                if (homeScheduleDetailItem.scheduleModel.getSchedule_item_member_list().get(position).getAlarm_yn().equals("Y")) {
+                                    CocDialog cocDialog = new CocDialog(mContext,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role1(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role2(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role3(),
+                                            mTitle,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_nickname(), ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getCoc_cnt(), new CocDialog.OnCocListener() {
+                                        @Override
+                                        public void onCoc(String cocCnt) {
+//                                            sendNotificationSend(homeScheduleDetailItem.scheduleModel.getSchedule_item_member_list().get(position).getGcm_key());
+                                            ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).setCoc_cnt(cocCnt);
+                                            mOnHomeScheduleListener.OnRefresh();
+                                            Intent feedRefresh = new Intent(Constants.HOME_REFRESH);
+                                            mContext.sendBroadcast(feedRefresh);
+                                        }
+                                    });
+                                    cocDialog.show();
+                                } else {
+                                    mActivity.showAlertDialog("해당 눔메이트가 콕찌르기를 거부한 상태입니다.", "확인", new NoommateActivity.DialogEventListener() {
+                                            @Override
+                                            public void onReceivedEvent() {
+
+                                            }
+                                        });
                                     }
-                                });
-                                cocDialog.show();
+                                }
                             }
                         }
-                    }
                 });
                 mDetailListRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
                 mDetailListRecyclerView.setAdapter(mScheduleMateAdapter);
@@ -127,6 +143,31 @@ public class HomeScheduleListAdapter extends BaseMultiItemQuickAdapter<MultiItem
 
             }
         });
+    }
+
+    /**
+     * 알림 보내기
+     */
+    private void sendNotificationSend(String gcm) {
+//        FirebaseMessaging fm = FirebaseMessaging.getInstance();
+//        fm.send(new RemoteMessage.Builder(SENDER_ID + "@fcm.googleapis.com")
+//                .setMessageId(Integer.toString(messageId))
+//                .addData("my_message", "Hello World")
+//                .addData("my_action","SAY_HELLO")
+//                .build());
+//        Message message = Message.builder()
+//                .setToken(gcm)
+//                .putData(gcm, "\uD83D\uDC49콕")
+//                .build();
+
+// Firebase Admin SDK를 사용하여 메시지 전송
+//        try {
+//            String response = FirebaseMessaging.getInstance().send(message);
+//            System.out.println("Successfully sent message: " + response);
+//        } catch (Exception e) {
+//            System.out.println("Failed to send message: " + e.getMessage());
+//        }
+
     }
 }
 

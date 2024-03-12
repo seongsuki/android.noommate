@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,15 +27,24 @@ import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.faltenreich.skeletonlayout.SkeletonLayout;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.github.islamkhsh.CardSliderIndicator;
+import com.github.islamkhsh.CardSliderViewPager;
+import com.github.islamkhsh.viewpager2.ViewPager2;
 import com.pixplicity.easyprefs.library.Prefs;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.github.florent37.shapeofview.shapes.RoundRectView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import noommate.android.activity.NoommateActivity;
@@ -73,15 +83,11 @@ public class HomeFragment extends NoommateFragment {
     @BindView(R.id.house_name_text_view)
     AppCompatTextView mHouseNameTextView;
     @BindView(R.id.house_layout)
-    CoordinatorLayout mHouseLayout;
-    @BindView(R.id.mate_cnt_text_view)
-    AppCompatTextView mMateCntTextView;
+    NestedScrollView mHouseLayout;
     @BindView(R.id.cnt_text_view)
     AppCompatTextView mCntTextView;
     @BindView(R.id.note_recycler_view)
     RecyclerView mNoteRecyclerView;
-    @BindView(R.id.todo_recycler_view)
-    RecyclerView mTodoRecyclerView;
     @BindView(R.id.noommate_recycler_view)
     RecyclerView mNoomateRecyclerView;
     @BindView(R.id.date_text_view)
@@ -90,24 +96,30 @@ public class HomeFragment extends NoommateFragment {
     AppCompatImageView mHouseImageView;
     @BindView(R.id.default_text_view)
     AppCompatTextView mDefaultTextView;
-    @BindView(R.id.skeleton_layout)
-    SkeletonLayout mSkeletonLayout;
+    @BindView(R.id.todo_view_pager)
+    CardSliderViewPager mTodoViewPager;
+    @BindView(R.id.photo_indicator)
+    CardSliderIndicator mPhotoIndicator;
+    @BindView(R.id.non_layout)
+    RoundRectView mNonLayout;
 
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
     private ArrayList<MemberModel> mMateList = new ArrayList<>();
     private MateAdapter mMateAdapter;
-    private ArrayList<MemberModel> mTodoList = new ArrayList<>();
-    private HomeScheduleAdapter mHomeScheduleAdapter;
+    private ArrayList<ArrayList<MemberModel>> mTodoList = new ArrayList<>();
+    private ArrayList<MemberModel> mPageList = new ArrayList<>();
     private ArrayList<MemberModel> mNoteList = new ArrayList<>();
+    private TodoPagerAdapter mTodoPagerAdapter;
     private HomeNoteAdapter mNoteAdapter;
 
     private Date mNowDate = new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("MM월 dd일 (E)");
+    SimpleDateFormat sdf = new SimpleDateFormat("M월 dd일 E요일");
 
     private ImagePickerDialog mImagePickDialog;
     private String mImagePath;
+    private int cnt = 0;
 
     private BroadcastReceiver mHomeReceiver = new BroadcastReceiver() {
         @Override
@@ -150,7 +162,7 @@ public class HomeFragment extends NoommateFragment {
             mDefaultLayout.setVisibility(View.GONE);
             initMateAdapter();
             initNoteAdapter();
-            initHomeScheduleAdapter();
+            initTodoAdapter();
             mMateList.clear();
             mNoteList.clear();
             mTodoList.clear();
@@ -162,12 +174,6 @@ public class HomeFragment extends NoommateFragment {
 
     @Override
     protected void initRequest() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mSkeletonLayout.showOriginal();
-            }
-        }, 1000);
 
     }
 
@@ -223,29 +229,28 @@ public class HomeFragment extends NoommateFragment {
     /**
      * 일정
      */
-    private void initHomeScheduleAdapter() {
-        mHomeScheduleAdapter = new HomeScheduleAdapter(R.layout.row_home_schedule, mTodoList);
-        mHomeScheduleAdapter.setEmptyView(new EmptyView(mActivity, "하우스 일정이 없어요"));
-        mHomeScheduleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+    private void initTodoAdapter() {
+        mTodoPagerAdapter = new TodoPagerAdapter(mActivity, mTodoList, new TodoPagerAdapter.HomeBannerListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if (mTodoList.get(position).getSchedule_yn() != null) {
-                    if (mTodoList.get(position).getSchedule_yn().equals("N")) {
-                        showConfirmDialog(mTodoList.get(position).getPlan_name() + " 을(를) 완료하셨나요?", "취소", "수행 완료했어요.", new NoommateActivity.DialogEventListener() {
-                            @Override
-                            public void onReceivedEvent() {
-                                todayScheduleEndAPI(mTodoList.get(position).getSchedule_idx());
-                            }
-                        });
+            public void onIntent(int position, int listPosition) {
+               todayScheduleEndAPI(mTodoList.get(position).get(listPosition).getSchedule_idx());
 
-                    }
-                }
             }
         });
-        mTodoRecyclerView.setLayoutManager(new GridLayoutManager(mActivity, 2));
-        mTodoRecyclerView.addItemDecoration(new SpacingItemDecoration(2, Tools.getInstance().dpTopx(mActivity, 15), true));
-        mTodoRecyclerView.setAdapter(mHomeScheduleAdapter);
+        mTodoViewPager.setAdapter(mTodoPagerAdapter);
+        mTodoViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+            }
+        });
     }
+
 
     /**
      * 알림장
@@ -277,7 +282,6 @@ public class HomeFragment extends NoommateFragment {
                             .apply(requestOptions)
                             .placeholder(mActivity.getDrawable(R.drawable.default_image))
                             .into(mHouseImageView);
-                    mMateCntTextView.setText("눔메이트 " + mMemberResponse.getMate_cnt() + "명");
                     // 메이트 리스트
                     if (mMemberResponse.getMate_array() != null) {
                         mMateList.addAll(mMemberResponse.getMate_array());
@@ -286,29 +290,32 @@ public class HomeFragment extends NoommateFragment {
 
                     // 일정
                     mDateTextView.setText(sdf.format(mNowDate));
-                    mCntTextView.setText("나의 할 일 " + mMemberResponse.getMy_schedule_count() + "개");
+                    for (MemberModel value : mMemberResponse.getMy_schedule_array()) {
+                        if (value.getSchedule_yn().equals("Y")) {
+                            cnt++;
+                        }
+                    }
+                    mCntTextView.setText(cnt + "/" + mMemberResponse.getMy_schedule_count());
+
+                    // 일정 배열 4개 단위로 나누기
+                    for (int i = 0; i < mMemberResponse.getMy_schedule_array().size(); i += 4) {
+                        for (int j = 0; j < 4 && i + j < mMemberResponse.getMy_schedule_array().size(); j++) {
+                            mPageList.add(mMemberResponse.getMy_schedule_array().get(i + j));
+                        }
+                    }
+                    mTodoList.add(mPageList);
 
                     if (mMemberResponse.getMy_schedule_array().size() > 0) {
-                        for (int j = 0; j < mMemberResponse.getMy_schedule_array().size(); j++) {
-                            mHomeScheduleAdapter.addData(j, mMemberResponse.getMy_schedule_array().get(j));
-                        }
-                        mDefaultTextView.setVisibility(View.GONE);
-                        mTodoRecyclerView.setVisibility(View.VISIBLE);
-                        if (mMemberResponse.getMy_schedule_array().size() == 1) {
-                            mTodoList.add(new MemberModel());
-                            mTodoList.add(new MemberModel());
-                            mTodoList.add(new MemberModel());
-                        } else if (mMemberResponse.getMy_schedule_array().size() == 2) {
-                            mTodoList.add(new MemberModel());
-                            mTodoList.add(new MemberModel());
-                        } else if (mMemberResponse.getMy_schedule_array().size() == 3) {
-                            mTodoList.add(new MemberModel());
-                        }
+                        mNonLayout.setVisibility(View.GONE);
+                        mTodoViewPager.setVisibility(View.VISIBLE);
+                        mPhotoIndicator.setVisibility(View.VISIBLE);
                     } else {
-                        mDefaultTextView.setVisibility(View.VISIBLE);
-                        mTodoRecyclerView.setVisibility(View.GONE);
+                        mNonLayout.setVisibility(View.VISIBLE);
+                        mTodoViewPager.setVisibility(View.GONE);
+                        mPhotoIndicator.setVisibility(View.GONE);
                     }
-                    mHomeScheduleAdapter.setNewData(mTodoList);
+
+                    mTodoPagerAdapter.setNewData(mTodoList);
 
                     if (mMemberResponse.getNote_array() != null) {
                         mNoteList.addAll(mMemberResponse.getNote_array());
@@ -390,7 +397,7 @@ public class HomeFragment extends NoommateFragment {
                     mDefaultLayout.setVisibility(View.GONE);
                     initMateAdapter();
                     initNoteAdapter();
-                    initHomeScheduleAdapter();
+                    initTodoAdapter();
                     homeAPI();
 
                 }
@@ -434,7 +441,7 @@ public class HomeFragment extends NoommateFragment {
                     mDefaultLayout.setVisibility(View.GONE);
                     initMateAdapter();
                     initNoteAdapter();
-                    initHomeScheduleAdapter();
+                    initTodoAdapter();
                     mMateList.clear();
                     mNoteList.clear();
                     mTodoList.clear();
@@ -472,8 +479,8 @@ public class HomeFragment extends NoommateFragment {
     public void addTouched() {
 
         ImagePicker.Companion.with(this)
-                .compress(1024)         // Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)  // Final image resolution will be less than 1080 x 1080(Optional)
+                .compress(2000)// Final image size will be less than 1 MB(Optional)
+                .maxResultSize(2000, 2000)  // Final image resolution will be less than 1080 x 1080(Optional)
                 .createIntent(new Function1<Intent, Unit>() {
                     @Override
                     public Unit invoke(Intent intent) {

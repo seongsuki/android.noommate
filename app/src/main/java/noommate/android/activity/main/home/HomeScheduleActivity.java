@@ -1,20 +1,41 @@
 package noommate.android.activity.main.home;
 
+
+
+import static com.google.firebase.messaging.Constants.MessagePayloadKeys.SENDER_ID;
+
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.service.notification.StatusBarNotification;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.messaging.FirebaseMessaging;
+//import com.google.firebase.messaging.Message;
+import com.google.firebase.messaging.RemoteMessage;
+import com.google.gson.Gson;
 import com.pixplicity.easyprefs.library.Prefs;
 
+import java.io.FileInputStream;
+import java.lang.reflect.Member;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import noommate.android.activity.NoommateActivity;
+import noommate.android.models.AlarmModel;
 import noommate.android.models.MemberModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,6 +46,7 @@ import noommate.android.commons.EmptyView;
 import noommate.android.commons.Tools;
 import noommate.android.models.ScheduleModel;
 import noommate.android.models.api.CommonRouter;
+import timber.log.Timber;
 
 public class HomeScheduleActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
@@ -47,6 +69,8 @@ public class HomeScheduleActivity extends NoommateActivity {
     private ArrayList<MultiItemEntity> mHomeScheduleList = new ArrayList<>();
     private HomeScheduleListAdapter mHomeScheduleListAdapter;
     private Date mNowDate = new Date();
+    private RewardedAd rewardedAd;
+
     private SimpleDateFormat sdf = new SimpleDateFormat("MM월 dd일 (E)");
 
     //--------------------------------------------------------------------------------------------
@@ -59,6 +83,7 @@ public class HomeScheduleActivity extends NoommateActivity {
 
     @Override
     protected void initLayout() {
+        loadAd();
         mToolbarTitle.setText(sdf.format(mNowDate));
 
 
@@ -73,11 +98,46 @@ public class HomeScheduleActivity extends NoommateActivity {
     // MARK : Local functions
     //--------------------------------------------------------------------------------------------
 
+
+
+
+    /**
+     * 광고 보여주기
+     */
+    public void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917", adRequest, new RewardedAdLoadCallback() {
+            @Override
+            public void onAdFailedToLoad(LoadAdError loadAdError) {
+                // 광고 로드 실패
+                Timber.i(loadAdError.toString());
+            }
+
+            @Override
+            public void onAdLoaded(RewardedAd ad) {
+                rewardedAd = ad;
+            }
+        });
+
+    }
+
+    private void showRewardedAd() {
+        if (rewardedAd != null) {
+            rewardedAd.show(this, rewardItem -> {
+                // 사용자에게 보상 제공 및 관련 작업 수행
+                Timber.i("광고 노출");
+            });
+        } else {
+            // 리워드 광고가 아직 로드되지 않았음을 알림
+            Timber.i("로드되지 않음");
+        }
+    }
+
     /**
      * 일정 리스트
      */
     private void initHomeScheduleListAdapter() {
-        mHomeScheduleListAdapter = new HomeScheduleListAdapter(mHomeScheduleList, new HomeScheduleListAdapter.OnHomeScheduleListener() {
+        mHomeScheduleListAdapter = new HomeScheduleListAdapter(mHomeScheduleList,mActivity, new HomeScheduleListAdapter.OnHomeScheduleListener() {
             @Override
             public void OnRefresh() {
                 mHomeScheduleList.clear();

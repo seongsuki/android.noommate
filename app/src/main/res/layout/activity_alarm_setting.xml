@@ -81,7 +81,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="콕 찌르기"
+                android:text="가계부 알림"
                 android:layout_centerVertical="true"
                 android:textColor="@color/color_3a3a3c"
                 android:textStyle="bold"

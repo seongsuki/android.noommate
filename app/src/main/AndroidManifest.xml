@@ -262,6 +262,7 @@
       android:screenOrientation="portrait"
       android:windowSoftInputMode="stateHidden" />
 
+    <!-- ㅇㅇㅇㅇ -->
     <!-- 카카오 -->
     <activity
         android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"

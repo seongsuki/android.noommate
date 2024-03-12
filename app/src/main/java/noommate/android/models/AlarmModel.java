@@ -1,5 +1,7 @@
 package noommate.android.models;
 
+import com.pixplicity.easyprefs.library.Prefs;
+
 import java.util.ArrayList;
 
 import lombok.Data;
@@ -23,6 +25,8 @@ public class AlarmModel extends BaseListModel {
   private String ins_date;
   // 알림
   private String alarm_type;
+  // 메시지
+  private String message;
   // 알림 유무
   private String alarm_yn;
   /// 알림 수정일
@@ -175,5 +179,13 @@ public class AlarmModel extends BaseListModel {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 }

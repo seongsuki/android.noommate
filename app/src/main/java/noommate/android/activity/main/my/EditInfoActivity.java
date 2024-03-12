@@ -13,6 +13,7 @@ import com.pixplicity.easyprefs.library.Prefs;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.github.florent37.shapeofview.shapes.RoundRectView;
 import noommate.android.activity.NoommateActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +52,8 @@ public class EditInfoActivity extends NoommateActivity {
     AppCompatImageView mBackImageView;
     @BindView(R.id.add_text_view)
     AppCompatTextView mAddTextView;
+    @BindView(R.id.pw_button_layout)
+    RoundRectView mPwButtonLayout;
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
@@ -72,6 +75,12 @@ public class EditInfoActivity extends NoommateActivity {
     @Override
     protected void initLayout() {
         mToolbarTitle.setText("내 정보 수정");
+        if (Prefs.getString(Constants.MEMBER_JOIN_TYPE,"").equals("K")) {
+            mPwButtonLayout.setVisibility(View.GONE);
+        } else {
+            mPwButtonLayout.setVisibility(View.VISIBLE);
+        }
+
 
 
     }

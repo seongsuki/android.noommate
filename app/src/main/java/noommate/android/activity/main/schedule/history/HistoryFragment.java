@@ -166,14 +166,18 @@ public class HistoryFragment extends NoommateFragment {
                 AppCompatTextView dayTextView = viewContainer.mDayTextView;
                 RoundRectView recordPointLayout = viewContainer.mRecordPointLayout;
                 AppCompatTextView todayTextView = viewContainer.mTodayTextView;
+                RoundRectView dayLayout = viewContainer.mDayLayout;
                 dayTextView.setText(String.valueOf(calendarDay.getDate().getDayOfMonth()));
 
                 mDateList.add(String.valueOf(calendarDay.getDate()));
 
 
                 if (calendarDay.getDate().isEqual(LocalDate.now())) {
-                    todayTextView.setVisibility(View.VISIBLE);
+                    todayTextView.setVisibility(View.GONE);
+                    dayLayout.setBorderWidth(4);
+                    dayLayout.setBorderColor(mActivity.getColor(R.color.colorAccent));
                 } else {
+                    dayLayout.setBorderWidth(0);
                     todayTextView.setVisibility(View.GONE);
                 }
 

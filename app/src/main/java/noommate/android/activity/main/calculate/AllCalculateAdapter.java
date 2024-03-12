@@ -1,7 +1,9 @@
 package noommate.android.activity.main.calculate;
 
 import android.view.View;
+import android.widget.RelativeLayout;
 
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import noommate.android.R;
+import noommate.android.activity.NoommateActivity;
 import noommate.android.commons.Tools;
 import noommate.android.models.BookModel;
 import timber.log.Timber;
@@ -27,6 +30,7 @@ public class AllCalculateAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
 
     private ArrayList<BookModel> mDetailList = new ArrayList<>();
     private DetailListAdapter mDetailListAdapter;
+    private RecyclerView mDetailRecyclerView;
 
     //--------------------------------------------------------------------------------------------
     // MARK : Override
@@ -45,21 +49,20 @@ public class AllCalculateAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
 
                 int sum = 0;
                 int total = 0;
-                for (BookModel value : ((CalculateListItem) item).bookModel.getItem_list()) {
+                for (BookModel value : calculateListItem.bookModel.getItem_list()) {
                     int i = Integer.parseInt(value.getItem_bill());
                     sum += i;
                 }
-                total = Integer.parseInt(String.valueOf(sum + Integer.parseInt(((CalculateListItem) item).bookModel.getBook_item_1()) + Integer.parseInt(((CalculateListItem) item).bookModel.getBook_item_2()) + Integer.parseInt(((CalculateListItem) item).bookModel.getBook_item_3())));
 
+                total = Integer.parseInt(String.valueOf(sum + Integer.parseInt(calculateListItem.bookModel.getBook_item_1()) + Integer.parseInt(calculateListItem.bookModel.getBook_item_2()) + Integer.parseInt(calculateListItem.bookModel.getBook_item_3())));
                 helper.setText(R.id.price_text_view, Tools.getInstance().numberPlaceValue(String.valueOf(total)) + " 원");
-                helper.setText(R.id.date_text_view, ((CalculateListItem) item).bookModel.getMonth());
+                helper.setText(R.id.date_text_view, calculateListItem.bookModel.getMonth());
 
 
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         int pos = helper.getAdapterPosition();
-                        Timber.i(String.valueOf(calculateListItem.isExpanded()));
                         if (calculateListItem.isExpanded()) {
                             collapse(pos, true);
                         } else {
@@ -67,10 +70,13 @@ public class AllCalculateAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
                         }
                     }
                 });
+
+
                 break;
             case CALCULATE_DETAIL:
                 final CalculateDetailItem calculateDetailItem = (CalculateDetailItem) item;
-
+                mDetailRecyclerView = helper.getView(R.id.detail_list_recycler_view);
+                mDetailList.clear();
                 mDetailList.add(new BookModel());
                 mDetailList.add(new BookModel());
                 mDetailList.add(new BookModel());
@@ -81,19 +87,15 @@ public class AllCalculateAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
                 mDetailList.get(1).setItem_bill(calculateDetailItem.bookModel.getBook_item_2());
                 mDetailList.get(2).setItem_name("전기세");
                 mDetailList.get(2).setItem_bill(calculateDetailItem.bookModel.getBook_item_3());
-
-                RecyclerView mDetailListRecyclerView = helper.getView(R.id.detail_list_recycler_view);
-                mDetailListAdapter = new DetailListAdapter(R.layout.row_detail_list, mDetailList);
-                mDetailListRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
-                mDetailListRecyclerView.setAdapter(mDetailListAdapter);
                 mDetailList.addAll(calculateDetailItem.item_list);
+
+                mDetailListAdapter = new DetailListAdapter(R.layout.row_detail_list, calculateDetailItem.item_list);
+                mDetailRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+                mDetailRecyclerView.setAdapter(mDetailListAdapter);
                 mDetailListAdapter.setNewData(mDetailList);
-
-                mDetailList.clear();
-
-
                 break;
         }
     }
+
 }
 
