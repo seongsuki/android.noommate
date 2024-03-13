@@ -69,8 +69,6 @@ public class HomeScheduleActivity extends NoommateActivity {
     private ArrayList<MultiItemEntity> mHomeScheduleList = new ArrayList<>();
     private HomeScheduleListAdapter mHomeScheduleListAdapter;
     private Date mNowDate = new Date();
-    private RewardedAd rewardedAd;
-
     private SimpleDateFormat sdf = new SimpleDateFormat("MM월 dd일 (E)");
 
     //--------------------------------------------------------------------------------------------
@@ -83,7 +81,6 @@ public class HomeScheduleActivity extends NoommateActivity {
 
     @Override
     protected void initLayout() {
-        loadAd();
         mToolbarTitle.setText(sdf.format(mNowDate));
 
 
@@ -101,37 +98,6 @@ public class HomeScheduleActivity extends NoommateActivity {
 
 
 
-    /**
-     * 광고 보여주기
-     */
-    public void loadAd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917", adRequest, new RewardedAdLoadCallback() {
-            @Override
-            public void onAdFailedToLoad(LoadAdError loadAdError) {
-                // 광고 로드 실패
-                Timber.i(loadAdError.toString());
-            }
-
-            @Override
-            public void onAdLoaded(RewardedAd ad) {
-                rewardedAd = ad;
-            }
-        });
-
-    }
-
-    private void showRewardedAd() {
-        if (rewardedAd != null) {
-            rewardedAd.show(this, rewardItem -> {
-                // 사용자에게 보상 제공 및 관련 작업 수행
-                Timber.i("광고 노출");
-            });
-        } else {
-            // 리워드 광고가 아직 로드되지 않았음을 알림
-            Timber.i("로드되지 않음");
-        }
-    }
 
     /**
      * 일정 리스트

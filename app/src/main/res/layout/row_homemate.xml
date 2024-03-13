@@ -6,27 +6,41 @@
     android:orientation="vertical">
     
     <io.github.florent37.shapeofview.shapes.RoundRectView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/profile_layout"
         app:shape_roundRect_borderWidth="3dp"
         app:shape_roundRect_borderColor="@color/color_f1f1f4"
         app:shape_roundRect_bottomLeftRadius="26dp"
+        android:background="@color/color_f1f1f4"
         app:shape_roundRect_topRightRadius="26dp"
         app:shape_roundRect_topLeftRadius="26dp"
         app:shape_roundRect_bottomRightRadius="26dp">
 
-        <RelativeLayout
-            android:id="@id/back_layout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent">
+            android:background="@color/color_f1f1f4"/>
+
+        <RelativeLayout
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:background="@color/color_f1f1f4">
+
+            <RelativeLayout
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:id="@+id/back_layout"/>
 
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@drawable/back5"
+                android:layout_centerInParent="true"
                 android:id="@+id/back_image_view"/>
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -36,15 +50,16 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/group_191" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/select_image_view"
-                android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="match_parent"
-                android:src="@drawable/select"/>
 
 
         </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/select_image_view"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            android:src="@drawable/select"/>
     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
     <androidx.appcompat.widget.AppCompatTextView

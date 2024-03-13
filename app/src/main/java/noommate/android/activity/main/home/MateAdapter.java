@@ -62,6 +62,14 @@ public class MateAdapter extends BaseQuickAdapter<MemberModel, BaseViewHolder> {
             mSelectImageView.setVisibility(View.GONE);
         }
 
+        if (item.getSchedule_yn() != null) {
+            if (item.getSchedule_yn().equals("Y"))  {
+                mSelectImageView.setVisibility(View.VISIBLE);
+            } else {
+                mSelectImageView.setVisibility(View.GONE);
+            }
+        }
+
         if (item.getMy_yn() != null) {
             if (item.getMy_yn().equals("Y")) {
                 mProfileLayout.setBorderWidth(7);

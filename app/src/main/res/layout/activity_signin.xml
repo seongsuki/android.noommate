@@ -178,6 +178,7 @@
                             android:id="@+id/naver_button"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
+                            android:visibility="gone"
                             android:src="@drawable/naver"/>
 
 

@@ -3,6 +3,7 @@ package noommate.android.activity.main.home;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +15,10 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 //import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.RemoteMessage;
+import com.google.gson.Gson;
+import com.pixplicity.easyprefs.library.Prefs;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +28,13 @@ import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 import noommate.android.dialog.CocDialog;
 import noommate.android.models.BaseModel;
+import noommate.android.models.CockModel;
 import noommate.android.models.MemberModel;
 import noommate.android.models.api.CommonRouter;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -90,11 +99,10 @@ public class HomeScheduleListAdapter extends BaseMultiItemQuickAdapter<MultiItem
                                 todayScheduleEndAPI(((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getSchedule_idx());
                             } else {
                                 if (homeScheduleDetailItem.scheduleModel.getSchedule_item_member_list().get(position).getAlarm_yn().equals("Y")) {
-                                    CocDialog cocDialog = new CocDialog(mContext,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role1(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role2(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role3(),
-                                            mTitle,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_nickname(), ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getCoc_cnt(), new CocDialog.OnCocListener() {
+                                    CocDialog cocDialog = new CocDialog(mActivity,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role1(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role2(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_role3(),
+                                            mTitle,((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getMember_nickname(), ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getCoc_cnt(),((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).getGcm_key(), new CocDialog.OnCocListener() {
                                         @Override
                                         public void onCoc(String cocCnt) {
-//                                            sendNotificationSend(homeScheduleDetailItem.scheduleModel.getSchedule_item_member_list().get(position).getGcm_key());
                                             ((HomeScheduleDetailItem) item).scheduleModel.getSchedule_item_member_list().get(position).setCoc_cnt(cocCnt);
                                             mOnHomeScheduleListener.OnRefresh();
                                             Intent feedRefresh = new Intent(Constants.HOME_REFRESH);
@@ -145,30 +153,6 @@ public class HomeScheduleListAdapter extends BaseMultiItemQuickAdapter<MultiItem
         });
     }
 
-    /**
-     * 알림 보내기
-     */
-    private void sendNotificationSend(String gcm) {
-//        FirebaseMessaging fm = FirebaseMessaging.getInstance();
-//        fm.send(new RemoteMessage.Builder(SENDER_ID + "@fcm.googleapis.com")
-//                .setMessageId(Integer.toString(messageId))
-//                .addData("my_message", "Hello World")
-//                .addData("my_action","SAY_HELLO")
-//                .build());
-//        Message message = Message.builder()
-//                .setToken(gcm)
-//                .putData(gcm, "\uD83D\uDC49콕")
-//                .build();
-
-// Firebase Admin SDK를 사용하여 메시지 전송
-//        try {
-//            String response = FirebaseMessaging.getInstance().send(message);
-//            System.out.println("Successfully sent message: " + response);
-//        } catch (Exception e) {
-//            System.out.println("Failed to send message: " + e.getMessage());
-//        }
-
-    }
 }
 
 

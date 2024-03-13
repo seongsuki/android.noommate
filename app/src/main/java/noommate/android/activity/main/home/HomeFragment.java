@@ -133,6 +133,7 @@ public class HomeFragment extends NoommateFragment {
                 mMateList.clear();
                 mNoteList.clear();
                 mTodoList.clear();
+                mPageList.clear();
                 homeAPI();
 
             }
@@ -166,6 +167,7 @@ public class HomeFragment extends NoommateFragment {
             mMateList.clear();
             mNoteList.clear();
             mTodoList.clear();
+            mPageList.clear();
             homeAPI();
 
         }
@@ -292,6 +294,7 @@ public class HomeFragment extends NoommateFragment {
                     mDateTextView.setText(sdf.format(mNowDate));
                     for (MemberModel value : mMemberResponse.getMy_schedule_array()) {
                         if (value.getSchedule_yn().equals("Y")) {
+                            cnt = 0;
                             cnt++;
                         }
                     }
@@ -343,6 +346,7 @@ public class HomeFragment extends NoommateFragment {
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
                 mNoteList.clear();
                 mTodoList.clear();
+                mPageList.clear();
                 mMateList.clear();
                 homeAPI();
             }
@@ -445,6 +449,7 @@ public class HomeFragment extends NoommateFragment {
                     mMateList.clear();
                     mNoteList.clear();
                     mTodoList.clear();
+                    mPageList.clear();
                     homeAPI();
                 }
 
@@ -477,10 +482,9 @@ public class HomeFragment extends NoommateFragment {
      */
     @OnClick(R.id.add_button)
     public void addTouched() {
-
         ImagePicker.Companion.with(this)
-                .compress(2000)// Final image size will be less than 1 MB(Optional)
-                .maxResultSize(2000, 2000)  // Final image resolution will be less than 1080 x 1080(Optional)
+                .compress(3000)// Final image size will be less than 1 MB(Optional)
+                .maxResultSize(3000, 3000)  // Final image resolution will be less than 1080 x 1080(Optional)
                 .createIntent(new Function1<Intent, Unit>() {
                     @Override
                     public Unit invoke(Intent intent) {

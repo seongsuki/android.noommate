@@ -222,15 +222,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -242,11 +239,7 @@
 
                     <io.github.florent37.shapeofview.shapes.RoundRectView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:shape_roundRect_topRightRadius="24dp"
-                        app:shape_roundRect_topLeftRadius="24dp"
-                        app:shape_roundRect_bottomRightRadius="24dp"
-                        app:shape_roundRect_bottomLeftRadius="24dp">
+                        android:layout_height="match_parent">
 
 
                     <RelativeLayout
@@ -265,7 +258,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:layout_alignParentRight="true"
-                            android:layout_marginBottom="16dp"
+                            android:layout_marginBottom="36dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginRight="16dp"
                             android:src="@drawable/add_btn" />
@@ -275,6 +268,18 @@
 
                     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
+                    <io.github.florent37.shapeofview.shapes.RoundRectView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:shape_roundRect_topLeftRadius="30dp"
+                        app:shape_roundRect_topRightRadius="30dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_ffffff"/>
+                    </io.github.florent37.shapeofview.shapes.RoundRectView>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -282,57 +287,6 @@
 
             </LinearLayout>
 
-            <io.github.florent37.shapeofview.shapes.RoundRectView
-                android:layout_width="match_parent"
-                android:layout_height="81dp"
-                app:shape_roundRect_bottomLeftRadius="999dp"
-                app:shape_roundRect_bottomRightRadius="999dp"
-                app:shape_roundRect_topLeftRadius="999dp"
-                app:shape_roundRect_topRightRadius="999dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorAccent"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/home"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="13dp"
-                        android:background="@color/colorAccent"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="MY 하우스"
-                            android:textSize="14dp"
-                            android:layout_marginTop="18dp"
-                            android:textColor="@color/color_ffffff" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/house_name_text_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=""
-                            android:layout_marginBottom="18dp"
-                            android:textColor="@color/color_ffffff"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </io.github.florent37.shapeofview.shapes.RoundRectView>
 
 
         </RelativeLayout>
@@ -343,6 +297,44 @@
                 android:layout_height="match_parent"
                 android:background="@color/color_ffffff"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:src="@drawable/home"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MY 하우스"
+                            android:textSize="14dp"
+                            android:textColor="@color/color_3a3a3c" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/house_name_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/color_3a3a3c"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"

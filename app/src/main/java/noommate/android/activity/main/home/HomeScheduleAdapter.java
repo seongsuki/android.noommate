@@ -13,6 +13,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.mmin18.widget.RealtimeBlurView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -34,8 +35,29 @@ public class HomeScheduleAdapter extends BaseQuickAdapter<MemberModel, BaseViewH
         LinearLayout mBlurView = helper.getView(R.id.blur_view);
         LinearLayout mContentLayout = helper.getView(R.id.content_layout);
         helper.addOnClickListener(R.id.state_text_view);
-        helper.setText(R.id.content_text_view, item.getPlan_name());
-        helper.setText(R.id.date_text_view, item.getAlarm_hour() + "시");
+
+
+
+        if (item.getPlan_name() != null) {
+                helper.setText(R.id.content_text_view, item.getPlan_name());
+            }
+            if (item.getAlarm_hour() != null) {
+                if (!item.getAlarm_hour().equals("")) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+                    SimpleDateFormat dateFormat=new SimpleDateFormat("HH");
+                    String strDate= item.getAlarm_hour();
+                    try {
+                        Date date = dateFormat.parse(strDate);
+                        helper.setText(R.id.date_text_view, sdf.format(date));
+
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    helper.setText(R.id.date_text_view, "미정");
+                }
+            }
+
 
 
 
@@ -53,6 +75,8 @@ public class HomeScheduleAdapter extends BaseQuickAdapter<MemberModel, BaseViewH
                 mStateTextView.setEnabled(true);
             }
         } else {
+            mStempImageView.setVisibility(View.GONE);
+            mBlurView.setVisibility(View.GONE);
             mDefaultTextView.setVisibility(View.VISIBLE);
             mContentLayout.setVisibility(View.GONE);
         }

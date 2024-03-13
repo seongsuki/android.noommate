@@ -26,6 +26,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -189,20 +190,14 @@ public class HistoryFragment extends NoommateFragment {
                     dayTextView.setTextColor(mActivity.getColor(R.color.color_222b45));
                 }
 
-
                 // 예약 여부 원 표시
-                if (mCircleResponse.getData_array() != null) {
-                    for (ScheduleModel value : mCircleResponse.getData_array()) {
-                        mRecordDateList.add(value.getSchedule_date());
-                    }
-                    for (int i = 0; i < mRecordDateList.size(); i++) {
-                        mRecordDate = LocalDate.parse(mRecordDateList.get(i));
-                        if (calendarDay.getDate().isEqual(mRecordDate)) {
-                            recordPointLayout.setVisibility(View.VISIBLE);
-                        } else {
-                            recordPointLayout.setVisibility(View.GONE);
-                        }
-                    }
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                Timber.i("dateList : " + mRecordDateList);
+                String formattedString = calendarDay.getDate().format(formatter);
+                if ((calendarDay.getOwner() == DayOwner.THIS_MONTH) && (mRecordDateList.contains(formattedString))) {
+                    recordPointLayout.setVisibility(View.VISIBLE);
+                } else {
+                    recordPointLayout.setVisibility(View.GONE);
                 }
 
 
@@ -242,6 +237,7 @@ public class HistoryFragment extends NoommateFragment {
 
 
         mMonthTextView.setText(currentMonth.getYear() + "년 " + currentMonth.getMonth() + "월");
+        scheduleDateListAPI();
     }
 
     /**
@@ -249,20 +245,6 @@ public class HistoryFragment extends NoommateFragment {
      */
     private void initHistoryAdapter() {
         mHistoryAdapter = new ScheduleAdapter(R.layout.row_schedule, mHistoryList);
-        mHistoryAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent addScheduleActivity = AddScheduleActivity.getStartIntent(mActivity, mHistoryList.get(position).getPlan_idx(), new AddScheduleActivity.OnAddScheduleListener() {
-                    @Override
-                    public void onRefresh() {
-                        mHistoryList.clear();
-                        scheduleDateMemberListAPI();
-
-                    }
-                });
-                startActivity(addScheduleActivity, NoommateActivity.TRANS.PUSH);
-            }
-        });
         mHistoryRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         mHistoryRecyclerView.setAdapter(mHistoryAdapter);
 
@@ -282,8 +264,7 @@ public class HistoryFragment extends NoommateFragment {
                 mCircleResponse = response.body();
                 if (Tools.getInstance().isSuccessResponse(response)) {
                     for (ScheduleModel value : mCircleResponse.getData_array()) {
-                        mDateList.add(String.valueOf(value));
-                        Timber.i("dateList : " + value.getSchedule_date());
+                        mRecordDateList.add(String.valueOf(value.getSchedule_date()));
                     }
                     mCalendarView.notifyMonthChanged(mSelectedMonth);
                 }

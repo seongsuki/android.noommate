@@ -29,6 +29,7 @@ public class TodoPagerAdapter extends CardSliderAdapter<TodoPagerAdapter.BannerH
 
     private Context mContext;
     private ArrayList<ArrayList<MemberModel>> mTodoList;
+    private ArrayList<MemberModel> mDetailList;
     private NoommateActivity mActivity;
     private HomeScheduleAdapter mHomeScheduleAdapter;
     private static HomeBannerListener mHomeBannerListener;
@@ -54,8 +55,8 @@ public class TodoPagerAdapter extends CardSliderAdapter<TodoPagerAdapter.BannerH
     @Override
     public void bindVH(@NotNull TodoPagerAdapter.BannerHolder bannerHolder, int j) {
 
-
-        mHomeScheduleAdapter = new HomeScheduleAdapter(R.layout.row_home_schedule, mTodoList.get(j));
+        mDetailList = mTodoList.get(j);
+        mHomeScheduleAdapter = new HomeScheduleAdapter(R.layout.row_home_schedule, mDetailList);
         mHomeScheduleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -82,15 +83,16 @@ public class TodoPagerAdapter extends CardSliderAdapter<TodoPagerAdapter.BannerH
 
 
 
-        if (mTodoList.get(j).size() == 1) {
-            mTodoList.add(null);
-            mTodoList.add(null);
-            mTodoList.add(null);
-        } else if (mTodoList.get(j).size() == 2) {
-            mTodoList.add(null);
-            mTodoList.add(null);
-        } else if (mTodoList.get(j).size() == 3) {
-            mTodoList.add(null);
+
+        if (mDetailList.size() == 1) {
+            mDetailList.add(new MemberModel());
+            mDetailList.add(new MemberModel());
+            mDetailList.add(new MemberModel());
+        } else if (mDetailList.size() == 2) {
+            mDetailList.add(new MemberModel());
+            mDetailList.add(new MemberModel());
+        } else if (mDetailList.size() == 3) {
+            mDetailList.add(new MemberModel());
         }
 
     }

@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-    android:background="@color/color_fafafc"
-  android:orientation="vertical">
-
-  <include layout="@layout/toolbar_back" />
-
-  <noommate.android.commons.TouchDetectableScrollView
-    android:id="@+id/more_scroll_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/color_fafafc"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/notice_list_recycler_view"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+    <include layout="@layout/toolbar_back" />
 
-  </noommate.android.commons.TouchDetectableScrollView>
+    <noommate.android.commons.TouchDetectableScrollView
+        android:id="@+id/more_scroll_view"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notice_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </noommate.android.commons.TouchDetectableScrollView>
 
 
 </LinearLayout>

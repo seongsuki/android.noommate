@@ -54,6 +54,8 @@ public class EditInfoActivity extends NoommateActivity {
     AppCompatTextView mAddTextView;
     @BindView(R.id.pw_button_layout)
     RoundRectView mPwButtonLayout;
+    @BindView(R.id.email_text_view)
+    AppCompatTextView mEmailTextView;
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
@@ -108,6 +110,7 @@ public class EditInfoActivity extends NoommateActivity {
                 mMemberResponse = response.body();
                 if (Tools.getInstance().isSuccessResponse(response)) {
                     mNicknameEditText.setText(mMemberResponse.getMember_name());
+                    mEmailTextView.setText(mMemberResponse.getMember_email());
                     if (mMemberResponse.getMember_role1().equals("")) {
                         mBackImageView.setVisibility(View.GONE);
                         mFaceImageView.setVisibility(View.GONE);

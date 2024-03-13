@@ -94,8 +94,8 @@ public class CalculateFragment extends NoommateFragment {
         public void onReceive(Context context, Intent intent) {
             mCalculateList.clear();
 //            mAllCalculateList.clear();
-            bookListAPI();
-//            bookViewAPI();
+//            bookListAPI();
+            bookViewAPI();
 
         }
     };
@@ -271,7 +271,6 @@ public class CalculateFragment extends NoommateFragment {
             public void onResponse(Call<BookModel> call, Response<BookModel> response) {
                 mBookListResponse = response.body();
                 if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
-//                    mAllCalculateList.clear();
                     if (mBookListResponse.getData_array() != null) {
                         for (BookModel value : mBookListResponse.getData_array()) {
                             CalculateListItem calculateListItem = new CalculateListItem(value);
@@ -306,7 +305,7 @@ public class CalculateFragment extends NoommateFragment {
                 @Override
                 public void OnResult() {
                     mCalculateList.clear();
-                    mAllCalculateList.clear();
+//                    mAllCalculateList.clear();
                     bookViewAPI();
 
                 }
@@ -317,7 +316,7 @@ public class CalculateFragment extends NoommateFragment {
                 @Override
                 public void OnResult() {
                     mCalculateList.clear();
-                    mAllCalculateList.clear();
+//                    mAllCalculateList.clear();
                     bookViewAPI();
 
                 }

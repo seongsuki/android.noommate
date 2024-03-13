@@ -66,11 +66,6 @@ public class TermsListActivity extends NoommateActivity {
         startActivity(termsActivity,TRANS.PUSH);
     }
 
-    @OnClick(R.id.marketing_button)
-    public void marketingTouched() {
-        Intent termsActivity = TermsActivity.getStartIntent(mActivity, TermsActivity.TermsType.MARKETING);
-        startActivity(termsActivity,TRANS.PUSH);
-    }
 
 
 }
