@@ -21,7 +21,6 @@ public class BackPressCloseHandler {
       return;
     }
     if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-      // [PATCH][Rocket][2020.11.30] 앱 테스크 완전 종료로 수정
 //      activity.finish();
       activity.moveTaskToBack(true);						// 태스크를 백그라운드로 이동
       activity.finishAndRemoveTask();						// 액티비티 종료 + 태스크 리스트에서 지우기

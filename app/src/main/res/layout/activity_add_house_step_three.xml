@@ -10,7 +10,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="112dp"
         android:layout_gravity="center"
         android:src="@drawable/img_house"
         android:layout_marginTop="24dp" />
@@ -25,9 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         android:gravity="center"
-        android:text="하우스가 완성되었어요.\n나의 메이트와 함께\n할 일을 나누어 공유해보세요"
+        android:text="하우스가 완성되었어요!\n나의 메이트와 함께\n할 일을 나누어 공유해보세요"
         android:textColor="@color/color_3a3a3c"
         android:textSize="24dp"
         android:textStyle="bold" />

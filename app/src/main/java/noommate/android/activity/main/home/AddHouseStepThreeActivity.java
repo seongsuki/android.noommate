@@ -2,6 +2,7 @@ package noommate.android.activity.main.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
 import butterknife.OnClick;
 import noommate.android.R;
@@ -24,6 +25,7 @@ public class AddHouseStepThreeActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
+    private long backpressedTime = 0;
 
     //--------------------------------------------------------------------------------------------
     // MARK : Override
@@ -36,11 +38,22 @@ public class AddHouseStepThreeActivity extends NoommateActivity {
     @Override
     protected void initLayout() {
         initToolbar("하우스 만들기");
+        mBackButton.setVisibility(View.GONE);
 
     }
 
     @Override
     protected void initRequest() {
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() > backpressedTime + 2000) {
+            backpressedTime = System.currentTimeMillis();
+            showSnackBar("\'뒤로가기\' 버튼을 한번 더 누르시면 종료됩니다.");
+        } else if (System.currentTimeMillis() <= backpressedTime + 2000) {
+            removeAllActivity();
+        }
     }
 
     //--------------------------------------------------------------------------------------------

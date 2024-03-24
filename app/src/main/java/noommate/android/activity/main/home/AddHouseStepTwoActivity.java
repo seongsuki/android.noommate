@@ -2,6 +2,7 @@ package noommate.android.activity.main.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -11,6 +12,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import noommate.android.R;
 import noommate.android.activity.NoommateActivity;
+import noommate.android.activity.main.MainActivity;
 import noommate.android.commons.Constants;
 import noommate.android.commons.Tools;
 
@@ -32,7 +34,7 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
-
+    private long backpressedTime = 0;
     //--------------------------------------------------------------------------------------------
     // MARK : Override
     //--------------------------------------------------------------------------------------------
@@ -44,12 +46,23 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
     @Override
     protected void initLayout() {
         initToolbar("하우스 만들기");
+        mBackButton.setVisibility(View.GONE);
         mHouseCodeTextView.setText(Prefs.getString(Constants.HOUSE_CODE,""));
 
     }
 
     @Override
     protected void initRequest() {
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() > backpressedTime + 2000) {
+            backpressedTime = System.currentTimeMillis();
+            showSnackBar("\'뒤로가기\' 버튼을 한번 더 누르시면 종료됩니다.");
+        } else if (System.currentTimeMillis() <= backpressedTime + 2000) {
+            removeAllActivity();
+        }
     }
 
     //--------------------------------------------------------------------------------------------
@@ -73,6 +86,8 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
      */
     @OnClick(R.id.invite_button)
     public void inviteTouched() {
+        Intent addHouseStepThreeActivity = AddHouseStepThreeActivity.getStartIntent(mActivity);
+        startActivity(addHouseStepThreeActivity,TRANS.PUSH);
 
     }
 
@@ -81,8 +96,9 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
      */
     @OnClick(R.id.next_time_button)
     public void nextTimeTouched() {
-        Intent addHouseStepThreeActivity = AddHouseStepThreeActivity.getStartIntent(mActivity);
-        startActivity(addHouseStepThreeActivity,TRANS.PUSH);
+        removeAllActivity();
+        Intent mainActivity = MainActivity.getStartIntent(mActivity);
+        startActivity(mainActivity,TRANS.ZOOM);
 
     }
 

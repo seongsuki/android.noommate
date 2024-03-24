@@ -35,12 +35,12 @@
                     android:layout_gravity="center">
 
                     <RelativeLayout
+                        android:id="@+id/back_layout"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:gravity="center"
                         android:layout_centerInParent="true"
                         android:background="@color/color_ff6d6d"
-                        android:id="@+id/back_layout"/>
+                        android:gravity="center" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/back_image_view"
@@ -52,8 +52,9 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/face_image_view"
                         android:layout_width="50dp"
-                        android:layout_height="match_parent"
                         android:layout_centerInParent="true"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
                         android:src="@drawable/group_191" />
 
 

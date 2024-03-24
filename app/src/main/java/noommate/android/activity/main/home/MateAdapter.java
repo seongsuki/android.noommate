@@ -77,7 +77,6 @@ public class MateAdapter extends BaseQuickAdapter<MemberModel, BaseViewHolder> {
             } else {
                 mProfileLayout.setBorderWidth(7);
                 mProfileLayout.setBorderColor(mContext.getColor(R.color.color_f1f1f4));
-
             }
         }
 
