@@ -160,6 +160,7 @@ public class AddHouseActivity extends NoommateActivity {
                 if (mHouseResponse.getCode().equals("1000")) {
                     Prefs.putString(Constants.HOUSE_CODE, mHouseResponse.getHouse_code());
                     Prefs.putString(Constants.HOUSE_IDX, mHouseResponse.getHouse_idx());
+                    Prefs.putString(Constants.HOUSE_NAME, mHouseResponse.getHouse_name());
                     Intent addHouseStepTwoActivity = AddHouseStepTwoActivity.getStartIntent(mActivity);
                     startActivity(addHouseStepTwoActivity, TRANS.PUSH);
                     finishWithRemove();

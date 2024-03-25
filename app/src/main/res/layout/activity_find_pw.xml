@@ -163,4 +163,16 @@
 
     </io.github.florent37.shapeofview.shapes.RoundRectView>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/find_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:text="해당 이메일로 비밀번호 변경 메일을 보냈습니다.\n비밀번호 변경 후 로그인 해주세요."
+        android:layout_gravity="center"
+        android:textSize="14dp"
+        android:textColor="@color/color_c8ccd5"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
 </LinearLayout>

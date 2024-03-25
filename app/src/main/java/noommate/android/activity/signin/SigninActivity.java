@@ -91,7 +91,7 @@ public class SigninActivity extends NoommateActivity {
             Prefs.putString(Constants.MEMBER_IDX, memberResponse.getMember_idx());
             Prefs.putString(Constants.HOUSE_IDX, memberResponse.getHouse_idx());
             Prefs.putString(Constants.HOUSE_CODE, memberResponse.getHouse_code());
-            Prefs.putString(Constants.MEMBER_JOIN_TYPE, memberResponse.getMember_join_type());
+            Prefs.putString(Constants.MEMBER_JOIN_TYPE, "C");
             Intent mainActivity = MainActivity.getStartIntent(mActivity);
             startActivity(mainActivity,TRANS.ZOOM);
             removeAllActivity();
@@ -123,7 +123,6 @@ public class SigninActivity extends NoommateActivity {
         if (oAuthToken != null) {
           kakaoMeAPI();
         }
-        Timber.i("KAKAO TALK Access token : " + oAuthToken.getAccessToken());
         return null;
       });
     } else {
@@ -131,7 +130,6 @@ public class SigninActivity extends NoommateActivity {
         if (oAuthToken != null) {
           kakaoMeAPI();
         }
-        Timber.i("KAKAO TALK Access token : " + oAuthToken.getAccessToken());
         return null;
       });
     }
@@ -184,8 +182,11 @@ public class SigninActivity extends NoommateActivity {
           Prefs.putString(Constants.MEMBER_IDX, memberResponse.getMember_idx());
           Prefs.putString(Constants.MEMBER_NAME, memberResponse.getMember_nickname());
           Prefs.putString(Constants.MEMBER_JOIN_TYPE, memberJoinType);
+          Intent mainActivity = MainActivity.getStartIntent(mActivity);
+          startActivity(mainActivity,TRANS.ZOOM);
           removeAllActivity();
-          Intent addInfoActivity = AddInfoActivity.getStartIntent(mActivity);
+        } else {
+          Intent addInfoActivity = AddInfoActivity.getStartIntent(mActivity, id);
           startActivity(addInfoActivity, TRANS.ZOOM);
         }
       }

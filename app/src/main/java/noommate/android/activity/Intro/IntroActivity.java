@@ -140,16 +140,25 @@ public class IntroActivity extends NoommateActivity {
                 Intent signInActivity = SigninActivity.getStartIntent(mActivity);
                 startActivity(signInActivity, TRANS.ZOOM);
             } else {
-                memberLoginAPI();
-            }
+                if (Prefs.getString(Constants.MEMBER_JOIN_TYPE,"").equals("C")) {
+                    memberLoginAPI();
+                } else if (Prefs.getString(Constants.MEMBER_JOIN_TYPE,"").equals("K")) {
+                    snsMemberLoginAPI();
 
+                }
+            }
         } else {
             if (Prefs.getString(Constants.MEMBER_IDX, "").equals("")) {
                 removeAllActivity();
                 Intent signInActivity = SigninActivity.getStartIntent(mActivity);
                 startActivity(signInActivity, TRANS.ZOOM);
             } else {
-                memberLoginAPI();
+                if (Prefs.getString(Constants.MEMBER_JOIN_TYPE,"").equals("C")) {
+                    memberLoginAPI();
+                } else if (Prefs.getString(Constants.MEMBER_JOIN_TYPE,"").equals("K")) {
+                    snsMemberLoginAPI();
+
+                }
             }
 
         }
@@ -175,7 +184,7 @@ public class IntroActivity extends NoommateActivity {
                     Prefs.putString(Constants.MEMBER_IDX, memberResponse.getMember_idx());
                     Prefs.putString(Constants.HOUSE_IDX, memberResponse.getHouse_idx());
                     Prefs.putString(Constants.HOUSE_CODE, memberResponse.getHouse_code());
-                    Prefs.putString(Constants.MEMBER_JOIN_TYPE, memberResponse.getMember_join_type());
+                    Prefs.putString(Constants.MEMBER_JOIN_TYPE, "C");
                     Intent mainActivity = MainActivity.getStartIntent(mActivity);
                     startActivity(mainActivity, TRANS.ZOOM);
                     removeAllActivity();
@@ -194,6 +203,50 @@ public class IntroActivity extends NoommateActivity {
                 showSnackBar("오류");
             }
         });
+    }
+
+    /**
+     * SNS 로그인 API
+     */
+    private void snsMemberLoginAPI() {
+        MemberModel memberRequest = new MemberModel();
+        memberRequest.setMember_id(Prefs.getString(Constants.MEMBER_ID,""));
+        memberRequest.setMember_join_type("K");
+        memberRequest.setDevice_os("A");
+        memberRequest.setGcm_key(Prefs.getString(Constants.FCM_TOKEN, ""));
+
+        CommonRouter.api().sns_member_login(Tools.getInstance().getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
+            @Override
+            public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
+                MemberModel memberResponse = response.body();
+
+                if (memberResponse.getCode().equals("1000")) {
+
+                    Prefs.putString(Constants.MEMBER_ID, memberResponse.getMember_id());
+                    Prefs.putString(Constants.MEMBER_IDX, memberResponse.getMember_idx());
+                    Prefs.putString(Constants.MEMBER_NAME, memberResponse.getMember_name());
+                    Prefs.putString(Constants.HOUSE_IDX, memberResponse.getHouse_idx());
+                    Prefs.putString(Constants.HOUSE_CODE, memberResponse.getHouse_code());
+                    Prefs.putString(Constants.MEMBER_JOIN_TYPE, "K");
+                    Intent mainActivity = MainActivity.getStartIntent(mActivity);
+                    startActivity(mainActivity,TRANS.ZOOM);
+                    removeAllActivity();
+                } else {
+                    showAlertDialog(memberResponse.getCode_msg(), "확인", new DialogEventListener() {
+                        @Override
+                        public void onReceivedEvent() {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MemberModel> call, Throwable t) {
+
+            }
+        });
+
     }
 
     //--------------------------------------------------------------------------------------------

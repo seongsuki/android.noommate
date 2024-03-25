@@ -262,6 +262,9 @@ public class MyFragment extends NoommateFragment {
                     if (mMemberResponse.getMember_join_type().equals("C")) {
                         mJoinType.setText(mMemberResponse.getMember_id());
                         mJoinType.setBackgroundColor(mActivity.getColor(R.color.color_c8ccd5));
+                    } else if (mMemberResponse.getMember_join_type().equals("K")) {
+                        mJoinType.setText("카카오");
+                        mJoinType.setBackgroundColor(mActivity.getColor(R.color.color_fee500));
                     }
                 }
             }

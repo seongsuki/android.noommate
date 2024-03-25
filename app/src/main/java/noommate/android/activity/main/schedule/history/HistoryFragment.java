@@ -28,6 +28,7 @@ import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,6 +38,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.NoommateFragment;
+import noommate.android.commons.EmptyView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -92,6 +94,10 @@ public class HistoryFragment extends NoommateFragment {
     private ArrayList<ScheduleModel> mHistoryList = new ArrayList<>();
     private ArrayList<String> mYesDateList = new ArrayList();
     private ScheduleModel mCircleResponse = new ScheduleModel();
+    private SimpleDateFormat sdf = new SimpleDateFormat("MM.dd(E)");
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM.dd(E)");
+    private Date mNowDate = new Date();
+
     private List<String> mRecordDateList = new ArrayList<>();
     private BroadcastReceiver mScheduleReceiver = new BroadcastReceiver() {
         @Override
@@ -117,6 +123,7 @@ public class HistoryFragment extends NoommateFragment {
             mMonthTextView.setText(Year.now() + "년 " + YearMonth.now() + "월");
             mSelectedMonth = YearMonth.now();
             mSelectedDay = LocalDate.now();
+            mDayTextView.setText(sdf.format(mNowDate));
             mSDate = mSelectedDay.withDayOfMonth(1);
             mEDate = mSelectedDay.withDayOfMonth(mSelectedDay.lengthOfMonth());
             initCalendar();
@@ -214,6 +221,7 @@ public class HistoryFragment extends NoommateFragment {
                             mCalendarView.notifyDateChanged(mSelectedDay);
                             mSelectedDay = calendarDay.getDate();
                             mCalendarView.notifyDateChanged(mSelectedDay);
+                            mDayTextView.setText(calendarDay.getDate().format(dtf));
                             mHistoryList.clear();
                             scheduleDateMemberListAPI();
 
@@ -245,6 +253,7 @@ public class HistoryFragment extends NoommateFragment {
      */
     private void initHistoryAdapter() {
         mHistoryAdapter = new ScheduleAdapter(R.layout.row_schedule, mHistoryList);
+        mHistoryAdapter.setEmptyView(new EmptyView(mActivity, "해당 날짜에 할 일이 없어요."));
         mHistoryRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         mHistoryRecyclerView.setAdapter(mHistoryAdapter);
 
@@ -292,11 +301,11 @@ public class HistoryFragment extends NoommateFragment {
                 if (mScheduleResponse.getData_array() != null) {
                     mHistoryList.addAll(mScheduleResponse.getData_array());
                 }
-                if (mScheduleResponse.getData_array() != null) {
-                    for (ScheduleModel value : mScheduleResponse.getData_array()) {
-                        mDayTextView.setText(value.getSchedule_w());
-                    }
-                }
+//                if (mScheduleResponse.getData_array() != null) {
+//                    for (ScheduleModel value : mScheduleResponse.getData_array()) {
+//                        mDayTextView.setText(value.getSchedule_w());
+//                    }
+//                }
                 mHistoryAdapter.setNewData(mHistoryList);
 
 

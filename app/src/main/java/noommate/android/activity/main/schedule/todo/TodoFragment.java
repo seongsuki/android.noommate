@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import noommate.android.activity.NoommateActivity;
 import noommate.android.activity.NoommateFragment;
+import noommate.android.commons.EmptyView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -90,6 +91,8 @@ public class TodoFragment extends NoommateFragment {
      */
     private void initTodoAdapter() {
         mTodoAdapter = new TodoAdapter(R.layout.row_todo, mTodoList);
+        mTodoAdapter.setEmptyView(new EmptyView(mActivity, "등록된 할 일이 없어요."));
+
         mTodoAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

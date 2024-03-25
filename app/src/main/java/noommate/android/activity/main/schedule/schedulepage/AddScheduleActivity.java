@@ -376,7 +376,16 @@ public class AddScheduleActivity extends NoommateActivity {
                 });
             }
         } else {
-            planModUpAPI();
+            if (mScheduleList.size() > 0) {
+                planModUpAPI();
+            } else {
+                showAlertDialog("추가된 일정이 없습니다. 일정을\n추가해 주세요.", "확인", new DialogEventListener() {
+                    @Override
+                    public void onReceivedEvent() {
+
+                    }
+                });
+            }
         }
     }
 

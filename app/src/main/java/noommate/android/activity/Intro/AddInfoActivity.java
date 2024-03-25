@@ -32,8 +32,9 @@ public class AddInfoActivity extends NoommateActivity {
     //--------------------------------------------------------------------------------------------
     // MARK : GET START INTENT
     //--------------------------------------------------------------------------------------------
-    public static Intent getStartIntent(Context context) {
+    public static Intent getStartIntent(Context context, String id) {
         Intent intent = new Intent(context, AddInfoActivity.class);
+        mID = id;
         return intent;
     }
 
@@ -62,6 +63,7 @@ public class AddInfoActivity extends NoommateActivity {
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
     private MemberModel memberRequest = new MemberModel();
+    private static String mID;
 
 
     //--------------------------------------------------------------------------------------------
@@ -91,17 +93,23 @@ public class AddInfoActivity extends NoommateActivity {
      * 추가정보 입력 API
      */
     private void memberRegInAPI() {
-        memberRequest.setMember_idx(Prefs.getString(Constants.MEMBER_IDX,""));
+        memberRequest.setGcm_key(Prefs.getString(Constants.FCM_TOKEN,""));
+        memberRequest.setMember_id(mID);
+        memberRequest.setDevice_os("A");
+        memberRequest.setMember_join_type("K");
         memberRequest.setMember_name(mNicknameEditText.getText().toString());
         memberRequest.setHouse_code(mHouseCodeEditText.getText().toString());
 
-        CommonRouter.api().app_info_mod_up(Tools.getInstance(mActivity).getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
+        CommonRouter.api().sns_member_reg_in(Tools.getInstance(mActivity).getMapper(memberRequest)).enqueue(new Callback<MemberModel>() {
             @Override
             public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
                 MemberModel mMemberResposne = response.body();
                 if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
                     Prefs.putString(Constants.MEMBER_ID, mMemberResposne.getMember_id());
                     Prefs.putString(Constants.MEMBER_PW, mMemberResposne.getMember_pw());
+                    Prefs.putString(Constants.HOUSE_CODE, mMemberResposne.getHouse_code());
+                    Prefs.putString(Constants.HOUSE_IDX, mMemberResposne.getHouse_idx());
+                    Prefs.putString(Constants.HOUSE_NAME, mMemberResposne.getHouse_name());
                     Prefs.putString(Constants.MEMBER_IDX, mMemberResposne.getMember_idx());
                     Prefs.putString(Constants.MEMBER_JOIN_TYPE, mMemberResposne.getMember_join_type());
                     Intent signUpCompleteActivity = SignupCompleteActivity.getStartIntent(mActivity);

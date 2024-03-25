@@ -42,8 +42,8 @@ public class CommonRouter extends BaseRouter {
      * @return
      */
     @FormUrlEncoded
-    @POST("sns_join_v_1_0_0/app_info_mod_up")
-    Call<MemberModel> app_info_mod_up(@FieldMap Map<String, Object> map);
+    @POST("sns_join_v_1_0_0/sns_member_reg_in")
+    Call<MemberModel> sns_member_reg_in(@FieldMap Map<String, Object> map);
 
 
     /**
@@ -67,6 +67,15 @@ public class CommonRouter extends BaseRouter {
 
     /**
      * 비밀번호 변경
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("find_pw_to_email_v_1_0_0/member_pw_reset_send_email")
+    Call<MemberModel> member_pw_reset_send_email(@FieldMap Map<String, Object> map);
+
+    /**
+     * 비밀번호 찾기
      * @param map
      * @return
      */

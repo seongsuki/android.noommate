@@ -13,6 +13,7 @@ public class Constants {
   public static String MEMBER_ID = "member_id";
   public static String HOUSE_CODE = "house_code";
   public static String HOUSE_IDX = "house_idx";
+  public static String HOUSE_NAME = "house_name";
   public static String MEMBER_JOIN_TYPE = "member_join_type";
 
   public static String KAKAO_APP_KEY = "75c772ef169467f241b618c3885272d2";

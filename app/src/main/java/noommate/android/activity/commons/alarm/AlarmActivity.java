@@ -64,7 +64,7 @@ public class AlarmActivity extends NoommateActivity {
 
   @Override
   protected void initLayout() {
-    initToolbar("알림");
+    mToolbarTitle.setText("알림");
 
   }
 
@@ -143,11 +143,12 @@ public class AlarmActivity extends NoommateActivity {
     CommonRouter.api().alarm_list(Tools.getInstance().getMapper(alarmModel)).enqueue(new Callback<AlarmModel>() {
       @Override
       public void onResponse(Call<AlarmModel> call, Response<AlarmModel> response) {
+        mAlarmResponse = response.body();
         if (Tools.getInstance().isSuccessResponse(response)) {
-          mAlarmResponse = response.body();
-          mAlarmList.addAll(mAlarmResponse.getData_array());
+          if (mAlarmResponse.getData_array() != null) {
+            mAlarmList.addAll(mAlarmResponse.getData_array());
+          }
           mAlarmAdapter.setNewData(mAlarmList);
-
         }
       }
 
@@ -197,8 +198,7 @@ public class AlarmActivity extends NoommateActivity {
       public void onResponse(Call<AlarmModel> call, Response<AlarmModel> response) {
         if (Tools.getInstance(mActivity).isSuccessResponse(response)) {
           mAlarmList.clear();
-          mAlarmResponse.resetPage();
-          alarmListAPI();
+          mAlarmAdapter.notifyDataSetChanged();
         }
       }
 

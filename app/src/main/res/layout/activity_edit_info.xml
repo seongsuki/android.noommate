@@ -22,8 +22,8 @@
             <io.github.florent37.shapeofview.shapes.RoundRectView
                 android:layout_width="123dp"
                 android:layout_height="123dp"
-                app:shape_roundRect_borderWidth="3dp"
                 app:shape_roundRect_borderColor="@color/color_f1f1f4"
+                app:shape_roundRect_borderWidth="3dp"
                 app:shape_roundRect_bottomLeftRadius="62dp"
                 app:shape_roundRect_bottomRightRadius="62dp"
                 app:shape_roundRect_topLeftRadius="62dp"
@@ -37,30 +37,30 @@
                     android:background="@color/clear">
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/back_image_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
                         android:src="@drawable/back5"
-                        android:visibility="gone"
-                        android:id="@+id/back_image_view"/>
+                        android:visibility="gone" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/face_image_view"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:visibility="gone"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/group_191" />
+                        android:src="@drawable/group_191"
+                        android:visibility="gone" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/add_text_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="눔메이트\n캐릭터 만들기"
-                        android:textColor="@color/color_a3a7b6"
                         android:background="@color/color_e4e6eb"
                         android:gravity="center"
-                        android:textSize="16dp"
-                        android:id="@+id/add_text_view"/>
+                        android:text="눔메이트\n캐릭터 만들기"
+                        android:textColor="@color/color_a3a7b6"
+                        android:textSize="16dp" />
 
 
                 </RelativeLayout>
@@ -84,26 +84,35 @@
 
         </RelativeLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/id_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="이메일"
-            android:textSize="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="28dp"
-            android:textStyle="bold"
-            android:textColor="@color/color_3a3a3c"/>
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="adda"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="5dp"
-            android:textColorHint="@color/color_c8ccd5"
-            android:textSize="14dp"
-            android:id="@+id/email_text_view"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="28dp"
+                android:text="이메일"
+                android:textColor="@color/color_3a3a3c"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/email_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:text="adda"
+                android:textColorHint="@color/color_c8ccd5"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -116,16 +125,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="닉네임"
+                android:textColor="@color/color_3a3a3c"
                 android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/color_3a3a3c"/>
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" *"
                 android:textColor="@color/colorAccent"
-                android:textSize="16dp"/>
+                android:textSize="16dp" />
 
         </LinearLayout>
 
@@ -135,8 +144,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
-            app:shape_roundRect_borderWidth="1dp"
             app:shape_roundRect_borderColor="@color/color_c8ccd5"
+            app:shape_roundRect_borderWidth="1dp"
             app:shape_roundRect_bottomLeftRadius="4dp"
             app:shape_roundRect_bottomRightRadius="4dp"
             app:shape_roundRect_topLeftRadius="4dp"
@@ -146,50 +155,48 @@
                 android:id="@+id/nickname_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/clear"
                 android:hint="이름 또는 닉네임을 입력해주세요 (2 ~ 8자리)"
                 android:padding="10dp"
                 android:textColor="@color/color_3a3a3c"
-                android:background="@color/clear"
                 android:textColorHint="@color/color_c8ccd5"
                 android:textSize="14dp" />
 
         </io.github.florent37.shapeofview.shapes.RoundRectView>
 
         <LinearLayout
+            android:id="@+id/email_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email_layout"
             android:orientation="vertical">
 
 
-
-
-        <io.github.florent37.shapeofview.shapes.RoundRectView
-            android:id="@+id/pw_button_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="24dp"
-            app:shape_roundRect_borderColor="@color/colorAccent"
-            app:shape_roundRect_borderWidth="1dp"
-            app:shape_roundRect_bottomRightRadius="12dp"
-            app:shape_roundRect_bottomLeftRadius="12dp"
-            app:shape_roundRect_topLeftRadius="12dp"
-            app:shape_roundRect_topRightRadius="12dp">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/pw_edit_button"
+            <io.github.florent37.shapeofview.shapes.RoundRectView
+                android:id="@+id/pw_button_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:background="@color/color_ffffff"
-                android:text="비밀번호 변경하기"
-                android:textColor="@color/colorAccent"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-        </io.github.florent37.shapeofview.shapes.RoundRectView>
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp"
+                app:shape_roundRect_borderColor="@color/colorAccent"
+                app:shape_roundRect_borderWidth="1dp"
+                app:shape_roundRect_bottomLeftRadius="12dp"
+                app:shape_roundRect_bottomRightRadius="12dp"
+                app:shape_roundRect_topLeftRadius="12dp"
+                app:shape_roundRect_topRightRadius="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/pw_edit_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_ffffff"
+                    android:gravity="center"
+                    android:text="비밀번호 변경하기"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
 
         </LinearLayout>
 
@@ -204,8 +211,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="53dp"
-        app:shape_roundRect_bottomRightRadius="12dp"
         app:shape_roundRect_bottomLeftRadius="12dp"
+        app:shape_roundRect_bottomRightRadius="12dp"
         app:shape_roundRect_topLeftRadius="12dp"
         app:shape_roundRect_topRightRadius="12dp">
 
@@ -213,8 +220,8 @@
             android:id="@+id/edit_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:background="@color/colorAccent"
+            android:gravity="center"
             android:text="수정"
             android:textColor="@color/color_ffffff"
             android:textSize="16dp"

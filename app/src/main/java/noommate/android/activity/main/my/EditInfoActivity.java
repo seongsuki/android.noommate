@@ -3,6 +3,7 @@ package noommate.android.activity.main.my;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.widget.AppCompatEditText;
@@ -56,6 +57,8 @@ public class EditInfoActivity extends NoommateActivity {
     RoundRectView mPwButtonLayout;
     @BindView(R.id.email_text_view)
     AppCompatTextView mEmailTextView;
+    @BindView(R.id.id_layout)
+    LinearLayout mIdLayout;
     //--------------------------------------------------------------------------------------------
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
@@ -79,8 +82,10 @@ public class EditInfoActivity extends NoommateActivity {
         mToolbarTitle.setText("내 정보 수정");
         if (Prefs.getString(Constants.MEMBER_JOIN_TYPE,"").equals("K")) {
             mPwButtonLayout.setVisibility(View.GONE);
+            mIdLayout.setVisibility(View.GONE);
         } else {
             mPwButtonLayout.setVisibility(View.VISIBLE);
+            mIdLayout.setVisibility(View.VISIBLE);
         }
 
 

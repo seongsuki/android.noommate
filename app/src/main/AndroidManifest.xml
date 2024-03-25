@@ -1,316 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  package="noommate.android">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="noommate.android">
 
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.CAMERA" />
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-  <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-  <uses-permission android:name="android.permission.VIBRATE" />
-  <uses-permission android:name="android.permission.BLUETOOTH" />
-  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-<!--  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
 
-  <application
-    android:name=".NoommateApplication"
-    android:allowBackup="true"
-    android:icon="@drawable/ic_launcher"
-    android:label="@string/app_name"
-    android:roundIcon="@drawable/ic_launcher"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme"
-    android:usesCleartextTraffic="true"
-    tools:ignore="LockedOrientationActivity"
-    tools:replace="android:allowBackup">
-    <activity
-      android:name=".activity.main.MainActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden"></activity>
-    <!-- 스플래시 -->
-    <activity
-      android:name=".activity.Intro.IntroActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:exported="true"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+    <application
+        android:name=".NoommateApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="LockedOrientationActivity"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".activity.main.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <!-- 스플래시 -->
+        <activity
+            android:name=".activity.Intro.IntroActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-      <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <data android:host="noommate" android:scheme="noommate" />
-      </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-    <!-- 회원가입 -->
-    <activity
-      android:name=".activity.signup.SignupActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
+                <data
+                    android:host="noommate"
+                    android:scheme="noommate" />
+            </intent-filter>
+        </activity>
 
-    <!-- 회원가입2 -->
-    <activity
-        android:name=".activity.signup.SignupStepTwoActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!-- 회원가입 -->
+        <activity
+            android:name=".activity.signup.SignupActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!-- 캐릭터 만들기 -->
-    <activity
-        android:name=".activity.signup.AddCharActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!-- 회원가입2 -->
+        <activity
+            android:name=".activity.signup.SignupStepTwoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!-- 회원가입 완료 -->
-    <activity
-        android:name=".activity.signup.SignupCompleteActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!-- 캐릭터 만들기 -->
+        <activity
+            android:name=".activity.signup.AddCharActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  로그인  -->
-    <activity
-      android:name=".activity.signin.SigninActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
+        <!-- 회원가입 완료 -->
+        <activity
+            android:name=".activity.signup.SignupCompleteActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  추가정보 입력  -->
-    <activity
-        android:name=".activity.Intro.AddInfoActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  로그인  -->
+        <activity
+            android:name=".activity.signin.SigninActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  하우스 만들기1  -->
-    <activity
-        android:name=".activity.main.home.AddHouseActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  추가정보 입력  -->
+        <activity
+            android:name=".activity.Intro.AddInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  하우스 만들기2  -->
-    <activity
-        android:name=".activity.main.home.AddHouseStepTwoActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  하우스 만들기1  -->
+        <activity
+            android:name=".activity.main.home.AddHouseActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  하우스 만들기3  -->
-    <activity
-        android:name=".activity.main.home.AddHouseStepThreeActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  하우스 만들기2  -->
+        <activity
+            android:name=".activity.main.home.AddHouseStepTwoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  일정  -->
-    <activity
-        android:name=".activity.main.home.HomeScheduleActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  하우스 만들기3  -->
+        <activity
+            android:name=".activity.main.home.AddHouseStepThreeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  스캐줄 추가  -->
-    <activity
-        android:name=".activity.main.schedule.schedulepage.AddScheduleActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  일정  -->
+        <activity
+            android:name=".activity.main.home.HomeScheduleActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  가계부 작성  -->
-    <activity
-        android:name=".activity.main.calculate.AddCalculateActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  스캐줄 추가  -->
+        <activity
+            android:name=".activity.main.schedule.schedulepage.AddScheduleActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!-- 일정 리스트-->
-    <activity
-        android:name=".activity.main.home.NoteActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  가계부 작성  -->
+        <activity
+            android:name=".activity.main.calculate.AddCalculateActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!-- 일정 작성-->
-    <activity
-        android:name=".activity.main.home.AddNoteActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!-- 일정 리스트-->
+        <activity
+            android:name=".activity.main.home.NoteActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  내 정보 수정  -->
-    <activity
-        android:name=".activity.main.my.EditInfoActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!-- 일정 작성-->
+        <activity
+            android:name=".activity.main.home.AddNoteActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  비밀번호 변경  -->
-    <activity
-        android:name=".activity.main.my.ChangePwActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  내 정보 수정  -->
+        <activity
+            android:name=".activity.main.my.EditInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  비밀번호 찾기  -->
-    <activity
-        android:name=".activity.Intro.FindPwActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  비밀번호 변경  -->
+        <activity
+            android:name=".activity.main.my.ChangePwActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  알림   -->
-    <activity
-        android:name=".activity.commons.alarm.AlarmActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  비밀번호 찾기  -->
+        <activity
+            android:name=".activity.Intro.FindPwActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  알림 세팅  -->
-    <activity
-        android:name=".activity.main.my.AlarmSettingActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  알림   -->
+        <activity
+            android:name=".activity.commons.alarm.AlarmActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!--  이용약관  -->
-    <activity
-        android:name=".activity.main.my.TermsListActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+        <!--  알림 세팅  -->
+        <activity
+            android:name=".activity.main.my.AlarmSettingActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-
-    <!--  공지사항  -->
-    <activity
-      android:name=".activity.commons.notice.NoticeListActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
-
-    <activity
-      android:name=".activity.commons.notice.NoticeDetailActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
-
-    <!--  FAQ  -->
-    <activity
-      android:name=".activity.commons.faq.FAQListActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
-
-    <!--  1:1문의  -->
-    <activity
-      android:name=".activity.commons.qna.QNAActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
-
-    <!--  1:1문의 상세  -->
-    <activity
-      android:name=".activity.commons.qna.QNADetailActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
-
-    <!--  1:1문의 등록  -->
-    <activity
-      android:name=".activity.commons.qna.AddQnaActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
-
-    <!--  회원탈퇴  -->
-    <activity
-        android:name=".activity.main.my.WithDrawalActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
-
-    <!--  이미지 피커  -->
-    <activity
-      android:name=".activity.commons.imagepicker.ImagePickActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
+        <!--  이용약관  -->
+        <activity
+            android:name=".activity.main.my.TermsListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
 
+        <!--  공지사항  -->
+        <activity
+            android:name=".activity.commons.notice.NoticeListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".activity.commons.notice.NoticeDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--  FAQ  -->
+        <activity
+            android:name=".activity.commons.faq.FAQListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--  1:1문의  -->
+        <activity
+            android:name=".activity.commons.qna.QNAActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--  1:1문의 상세  -->
+        <activity
+            android:name=".activity.commons.qna.QNADetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--  1:1문의 등록  -->
+        <activity
+            android:name=".activity.commons.qna.AddQnaActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--  회원탈퇴  -->
+        <activity
+            android:name=".activity.main.my.WithDrawalActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!--  이미지 피커  -->
+        <activity
+            android:name=".activity.commons.imagepicker.ImagePickActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
 
-    <!-- 이용약관 보기 -->
-    <activity
-      android:name=".activity.commons.terms.TermsActivity"
-      android:configChanges="orientation|keyboardHidden"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="stateHidden" />
+        <!-- 이용약관 보기 -->
+        <activity
+            android:name=".activity.commons.terms.TermsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
-    <!-- ㅇㅇㅇㅇ -->
-    <!-- 카카오 -->
-    <activity
-        android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
-        android:exported="true">
-      <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
+        <!-- ㅇㅇㅇㅇ -->
+        <!-- 카카오 -->
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-        <!--         Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
-        <data
-            android:host="oauth"
-            android:scheme="kakao75c772ef169467f241b618c3885272d2" />
-      </intent-filter>
-    </activity>
-
-
-    <!--  이미지 크롭  -->
-    <activity android:name="com.canhub.cropper.CropImageActivity"
-      android:theme="@style/Theme.AppCompat"/>
+                <!--         Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao75c772ef169467f241b618c3885272d2" />
+            </intent-filter>
+        </activity>
 
 
-
-    <meta-data
-      android:name="firebase_performance_logcat_enabled"
-      android:value="false" />
-
-    <meta-data
-        android:name="com.google.android.gms.ads.APPLICATION_ID"
-        android:value="ca-app-pub-7966904614140801~4024086431"/>
-
-<!--    <meta-data-->
-<!--        android:name="com.google.android.gms.version"-->
-<!--        android:value="@integer/google_play_services_version" />-->
-
-    <provider
-      android:name="androidx.core.content.FileProvider"
-      android:authorities="@string/fileprovider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-
-      <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/file_path_public" />
-    </provider>
+        <!--  이미지 크롭  -->
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Theme.AppCompat" />
 
 
-  </application>
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7966904614140801~4024086431" />
+
+        <!--    <meta-data-->
+        <!--        android:name="com.google.android.gms.version"-->
+        <!--        android:value="@integer/google_play_services_version" />-->
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path_public" />
+        </provider>
+
+
+    </application>
 
 </manifest>

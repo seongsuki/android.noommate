@@ -119,7 +119,6 @@ public class HomeFragment extends NoommateFragment {
 
     private ImagePickerDialog mImagePickDialog;
     private String mImagePath;
-    private int cnt = 0;
 
     private BroadcastReceiver mHomeReceiver = new BroadcastReceiver() {
         @Override
@@ -291,12 +290,14 @@ public class HomeFragment extends NoommateFragment {
                     mMateAdapter.setNewData(mMateList);
 
                     // 일정
+                    int cnt = 0;
                     mDateTextView.setText(sdf.format(mNowDate));
                     for (MemberModel value : mMemberResponse.getMy_schedule_array()) {
                         if (value.getSchedule_yn().equals("Y")) {
-                            cnt = 0;
                             cnt++;
                         }
+
+
                     }
                     mCntTextView.setText(cnt + "/" + mMemberResponse.getMy_schedule_count());
 
@@ -308,6 +309,7 @@ public class HomeFragment extends NoommateFragment {
                     }
                     mTodoList.add(mPageList);
 
+                    // 오늘 내 할일 리스트 갯수 체크
                     if (mMemberResponse.getMy_schedule_array().size() > 0) {
                         mNonLayout.setVisibility(View.GONE);
                         mTodoViewPager.setVisibility(View.VISIBLE);

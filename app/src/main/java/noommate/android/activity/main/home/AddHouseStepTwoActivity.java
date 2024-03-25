@@ -3,6 +3,7 @@ package noommate.android.activity.main.home;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -35,6 +36,7 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
     // MARK : Local variables
     //--------------------------------------------------------------------------------------------
     private long backpressedTime = 0;
+    private Toast toast;
     //--------------------------------------------------------------------------------------------
     // MARK : Override
     //--------------------------------------------------------------------------------------------
@@ -59,7 +61,8 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
     public void onBackPressed() {
         if (System.currentTimeMillis() > backpressedTime + 2000) {
             backpressedTime = System.currentTimeMillis();
-            showSnackBar("\'뒤로가기\' 버튼을 한번 더 누르시면 종료됩니다.");
+            toast = Toast.makeText(mActivity, R.string.common_back, Toast.LENGTH_SHORT);
+            toast.show();
         } else if (System.currentTimeMillis() <= backpressedTime + 2000) {
             removeAllActivity();
         }
@@ -86,8 +89,17 @@ public class AddHouseStepTwoActivity extends NoommateActivity {
      */
     @OnClick(R.id.invite_button)
     public void inviteTouched() {
-        Intent addHouseStepThreeActivity = AddHouseStepThreeActivity.getStartIntent(mActivity);
-        startActivity(addHouseStepThreeActivity,TRANS.PUSH);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+
+        // String으로 받아서 넣기
+        String sendMessage = "'" + Prefs.getString(Constants.HOUSE_NAME,"") + "'" + " 초대장이 도착했어요.\n\n" +"http://noom.api.hollysome.com/share/house_share?member_idx=2&house_code="+ Prefs.getString(Constants.HOUSE_CODE,"");
+        intent.putExtra(Intent.EXTRA_TEXT,sendMessage);
+
+        Intent shareIntent = Intent.createChooser(intent, "share");
+        startActivity(shareIntent);
+//        Intent addHouseStepThreeActivity = AddHouseStepThreeActivity.getStartIntent(mActivity);
+//        startActivity(addHouseStepThreeActivity,TRANS.PUSH);
 
     }
 
